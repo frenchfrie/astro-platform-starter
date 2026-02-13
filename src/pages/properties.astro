@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const properties = [
+    {
+        name: 'Le Château Petit',
+        tagline: 'Castle Wing Apartment',
+        description: 'A beautifully restored wing of a 17th-century château, offering panoramic views of the formal gardens and surrounding vineyards. Features original stone fireplaces, exposed oak beams, and a private terrace.',
+        image: 'https://images.unsplash.com/photo-1590098563078-22774a072e1d?w=800&q=80',
+        guests: 4,
+        bedrooms: 2,
+        bathrooms: 1,
+        price: 185,
+        features: ['Castle views', 'Private terrace', 'Original fireplaces', 'Garden access']
+    },
+    {
+        name: 'La Vigne Dorée',
+        tagline: 'Vineyard Cottage',
+        description: 'A charming stone cottage surrounded by golden grapevines. Wake up to misty vineyard mornings and enjoy wine tastings just steps from your door. Fully renovated with a modern kitchen and cozy living area.',
+        image: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80',
+        guests: 6,
+        bedrooms: 3,
+        bathrooms: 2,
+        price: 220,
+        features: ['Vineyard setting', 'Wine tastings nearby', 'Modern kitchen', 'Outdoor dining']
+    },
+    {
+        name: 'Le Moulin de Pierre',
+        tagline: 'Converted Stone Mill',
+        description: 'A romantic converted water mill on the banks of a gentle stream. The original mill wheel is preserved as a stunning centerpiece. Ideal for couples seeking tranquility and natural beauty.',
+        image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80',
+        guests: 2,
+        bedrooms: 1,
+        bathrooms: 1,
+        price: 145,
+        features: ['Riverside location', 'Historic mill wheel', 'Romantic setting', 'Fishing access']
+    },
+    {
+        name: 'La Maison des Tourelles',
+        tagline: 'Turret House',
+        description: 'A stately manor house with twin turrets, set in its own parkland with centuries-old trees. Spacious interiors feature antique furnishings, a grand dining room, and a fully equipped farmhouse kitchen.',
+        image: 'https://images.unsplash.com/photo-1597040663342-45b6ba68c88c?w=800&q=80',
+        guests: 8,
+        bedrooms: 4,
+        bathrooms: 3,
+        price: 340,
+        features: ['Private parkland', 'Grand dining room', 'Twin turrets', 'Family-friendly']
+    },
+    {
+        name: 'Le Pigeonnier',
+        tagline: 'Converted Dovecote',
+        description: 'A unique circular dwelling converted from a historic pigeon tower. Spread across three intimate floors with a rooftop terrace offering 360-degree views of the countryside and distant castle spires.',
+        image: 'https://images.unsplash.com/photo-1555587832-251fcdc5c4bc?w=800&q=80',
+        guests: 2,
+        bedrooms: 1,
+        bathrooms: 1,
+        price: 160,
+        features: ['Rooftop terrace', '360° views', 'Unique architecture', 'Peaceful retreat']
+    },
+    {
+        name: 'Les Vignes du Château',
+        tagline: 'Estate Farmhouse',
+        description: 'A generous farmhouse on a working wine estate, offering the full immersion into Loire Valley viticulture. Guests can participate in seasonal harvest activities and enjoy private tastings of the estate wines.',
+        image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80',
+        guests: 10,
+        bedrooms: 5,
+        bathrooms: 3,
+        price: 420,
+        features: ['Working wine estate', 'Harvest experiences', 'Private tastings', 'Large groups']
+    }
+];
+---
+
+<Layout title="Our Properties">
+    <!-- Page Header -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?w=1600&q=80"
+                alt="French countryside panorama"
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div class="relative text-center py-24 sm:py-32 px-6 sm:px-8 max-w-3xl mx-auto">
+            <p class="text-primary-light text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Our Collection</p>
+            <h1 class="text-white text-4xl sm:text-5xl mb-6">Rental Properties</h1>
+            <p class="text-white/80 text-lg leading-relaxed">
+                Each of our properties has been carefully selected and lovingly restored to offer
+                an authentic French countryside experience with every modern comfort.
+            </p>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+        <div class="space-y-16">
+            {properties.map((property, index) => (
+                <article class:list={[
+                    'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center',
+                    index % 2 === 1 ? 'lg:direction-rtl' : ''
+                ]}>
+                    <div class:list={['overflow-hidden rounded-xl', index % 2 === 1 ? 'lg:order-2' : '']}>
+                        <img
+                            src={property.image}
+                            alt={property.name}
+                            class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                    <div class:list={[index % 2 === 1 ? 'lg:order-1' : '']}>
+                        <p class="text-primary text-sm uppercase tracking-[0.15em] mb-2 font-semibold">{property.tagline}</p>
+                        <h2 class="text-2xl sm:text-3xl mb-4">{property.name}</h2>
+                        <p class="text-text-light leading-relaxed mb-6">{property.description}</p>
+
+                        <div class="flex flex-wrap gap-4 mb-6 text-sm text-text-light">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                {property.guests} guests
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"></path></svg>
+                                {property.bedrooms} bedrooms
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path></svg>
+                                {property.bathrooms} bath
+                            </span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            {property.features.map((feature) => (
+                                <span class="px-3 py-1 bg-warm-dark rounded-full text-xs font-medium text-text-light">{feature}</span>
+                            ))}
+                        </div>
+
+                        <div class="flex items-end gap-6">
+                            <div>
+                                <span class="text-2xl font-bold text-primary-dark">&euro;{property.price}</span>
+                                <span class="text-text-light text-sm"> / night</span>
+                            </div>
+                            <a href="/contact" class="btn">Enquire Now</a>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-white">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-primary-dark mb-2">15+</div>
+                    <p class="text-text-light text-sm">Years of Hospitality</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary-dark mb-2">2,000+</div>
+                    <p class="text-text-light text-sm">Happy Guests</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary-dark mb-2">4.9/5</div>
+                    <p class="text-text-light text-sm">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
