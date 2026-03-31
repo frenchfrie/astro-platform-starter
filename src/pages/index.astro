@@ -1,19 +1,202 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+const highlights = [
+    {
+        title: 'Historic Charm',
+        description: 'Properties nestled among centuries-old castles and stone villages of the Loire Valley.',
+        icon: '&#9816;'
+    },
+    {
+        title: 'Vineyard Views',
+        description: 'Wake up to rolling grape fields and enjoy tastings at nearby domaines.',
+        icon: '&#9752;'
+    },
+    {
+        title: 'Modern Comfort',
+        description: 'Fully restored interiors with contemporary amenities for a relaxing stay.',
+        icon: '&#9733;'
+    }
+];
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const testimonials = [
+    {
+        quote: "An absolutely magical stay. The château views from the terrace were unforgettable.",
+        author: "Sophie M.",
+        location: "London, UK"
+    },
+    {
+        quote: "The vineyard cottage exceeded all expectations. We felt completely at home in the French countryside.",
+        author: "James & Clara",
+        location: "New York, USA"
+    },
+    {
+        quote: "Peaceful, beautiful, and the perfect base for exploring the Loire Valley's castles and wines.",
+        author: "Hans W.",
+        location: "Munich, Germany"
+    }
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1590098563078-22774a072e1d?w=1600&q=80"
+                alt="French château in the Loire Valley countryside"
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20"></div>
+        </div>
+        <div class="relative max-w-6xl mx-auto px-6 sm:px-8 py-32 sm:py-44">
+            <div class="max-w-2xl">
+                <p class="text-primary-light text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Loire Valley, France</p>
+                <h1 class="text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">Your Escape to the French Countryside</h1>
+                <p class="text-white/80 text-lg sm:text-xl leading-relaxed mb-10">
+                    Charming rental homes among castles, vineyards, and sunflower fields.
+                    Experience the timeless beauty of rural France.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/properties" class="btn btn-lg">View Our Properties</a>
+                    <a href="/contact" class="btn btn-lg btn-outline !border-white/50 !text-white hover:!bg-white/10 hover:!text-white">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+        <div class="text-center mb-16">
+            <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Why Choose Us</p>
+            <h2 class="text-3xl sm:text-4xl mb-4">A Truly French Experience</h2>
+            <div class="section-divider mt-6"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {highlights.map((item) => (
+                <div class="text-center px-4">
+                    <div class="text-4xl mb-5 text-primary" set:html={item.icon} />
+                    <h3 class="text-xl mb-3">{item.title}</h3>
+                    <p class="text-text-light leading-relaxed">{item.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Image Gallery Strip -->
+    <section class="bg-white py-20 sm:py-28">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-16">
+                <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Our Setting</p>
+                <h2 class="text-3xl sm:text-4xl mb-4">Castles & Vineyards</h2>
+                <div class="section-divider mt-6"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1555587832-251fcdc5c4bc?w=600&q=80"
+                        alt="Château with formal gardens in the Loire Valley"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">Loire Valley Château</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80"
+                        alt="Rows of grapevines in a French vineyard"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">Vineyard Fields</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?w=600&q=80"
+                        alt="Scenic French countryside with rolling hills"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">French Countryside</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1597040663342-45b6ba68c88c?w=600&q=80"
+                        alt="Medieval castle tower against blue sky"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">Medieval Architecture</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80"
+                        alt="Grapevines close-up in golden sunlight"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">Grape Harvest Season</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
+                    <img
+                        src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&q=80"
+                        alt="Stone cottage in the French countryside"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold">Countryside Cottage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+        <div class="text-center mb-16">
+            <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Guest Reviews</p>
+            <h2 class="text-3xl sm:text-4xl mb-4">What Our Guests Say</h2>
+            <div class="section-divider mt-6"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t) => (
+                <div class="bg-white rounded-xl p-8 shadow-sm border border-warm-dark">
+                    <div class="text-primary text-3xl mb-4" style="font-family: var(--font-serif);">&ldquo;</div>
+                    <p class="text-text-light leading-relaxed mb-6 italic">{t.quote}</p>
+                    <div>
+                        <p class="font-semibold text-text">{t.author}</p>
+                        <p class="text-sm text-text-light">{t.location}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1600&q=80"
+                alt="Vineyard panorama at sunset"
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/55"></div>
+        </div>
+        <div class="relative text-center py-24 sm:py-32 px-6 sm:px-8 max-w-3xl mx-auto">
+            <h2 class="text-white text-3xl sm:text-4xl mb-6">Ready for Your French Getaway?</h2>
+            <p class="text-white/80 text-lg mb-10 leading-relaxed">
+                Browse our selection of charming countryside properties and start planning
+                your next unforgettable holiday in the Loire Valley.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/properties" class="btn btn-lg">Explore Properties</a>
+                <a href="/contact" class="btn btn-lg btn-outline !border-white/50 !text-white hover:!bg-white/10 hover:!text-white">Contact Us</a>
+            </div>
+        </div>
+    </section>
 </Layout>
