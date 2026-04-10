@@ -1,60 +1,58 @@
-Overview 4,522 tokens                            
-This project uses AI agents to assist with development tasks. This file documents available agents, their capabilities,
-and usage patterns. 0% used                                 
-$0.00 spent                             
-Agent
-Capabilities                                                                                                                                                                                                                                                 
-LSP                                     
-Code Generation LSPs will activate as files are read
+# Agents
 
-- Write code in any language
-- Implement features based on requirements
-- Refactor and optimize existing code
-- Write unit tests
+## Overview
 
-Debugging
-- Analyze error logs and stack traces
-- Identify bugs and suggest fixes
-- Optimize performance issues
+Ce projet utilise des agents IA pour aider dans les tâches de développement. Ce fichier documente les agents disponibles, leurs capacités et les modèles d'utilisation.
 
-Documentation
-- Generate API documentation
-- Add comments to code
-- Create README files
-- Update changelogs
+## Capabilités des Agents
 
-Testing
-- Generate test cases
-- Write integration tests
-- Create E2E test scenarios
-- Mock external dependencies
+### LSP (Language Server Protocol)
+Les LSPs de génération de code s'activeront lorsque les fichiers seront lus.
 
-Code Review █
-- Identify potential issues █
-- Suggest improvements █
-- Check for best practices █
-- Ensure code consistency █                                            
-  ▀                                            
-  Usage
+- Écrire du code dans n'importe quel langage
+- Implémenter des fonctionnalités en fonction des exigences
+- Refactoriser et optimiser le code existant
+- Écrire des tests unitaires
 
-Direct
-Questions                                                                                                                                                                                                                                                   
-Ask the agent specific tasks:
-- "Implement user authentication"
-- "Add validation for email field"
-- "Create API endpoint for /users"
-- "Write tests for auth module"
+### Débogage
+- Analyser les journaux d'erreurs et les traces de pile
+- Identifier les bugs et suggérer des corrections
+- Optimiser les problèmes de performance
 
-Context
-Queries                                                                                                                                                                                                                                                    
-Provide context for better results:
-- "What is the current authentication flow?"
-  █
-- "How do I add caching here?"
-  █
-- "Refactor this module"                      
-  Best Practices █
-- Be specific about requirements ▀
-- Provide relevant code context
-- Include test cases when possible
+### Documentation
+- Générer la documentation API
+- Ajouter des commentaires au code
+- Créer des fichiers README
+- Mettre à jour les changelogs
 
+### Tests
+- Générer des cas de test
+- Écrire des tests d'intégration
+- Créer des scénarios de test E2E
+- Simuler les dépendances externes
+
+### Revue de Code
+- Identifier les problèmes potentiels
+- Suggérer des améliorations
+- Vérifier les meilleures pratiques
+- Assurer la cohérence du code
+
+## Utilisation
+
+### Questions Directes
+Poser des tâches spécifiques à l'agent :
+- "Implémenter l'authentification utilisateur"
+- "Ajouter une validation pour le champ email"
+- "Créer un point de terminaison API pour /users"
+- "Écrire des tests pour le module d'auth"
+
+### Requêtes avec Contexte
+Fournir un contexte pour obtenir de meilleurs résultats :
+- "Quel est le flux d'authentification actuel ?"
+- "Comment ajouter du cache ici ?"
+- "Refactoriser ce module"
+
+## Meilleures Pratiques
+- Être spécifique sur les exigences
+- Fournir un contexte de code pertinent
+- Inclure des cas de test lorsque possible
