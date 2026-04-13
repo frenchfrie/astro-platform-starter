@@ -1,0 +1,148 @@
+/* ─────────────────────────────────────────────
+   global.css — Tokens, reset, utilitaires partagés
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --cream:  #f5f0e8;
+  --stone:  #e8e0d0;
+  --warm:   #c8a96e;
+  --dark:   #1a1612;
+  --mid:    #5a4a38;
+  --light:  #faf7f2;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', sans-serif;
+
+  --section-pad: clamp(4rem, 8vw, 7rem);
+  --side-pad:    clamp(1.5rem, 7vw, 6rem);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+a { text-decoration: none; color: inherit; }
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ── UTILITAIRES ── */
+.label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 1rem;
+}
+.label.centered { display: block; text-align: center; }
+.label.light    { color: rgba(245,240,232,.7); }
+
+.btn-primary {
+  display: inline-block;
+  background: var(--warm);
+  color: var(--dark);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .85rem 2rem;
+  border-radius: 2px;
+  transition: opacity .2s, transform .2s;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-block;
+  border: 1px solid rgba(245,240,232,.4);
+  color: var(--cream);
+  font-size: .8rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .85rem 2rem;
+  border-radius: 2px;
+  transition: border-color .2s, background .2s;
+}
+.btn-ghost:hover {
+  border-color: var(--warm);
+  background: rgba(200,169,110,.08);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: rgba(245,240,232,.65);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding: 4rem var(--side-pad) 3rem;
+  border-bottom: 1px solid rgba(245,240,232,.08);
+}
+
+.footer-brand .logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--cream);
+  margin-bottom: .75rem;
+}
+.footer-brand p { font-size: .88rem; line-height: 1.7; }
+
+.footer-nav h4,
+.footer-contact h4 {
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.footer-nav a { font-size: .88rem; color: rgba(245,240,232,.6); transition: color .2s; }
+.footer-nav a:hover { color: var(--cream); }
+
+.footer-contact p { font-size: .88rem; line-height: 1.9; }
+
+.footer-bottom {
+  padding: 1.5rem var(--side-pad);
+  font-size: .75rem;
+  color: rgba(245,240,232,.3);
+}
+
+/* ── RESPONSIVE FOOTER ── */
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 580px) {
+  .footer-top { grid-template-columns: 1fr; }
+}

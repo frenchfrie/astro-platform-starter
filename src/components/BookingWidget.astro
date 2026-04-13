@@ -1,0 +1,214 @@
+---
+// src/components/BookingWidget.astro
+// Props configurables pour chaque gîte
+
+interface Props {
+  pricePerNight: number;  // ex: 180
+  cleaningFee:   number;  // ex: 120
+  maxGuests:     number;  // ex: 8
+  deposit:       number;  // caution en €
+  email:         string;
+  giteName:      string;
+}
+
+const {
+  pricePerNight,
+  cleaningFee,
+  maxGuests,
+  deposit,
+  email,
+  giteName,
+} = Astro.props;
+---
+
+<div class="booking-card" id="reserver">
+  <div class="booking-price">
+    <span class="price-amount">À partir de <strong>{pricePerNight} €</strong></span>
+    <span class="price-unit">/ nuit</span>
+  </div>
+  <p class="booking-note">Tarif pour {maxGuests} personnes · Toutes charges incluses</p>
+
+  <div class="booking-dates">
+    <div class="date-input">
+      <label for="checkin">Arrivée</label>
+      <input type="date" id="checkin" />
+    </div>
+    <div class="date-sep">→</div>
+    <div class="date-input">
+      <label for="checkout">Départ</label>
+      <input type="date" id="checkout" />
+    </div>
+  </div>
+
+  <div class="booking-guests">
+    <label>Voyageurs</label>
+    <div class="guest-counter">
+      <button class="guest-btn" id="guestMinus" aria-label="Diminuer">−</button>
+      <span id="guestCount">2</span>
+      <button class="guest-btn" id="guestPlus"  aria-label="Augmenter">+</button>
+    </div>
+  </div>
+
+  <div class="booking-summary" id="bookingSummary" hidden>
+    <div class="summary-row">
+      <span id="summaryNights">— nuits × {pricePerNight} €</span>
+      <span id="summarySubtotal">—</span>
+    </div>
+    <div class="summary-row">
+      <span>Frais de ménage</span>
+      <span>{cleaningFee} €</span>
+    </div>
+    <div class="summary-row summary-total">
+      <span>Total estimé</span>
+      <span id="grandTotal">—</span>
+    </div>
+  </div>
+
+  <a href={`mailto:${email}?subject=Réservation%20${encodeURIComponent(giteName)}`}
+     class="btn-book" id="btnBook">
+    Demander la disponibilité
+  </a>
+  <p class="booking-disclaimer">Aucun paiement à cette étape · Réponse sous 24h</p>
+
+  <div class="booking-info">
+    <div class="binfo"><span>Caution</span> {deposit} €</div>
+    <div class="binfo"><span>Arrivée</span> dès 16h00</div>
+    <div class="binfo"><span>Départ</span> avant 11h00</div>
+  </div>
+</div>
+
+<style>
+  .booking-card {
+    background: var(--light);
+    border: 1px solid var(--stone);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(26,22,18,.08);
+  }
+
+  .booking-price {
+    display: flex; align-items: baseline; gap: .4rem;
+    margin-bottom: .4rem;
+  }
+  .price-amount { font-size: 1.05rem; color: var(--mid); }
+  .price-amount strong {
+    font-family: var(--font-display);
+    font-size: 1.9rem; font-weight: 300; color: var(--dark);
+  }
+  .price-unit { font-size: .82rem; color: var(--mid); }
+  .booking-note { font-size: .75rem; color: var(--mid); margin-bottom: 1.5rem; }
+
+  .booking-dates {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .date-input { padding: .75rem 1rem; }
+  .date-input label {
+    display: block;
+    font-size: .65rem; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--warm); margin-bottom: .3rem;
+  }
+  .date-input input {
+    border: none; background: transparent;
+    font-family: var(--font-body); font-size: .9rem; color: var(--dark);
+    width: 100%; cursor: pointer; outline: none;
+  }
+  .date-sep { padding: .5rem; color: var(--stone); font-size: 1.1rem; }
+
+  .booking-guests {
+    display: flex; justify-content: space-between; align-items: center;
+    border: 1px solid var(--stone); border-radius: 4px;
+    padding: .75rem 1rem; margin-bottom: 1.5rem;
+  }
+  .booking-guests label {
+    font-size: .75rem; font-weight: 500; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--mid);
+  }
+  .guest-counter { display: flex; align-items: center; gap: 1rem; }
+  .guest-btn {
+    background: var(--stone); border: none; cursor: pointer;
+    width: 28px; height: 28px; border-radius: 50%;
+    font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .guest-btn:hover { background: var(--warm); color: var(--light); }
+  #guestCount {
+    font-family: var(--font-display); font-size: 1.3rem;
+    min-width: 1.5rem; text-align: center;
+  }
+
+  .booking-summary { margin-bottom: 1.5rem; }
+  .summary-row {
+    display: flex; justify-content: space-between;
+    font-size: .88rem; color: var(--mid);
+    padding: .4rem 0; border-bottom: 1px solid var(--stone);
+  }
+  .summary-total {
+    font-weight: 500; color: var(--dark); font-size: .95rem;
+    padding-top: .8rem; border-bottom: none;
+  }
+
+  .btn-book {
+    display: block; width: 100%;
+    background: var(--warm); color: var(--dark); text-align: center;
+    font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    padding: 1rem; border-radius: 4px;
+    transition: opacity .2s, transform .2s;
+    margin-bottom: .8rem;
+  }
+  .btn-book:hover { opacity: .88; transform: translateY(-1px); }
+  .booking-disclaimer { font-size: .72rem; color: var(--mid); text-align: center; margin-bottom: 1.2rem; }
+
+  .booking-info {
+    display: flex; flex-direction: column; gap: .4rem;
+    padding-top: 1rem; border-top: 1px solid var(--stone);
+  }
+  .binfo { font-size: .82rem; color: var(--mid); display: flex; gap: .5rem; }
+  .binfo span { color: var(--dark); font-weight: 500; min-width: 60px; }
+</style>
+
+<script define:vars={{ pricePerNight, cleaningFee, maxGuests, email, giteName }}>
+  let guests = 2;
+  const guestCountEl = document.getElementById('guestCount');
+
+  document.getElementById('guestMinus').addEventListener('click', () => {
+    if (guests > 1) { guests--; guestCountEl.textContent = guests; updateSummary(); }
+  });
+  document.getElementById('guestPlus').addEventListener('click', () => {
+    if (guests < maxGuests) { guests++; guestCountEl.textContent = guests; updateSummary(); }
+  });
+
+  function updateSummary() {
+    const checkin  = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    if (!checkin || !checkout) return;
+
+    const nights = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+    if (nights <= 0) return;
+
+    const subtotal = nights * pricePerNight;
+    const total    = subtotal + cleaningFee;
+
+    document.getElementById('summaryNights').textContent   = `${nights} nuit${nights > 1 ? 's' : ''} × ${pricePerNight} €`;
+    document.getElementById('summarySubtotal').textContent = `${subtotal} €`;
+    document.getElementById('grandTotal').textContent      = `${total} €`;
+    document.getElementById('bookingSummary').hidden       = false;
+
+    // Met à jour le lien mailto avec les dates et le nombre de voyageurs
+    const d1 = new Date(checkin).toLocaleDateString('fr-FR');
+    const d2 = new Date(checkout).toLocaleDateString('fr-FR');
+    document.getElementById('btnBook').href =
+      `mailto:${email}?subject=Réservation%20${encodeURIComponent(giteName)}`
+      + `&body=Bonjour%2C%0A%0AJe%20souhaite%20réserver%20${encodeURIComponent(giteName)}`
+      + `%20du%20${encodeURIComponent(d1)}%20au%20${encodeURIComponent(d2)}`
+      + `%20pour%20${guests}%20personne${guests > 1 ? 's' : ''}.%0A%0AMerci.`;
+  }
+
+  document.getElementById('checkin').addEventListener('change', updateSummary);
+  document.getElementById('checkout').addEventListener('change', updateSummary);
+</script>

@@ -1,0 +1,148 @@
+---
+// src/layouts/BaseLayout.astro
+// Usage : <BaseLayout title="..." description="..." activePage="gite-1">
+interface Props {
+  title: string;
+  description?: string;
+  activePage?: string; // slug de la page active pour la nav
+}
+
+const {
+  title,
+  description = 'Deux gîtes de caractère avec piscine et jacuzzi au cœur d\'une nature préservée.',
+  activePage = '',
+} = Astro.props;
+
+const navLinks = [
+  { href: '/logis-de-feydoux', label: 'Le Logis de Feydoux', slug: 'logis-de-feydoux' },
+  { href: '/gite-2',           label: 'Gîte 2',              slug: 'gite-2'           },
+  { href: '/region',           label: 'La Région',           slug: 'region'           },
+  { href: '/mentions-legales', label: 'Mentions légales',    slug: 'mentions-legales' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ── -->
+  <nav>
+    <a href="/" class="logo">Le Domaine</a>
+    <ul>
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[{ active: activePage === link.slug }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/gites/le-logis-de-feydoux#reserver" class="cta-nav">Réserver</a>
+  </nav>
+
+  <!-- ─── CONTENU DE LA PAGE ── -->
+  <slot />
+
+  <!-- ─── FOOTER ── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="logo">Le Domaine</p>
+        <p>Des séjours d'exception,<br />des souvenirs pour la vie.</p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Hébergements</h4>
+        <a href="/gites/le-logis-de-feydoux">Le Logis de Feydoux</a>
+        <a href="/gite-2">Gîte 2</a>
+      </nav>
+      <nav class="footer-nav">
+        <h4>Informations</h4>
+        <a href="/region">La Région</a>
+        <a href="/mentions-legales">Mentions légales</a>
+      </nav>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>contact@ledomaine.fr</p>
+        <p>+33 6 00 00 00 00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Le Domaine — Tous droits réservés</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.1rem clamp(1.5rem, 5vw, 4rem);
+    background: rgba(26,22,18,.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  nav > .logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--cream);
+    letter-spacing: .05em;
+    flex-shrink: 0;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0 auto;
+  }
+
+  nav ul a {
+    font-size: .8rem;
+    font-weight: 400;
+    letter-spacing: .06em;
+    color: rgba(245,240,232,.65);
+    transition: color .2s;
+  }
+  nav ul a:hover,
+  nav ul a.active { color: var(--warm); }
+
+  .cta-nav {
+    font-size: .74rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: var(--warm);
+    padding: .5rem 1.3rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+    transition: opacity .2s;
+  }
+  .cta-nav:hover { opacity: .85; }
+
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+  }
+</style>

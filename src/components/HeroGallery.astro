@@ -1,0 +1,206 @@
+---
+// src/components/HeroGallery.astro
+// Props : photos[] avec { src, alt }
+// La première photo est la principale, les 4 suivantes forment la grille.
+
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  photos: Photo[];
+}
+
+const { photos } = Astro.props;
+const main   = photos[0];
+const thumbs = photos.slice(1, 5);
+---
+
+<section class="hero-gallery">
+  <div class="hero-main">
+    <img src={main.src} alt={main.alt} />
+    <button class="gallery-btn" id="openGallery">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+      </svg>
+      Voir toutes les photos
+    </button>
+  </div>
+
+  <div class="hero-grid">
+    {thumbs.map(p => (
+      <div class="hero-thumb">
+        <img src={p.src} alt={p.alt} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ─── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
+  <button class="lb-prev"  id="lbPrev"  aria-label="Précédent">‹</button>
+  <button class="lb-next"  id="lbNext"  aria-label="Suivant">›</button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt="" />
+    <p class="lb-caption" id="lbCaption"></p>
+  </div>
+  <div class="lb-thumbs" id="lbThumbs"></div>
+</div>
+
+<style>
+  /* ── Hero gallery ── */
+  .hero-gallery {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: 70vh;
+    min-height: 480px;
+    gap: 4px;
+    margin-top: 56px;
+    background: var(--dark);
+  }
+
+  .hero-main {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-main img { transition: transform .6s ease; }
+  .hero-main:hover img { transform: scale(1.03); }
+
+  .gallery-btn {
+    position: absolute;
+    bottom: 1.5rem; right: 1.5rem;
+    display: flex; align-items: center; gap: .5rem;
+    background: rgba(250,247,242,.95);
+    color: var(--dark);
+    border: none; cursor: pointer;
+    font-family: var(--font-body);
+    font-size: .75rem; font-weight: 500; letter-spacing: .08em;
+    padding: .6rem 1.2rem;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .gallery-btn:hover { background: var(--cream); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+  }
+  .hero-thumb { overflow: hidden; }
+  .hero-thumb img { transition: transform .5s ease; }
+  .hero-thumb:hover img { transform: scale(1.06); }
+
+  /* ── Lightbox ── */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(10,8,6,.97);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+
+  .lb-close, .lb-prev, .lb-next {
+    position: absolute;
+    background: none; border: none; cursor: pointer;
+    color: rgba(245,240,232,.65);
+    line-height: 1; transition: color .2s;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { color: var(--warm); }
+  .lb-close { top: 1.5rem; right: 2rem;  font-size: 1.4rem; }
+  .lb-prev  { left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
+  .lb-next  { right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
+
+  .lb-img-wrap {
+    max-width: 900px; width: 100%;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .lb-img-wrap img {
+    max-height: 65vh; width: auto; max-width: 100%;
+    object-fit: contain;
+  }
+  .lb-caption { font-size: .78rem; color: rgba(245,240,232,.45); letter-spacing: .08em; }
+
+  .lb-thumbs {
+    display: flex; gap: .5rem; margin-top: 1rem;
+    overflow-x: auto; max-width: 100%; padding-bottom: .5rem;
+  }
+  :global(.lb-thumb) {
+    width: 60px; height: 45px; flex-shrink: 0;
+    overflow: hidden; cursor: pointer; opacity: .45;
+    border: 2px solid transparent; transition: opacity .2s, border-color .2s;
+  }
+  :global(.lb-thumb.active) { opacity: 1; border-color: var(--warm); }
+  :global(.lb-thumb img) { width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 768px) {
+    .hero-gallery { grid-template-columns: 1fr; grid-template-rows: 55vw auto; }
+    .hero-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 25vw; }
+  }
+  @media (max-width: 480px) {
+    .hero-grid { display: none; }
+    .hero-gallery { grid-template-rows: 70vw; }
+  }
+</style>
+
+<script define:vars={{ photos }}>
+  let current = 0;
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbThumbs  = document.getElementById('lbThumbs');
+
+  function render() {
+    lbImg.src = photos[current].src;
+    lbImg.alt = photos[current].alt;
+    lbCaption.textContent = `${photos[current].alt} · ${current + 1} / ${photos.length}`;
+    document.querySelectorAll('.lb-thumb').forEach((t, i) =>
+      t.classList.toggle('active', i === current)
+    );
+  }
+
+  function open(index) {
+    current = index;
+    if (!lbThumbs.children.length) buildThumbs();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    render();
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function buildThumbs() {
+    photos.forEach((p, i) => {
+      const div = document.createElement('div');
+      div.className = 'lb-thumb';
+      const img = document.createElement('img');
+      img.src = p.src; img.alt = p.alt;
+      div.appendChild(img);
+      div.addEventListener('click', () => { current = i; render(); });
+      lbThumbs.appendChild(div);
+    });
+  }
+
+  document.getElementById('openGallery').addEventListener('click', () => open(0));
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + photos.length) % photos.length; render(); });
+  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % photos.length; render(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  { current = (current - 1 + photos.length) % photos.length; render(); }
+    if (e.key === 'ArrowRight') { current = (current + 1) % photos.length; render(); }
+  });
+</script>
