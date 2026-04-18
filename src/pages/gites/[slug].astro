@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroGallery from '../../components/HeroGallery.astro';
+import BookingWidget from '../../components/BookingWidget';
+import '../../styles/gite-components.css';
+
+export async function getStaticPaths() {
+    const giteEntries = await getCollection('gites');
+
+    return giteEntries.map(entry => ({
+        params: { slug: entry.id }, props: { entry },
+    }));
+}
+
+
+const { entry } = Astro.props;
+const { data } = entry;
+---
+
+
+<BaseLayout title={data.title} description={data.description}>
+    <HeroGallery photos={data.photos} />
+
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+            <h1 class="text-4xl font-display mb-6">{data.title}</h1>
+            <div class="prose prose-stone max-w-none">
+                <p class="text-lg leading-relaxed">{data.description}</p>
+            </div>
+
+            <div class="mt-12">
+                <h2 class="text-2xl font-display mb-4">Équipements</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {data.features.map(f => (
+                        <div class="flex items-center gap-2 border-b border-stone/20 py-2">
+                            <span class="text-warm">✓</span> {f}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <aside class="lg:col-span-1">
+            <BookingWidget
+                client:load
+                pricePerNight={data.pricePerNight}
+                cleaningFee={data.cleaningFee}
+                maxGuests={data.maxGuests}
+                abritelUrl={data.abritelUrl}
+            />
+        </aside>
+    </main>
+</BaseLayout>
