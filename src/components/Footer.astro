@@ -1,0 +1,149 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="/" class="logo">
+                Le Domaine <span>Feydoux</span>
+            </a>
+            <p class="brand-description">
+                L'authenticité du Périgord Noir, <br/> le confort en plus.
+            </p>
+        </div>
+
+        <nav class="footer-nav">
+            <h4>Explorer</h4>
+            <ul>
+                <li><a href="/gites/le-logis-de-feydoux">Le Logis</a></li>
+                <li><a href="/gites/la-garenne">La Garenne</a></li>
+                <li><a href="/region">La Région</a></li>
+                <li><a href="/a-propos">Notre histoire</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <address>
+                <p>Sarlat-la-Canéda, Dordogne</p>
+                <p><a href="tel:+33500000000">05 XX XX XX XX</a></p>
+                <p><a href="mailto:contact@domaine-feydoux.com">contact@domaine-feydoux.com</a></p>
+            </address>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; {currentYear} Domaine Feydoux — Tous droits réservés.</p>
+        <div class="footer-legal">
+            <a href="/mentions-legales">Mentions légales</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .site-footer {
+        background-color: var(--dark);
+        color: var(--stone);
+        padding: 5rem var(--side-pad) 2rem;
+        margin-top: 6rem;
+    }
+
+    .footer-container {
+        max-width: var(--max-width, 1300px);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.5fr;
+        gap: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid rgba(232, 224, 208, 0.1);
+    }
+
+    /* Style du Logo dans le footer */
+    .logo {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-style: italic;
+        text-decoration: none;
+        color: var(--cream);
+        line-height: 1;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+    .logo span {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--warm);
+        margin-top: 5px;
+    }
+
+    .brand-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.8;
+        max-width: 280px;
+    }
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--warm);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 0.8rem;
+    }
+
+    a, address p {
+        color: var(--stone);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+        font-style: normal;
+    }
+
+    a:hover {
+        color: var(--cream);
+    }
+
+    .footer-bottom {
+        max-width: var(--max-width, 1300px);
+        margin: 2rem auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        opacity: 0.5;
+    }
+
+    .footer-legal a {
+        font-size: 0.75rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            text-align: center;
+        }
+        .brand-description {
+            margin: 0 auto;
+        }
+        .footer-bottom {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style>

@@ -15,6 +15,7 @@ const gites = defineCollection({
             src: z.string(),
             alt: z.string()
         })),
+        amenities: z.record(z.array(z.string())).optional(),
         features: z.array(z.string()), // ex: ["Piscine", "Jacuzzi", "Wifi"]
     }),
 });

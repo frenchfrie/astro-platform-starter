@@ -16,6 +16,12 @@
         { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre étage.jpg", "alt": "Salle de bain" },
         { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre placard.jpg", "alt": "Piscine" }
     ],
+    "amenities": {
+        "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
+        "Cuisine": ["🍳 Cuisine équipée grand format", "🧊 Réfrigérateur + congélateur", "☕ Machine à café", "🧹 Lave-vaisselle"],
+        "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
+        "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
+    },
     "features": [
         "Jacuzzi privatif",
         "Piscine chauffée",

@@ -1,27 +1,165 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+// Importe une belle photo de famille ou du domaine si tu en as une
+// import familleImg from '../assets/domaine-famille.jpg';
+
+import photoDomaine from '../assets/feydoux/chateau_face.jpg';
 ---
 
-<section id="a-propos" class="section-padding">
-    <h1>Notre Domaine : Un Refuge d'Exception</h1>
-    <p class="lead-text">Bienvenue au Domaine, un havre de paix niché au cœur d'une nature préservée. Notre passion est de vous offrir des séjours qui allient le charme authentique des gîtes de caractère à tout le confort moderne.</p>
-    
-    <div class="content-grid">
-        <div class="card">
-            <h3 class="card-title">Notre Philosophie</h3>
-            <p>Pour nous, un voyage n'est pas seulement une destination, c'est une expérience. Nous avons créé ce domaine en puisant dans l'âme de la région pour vous proposer des moments de pure détente, loin du tumulte quotidien. Ici, la nature est notre muse, et le bien-être votre seule préoccupation.</p>
-        </div>
-        <div class="card">
-            <h3 class="card-title">Nos Hébergements</h3>
-            <p>Découvrez le charme intemporel du Logis de Feydoux, un lieu empreint d'histoire, ainsi que le confort chaleureux de notre Gîte 2. Deux expériences uniques vous attendent, chacune offrant un cadre parfait pour se ressourcer en famille ou entre amis.</p>
-        </div>
-        <div class="card">
-            <h3 class="card-title">La Région</h3>
-            <p>En plus de nos gites, la région riche et variée vous invite à l'évasion. Des sentiers de randonnée aux villages médiévaux, chaque excursion est une nouvelle découverte au rythme apaisant de la nature.</p>
-        </div>
-    </div>
-    
-    <div class="cta-final">
-        <p>Nous avons hâte de vous accueillir. Laissez-nous prendre soin de vous et de vos souvenirs.</p>
-        <a href="/gites/le-logis-de-feydoux#reserver" class="cta-button">Réservez votre séjour</a>
-    </div>
-</section>
+<BaseLayout title="Notre Histoire" activePage="a-propos">
+    <main class="about-container">
+        <header class="about-header">
+            <span class="section-label">L'âme du lieu</span>
+            <h1>Notre Histoire</h1>
+        </header>
+
+        <section class="story-grid">
+            <div class="story-text">
+                <p class="lead">
+                    Le Domaine de Feydoux n'est pas seulement une destination de vacances, c'est un projet de vie né d'un coup de cœur pour les pierres dorées du Périgord Noir.
+                </p>
+                <p>
+                    Amoureux de cette région depuis toujours, nous avons entrepris de restaurer ce domaine pour en faire un havre de paix où le temps semble s'être arrêté. Notre souhait était de préserver l'architecture vernaculaire tout en y insufflant le confort moderne indispensable à un séjour ressourçant.
+                </p>
+                <p>
+                    Aujourd'hui, nous sommes heureux de partager ce petit coin de paradis avec vous. Que vous logiez au Logis ou à La Garenne, chaque pierre raconte une part de l'histoire de la Dordogne que nous avons à cœur de perpétuer.
+                </p>
+            </div>
+            <div class="story-image">
+                <Image
+                    src={photoDomaine}
+                    alt="Vue du Domaine de Feydoux"
+                    width={800}
+                    height={600}
+                    class="about-img"
+                    quality="high"
+                />
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="value-card">
+                <span class="value-icon">🌿</span>
+                <h3>Nature</h3>
+                <p>Un domaine préservé où la biodiversité et le calme sont nos priorités.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">🏰</span>
+                <h3>Patrimoine</h3>
+                <p>Une restauration fidèle aux traditions artisanales du Périgord.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">🤝</span>
+                <h3>Accueil</h3>
+                <p>Un accueil personnalisé et des conseils locaux pour un séjour unique.</p>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    .about-container {
+        max-width: var(--max-width, 1300px);
+        margin: 0 auto;
+        padding: 6rem var(--side-pad);
+    }
+
+    .about-header {
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+
+    .about-header h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 7vw, 4.5rem);
+        font-style: italic;
+        color: var(--dark);
+        margin-top: 0.5rem;
+    }
+
+    .section-label {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.8rem;
+        color: var(--warm);
+        font-weight: 500;
+    }
+
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        margin-bottom: 8rem;
+    }
+
+    .story-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--mid);
+    }
+
+    .story-text .lead {
+        font-size: 1.4rem;
+        color: var(--dark);
+        font-family: var(--font-display);
+        margin-bottom: 2rem;
+        line-height: 1.4;
+    }
+
+    .story-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    .about-img {
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        object-fit: cover;
+    }
+
+    .values-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        padding: 4rem;
+        background-color: var(--cream);
+        border-radius: 4px;
+    }
+
+    .value-card {
+        text-align: center;
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .value-card h3 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .value-card p {
+        font-size: 0.95rem;
+        color: var(--mid);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+        .story-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .values-section {
+            grid-template-columns: 1fr;
+            padding: 3rem 2rem;
+        }
+    }
+</style>

@@ -134,8 +134,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     to   { transform: scale(1.06); }
   }
   .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(15,11,8,.85) 0%, rgba(15,11,8,.3) 50%, rgba(15,11,8,.12) 100%);
+    position: absolute;
+    inset: 0;
+    background:
+      /* Dégradé blanc en haut pour le menu */
+        linear-gradient(
+            to bottom,
+            rgb(255 255 255 / 0.5) 0%,
+            transparent 30%
+        ),
+          /* Dégradé sombre très subtil en bas pour le titre Hero */
+        linear-gradient(
+            to top,
+            rgb(0 0 0 / 0.3) 0%,
+            transparent 40%
+        );
   }
   .hero-content {
     position: relative;
