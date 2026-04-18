@@ -2,53 +2,74 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroGallery from '../../components/HeroGallery.astro';
-import BookingWidget from '../../components/BookingWidget';
-import '../../styles/gite-components.css';
+import BookingWidget from '../../components/BookingWidget.astro';
+import GiteHeader from '../../components/GiteHeader.astro';
+import Amenities from '../../components/Amenities.astro';
 
 export async function getStaticPaths() {
     const giteEntries = await getCollection('gites');
-
     return giteEntries.map(entry => ({
         params: { slug: entry.id }, props: { entry },
     }));
 }
 
-
 const { entry } = Astro.props;
 const { data } = entry;
 ---
 
-
 <BaseLayout title={data.title} description={data.description}>
     <HeroGallery photos={data.photos} />
 
-    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div class="lg:col-span-2">
-            <h1 class="text-4xl font-display mb-6">{data.title}</h1>
-            <div class="prose prose-stone max-w-none">
-                <p class="text-lg leading-relaxed">{data.description}</p>
-            </div>
+    <main class="main-layout">
+        <article class="col-content">
+            <GiteHeader title={data.title} maxGuests={data.maxGuests} />
 
-            <div class="mt-12">
-                <h2 class="text-2xl font-display mb-4">Équipements</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {data.features.map(f => (
-                        <div class="flex items-center gap-2 border-b border-stone/20 py-2">
-                            <span class="text-warm">✓</span> {f}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+            <section class="description">
+                <p>{data.description}</p>
+            </section>
 
-        <aside class="lg:col-span-1">
+            <Amenities features={data.features} />
+        </article>
+
+        <aside class="col-booking">
             <BookingWidget
-                client:load
                 pricePerNight={data.pricePerNight}
                 cleaningFee={data.cleaningFee}
                 maxGuests={data.maxGuests}
-                abritelUrl={data.abritelUrl}
+                deposit={data.deposit}
+                giteName={data.title}
+                email="contact@domaine-feydoux.com"
             />
         </aside>
     </main>
 </BaseLayout>
+
+<style>
+    /* Uniquement la structure de la page */
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 4rem;
+        max-width: var(--max-width, 1300px);
+        margin: 0 auto;
+        padding: 4rem var(--side-pad);
+    }
+
+    .description {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--mid);
+        margin-bottom: 4rem;
+    }
+
+    .col-booking {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    @media (max-width: 1024px) {
+        .main-layout { grid-template-columns: 1fr; }
+        .col-booking { position: static; }
+    }
+</style>

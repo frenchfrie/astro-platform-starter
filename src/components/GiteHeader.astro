@@ -1,0 +1,37 @@
+---
+interface Props {
+    title: string;
+    maxGuests: number;
+}
+const { title, maxGuests } = Astro.props;
+---
+
+<header class="listing-header">
+    <div class="header-content">
+        <h1>{title}</h1>
+        <p class="subtitle">Gîte de caractère · {maxGuests} voyageurs</p>
+    </div>
+</header>
+
+<style>
+    .listing-header {
+        border-bottom: 1px solid rgba(var(--dark-rgb, 26, 22, 18), 0.1);
+        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-style: italic;
+        color: var(--dark);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--warm);
+    }
+</style>

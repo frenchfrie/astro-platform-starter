@@ -1,0 +1,42 @@
+---
+interface Props {
+    features: string[];
+}
+const { features } = Astro.props;
+---
+
+<section class="amenities-section">
+    <h2>Équipements & Services</h2>
+    <div class="amenities-grid">
+        {features.map(f => (
+            <div class="amenity-item">
+                <span class="icon" aria-hidden="true">∗</span>
+                <span>{f}</span>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--dark);
+    }
+    .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    .amenity-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--mid);
+        border-bottom: 1px solid var(--light);
+        padding-bottom: 0.5rem;
+    }
+    .icon { color: var(--warm); font-size: 1.2rem; }
+</style>
