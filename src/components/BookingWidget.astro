@@ -1,204 +1,249 @@
 ---
 interface Props {
   pricePerNight: number;
-  abritelId: string; // ex: "p2664458"
+  abritelId: string;
   cleaningFee: number;
 }
 
 const { pricePerNight, abritelId, cleaningFee } = Astro.props;
 ---
 
-<div class="booking-widget-card" id="booking-widget">
-  <div class="price-display">
-    <span class="price-value">{pricePerNight}€</span>
-    <span class="price-unit">/ nuit</span>
-  </div>
-
-  <div class="booking-inputs-container">
-    <div class="date-grid">
-      <div class="input-field border-right">
-        <label for="chkin">Arrivée</label>
-        <input type="date" id="chkin" name="chkin" />
+<div class="booking-widget-container" id="booking-section">
+  <div class="booking-card">
+    <div class="price-header">
+      <div class="price-main">
+        <span class="amount">{pricePerNight}€</span>
+        <span class="label">/ nuit (à partir de)</span>
       </div>
-      <div class="input-field">
-        <label for="chkout">Départ</label>
-        <input type="date" id="chkout" name="chkout" />
+      <div class="source-tag">Source : Abritel</div>
+    </div>
+
+    <div class="selection-box">
+      <div class="date-row">
+        <div class="field">
+          <label>Arrivée</label>
+          <input type="date" id="arrival-date" />
+        </div>
+        <div class="field border-left">
+          <label>Départ</label>
+          <input type="date" id="departure-date" />
+        </div>
+      </div>
+      <div class="field border-top">
+        <label>Voyageurs</label>
+        <select id="guest-count">
+          {[1, 2, 3, 4].map(n => (
+              <option value={n} selected={n === 2}>{n} voyageur{n > 1 ? 's' : ''}</option>
+          ))}
+        </select>
       </div>
     </div>
-    <div class="input-field border-top">
-      <label for="adults">Voyageurs</label>
-      <select id="adults" name="adults">
-        <option value="1">1 voyageur</option>
-        <option value="2" selected>2 voyageurs</option>
-        <option value="3">3 voyageurs</option>
-        <option value="4">4 voyageurs</option>
-      </select>
-    </div>
-  </div>
 
-  <button id="abritel-submit" class="cta-button" data-id={abritelId}>
-    Vérifier la disponibilité
-  </button>
+    <button id="abritel-link-btn" class="primary-button" data-id={abritelId}>
+      Vérifier sur Abritel
+    </button>
 
-  <p class="disclaimer">
-    Vous serez redirigé vers <strong>Abritel</strong> pour finaliser la réservation.
-    Disponibilité non garantie sur ce site.
-  </p>
+    <div class="legal-notice">
+      <p>
+        <strong>Note importante :</strong> Les tarifs et disponibilités sont donnés à titre indicatif.
+        Seule la plateforme <strong>Abritel</strong> fait foi pour le calcul final de votre séjour.
+      </p>
+    </div>
 
-  <div id="price-summary" class="price-summary hidden">
-    <div class="summary-line">
-      <span>{pricePerNight}€ x <span id="days-count">0</span> nuits</span>
-      <span id="subtotal-amount">0€</span>
-    </div>
-    <div class="summary-line">
-      <span>Frais de ménage</span>
-      <span>{cleaningFee}€</span>
-    </div>
-    <div class="total-line">
-      <span>Total estimé</span>
-      <span id="final-total">0€</span>
+    <div id="estimate-summary" class="summary-box hidden">
+      <h4>Estimation du séjour</h4>
+      <div class="summary-item">
+        <span>{pricePerNight}€ x <span id="display-nights">0</span> nuits</span>
+        <span id="display-base">0€</span>
+      </div>
+      <div class="summary-item">
+        <span>Frais de ménage</span>
+        <span>{cleaningFee}€</span>
+      </div>
+      <div class="summary-total">
+        <span>Total estimé *</span>
+        <span id="display-total">0€</span>
+      </div>
+      <p class="footnote">* Hors taxes de séjour et frais de service Abritel.</p>
     </div>
   </div>
 </div>
 
 <style>
-  .booking-widget-card {
-    background: #ffffff;
-    border: 1px solid #e2e2e2;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  .booking-widget-container {
+    position: sticky;
+    top: 100px;
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
   }
 
-  .price-display {
+  .booking-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .price-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 24px;
   }
 
-  .price-value {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
+  .amount {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--dark);
   }
 
-  .price-unit {
+  .label {
+    font-size: 0.85rem;
     color: var(--mid);
-    font-size: 0.9rem;
   }
 
-  /* Le conteneur de formulaire style Abritel/Airbnb */
-  .booking-inputs-container {
-    border: 1px solid #b0b0b0;
-    border-radius: 8px;
-    margin-bottom: 16px;
+  .source-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    background: var(--cream);
+    color: var(--warm);
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  /* Le cadre de saisie */
+  .selection-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
     overflow: hidden;
   }
 
-  .date-grid {
+  .date-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #ccc;
   }
 
-  .input-field {
-    padding: 10px 12px;
+  .field {
+    padding: 12px;
     display: flex;
     flex-direction: column;
   }
 
-  .border-right { border-right: 1px solid #b0b0b0; }
-  .border-top { border-top: 1px solid #b0b0b0; }
+  .border-left { border-left: 1px solid #ccc; }
+  .border-top { border-top: 1px solid #ccc; }
 
   label {
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 9px;
+    font-weight: 900;
     text-transform: uppercase;
-    color: var(--dark);
+    color: #333;
     margin-bottom: 4px;
   }
 
   input, select {
     border: none;
     font-size: 14px;
+    color: #444;
     outline: none;
     background: transparent;
-    color: var(--dark);
-    padding: 0;
+    cursor: pointer;
   }
 
-  .cta-button {
+  .primary-button {
     width: 100%;
-    background-color: #E61E4D; /* Rouge Abritel */
+    background: linear-gradient(135deg, #E61E4D 0%, #D70466 100%);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 20px;
   }
 
-  .cta-button:active {
-    transform: scale(0.98);
+  .primary-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 30, 77, 0.3);
   }
 
-  .disclaimer {
-    font-size: 12px;
+  .legal-notice {
+    font-size: 11px;
     color: var(--mid);
-    text-align: center;
-    margin-top: 16px;
-    line-height: 1.4;
+    line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
   }
 
-  /* Résumé de prix (calculé en JS) */
-  .price-summary {
-    margin-top: 24px;
-    padding-top: 24px;
+  /* Résumé des prix */
+  .summary-box {
     border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+
+  .summary-box h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--mid);
+  }
+
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-top: 16px;
+    color: var(--dark);
+    border-top: 1px dotted #ccc;
+    padding-top: 16px;
+  }
+
+  .footnote {
+    font-size: 10px;
+    color: #999;
+    margin-top: 10px;
+    font-style: italic;
   }
 
   .hidden { display: none; }
-
-  .summary-line {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    color: var(--mid);
-  }
-
-  .total-line {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    color: var(--dark);
-    margin-top: 16px;
-    font-size: 1.1rem;
-  }
 </style>
 
 <script is:inline define:vars={{ pricePerNight, cleaningFee }}>
-  // Utilisation de define:vars pour injecter les données du serveur dans le client
   document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('abritel-submit');
-    const inInput = document.getElementById('chkin');
-    const outInput = document.getElementById('chkout');
-    const adultsSelect = document.getElementById('adults');
-    const summary = document.getElementById('price-summary');
+    const arrival = document.getElementById('arrival-date');
+    const departure = document.getElementById('departure-date');
+    const guests = document.getElementById('guest-count');
+    const summary = document.getElementById('estimate-summary');
+    const btn = document.getElementById('abritel-link-btn');
 
-    function updatePrice() {
-      const start = new Date(inInput.value);
-      const end = new Date(outInput.value);
+    function calculate() {
+      const d1 = new Date(arrival.value);
+      const d2 = new Date(departure.value);
 
-      if (start && end && end > start) {
-        const diffTime = Math.abs(end - start);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (d1 && d2 && d2 > d1) {
+        const nights = Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24));
+        const base = nights * pricePerNight;
 
-        document.getElementById('days-count').innerText = diffDays;
-        const baseTotal = diffDays * pricePerNight;
-        document.getElementById('subtotal-amount').innerText = `${baseTotal}€`;
-        document.getElementById('final-total').innerText = `${baseTotal + cleaningFee}€`;
+        document.getElementById('display-nights').innerText = nights;
+        document.getElementById('display-base').innerText = `${base}€`;
+        document.getElementById('display-total').innerText = `${base + cleaningFee}€`;
 
         summary.classList.remove('hidden');
       } else {
@@ -206,29 +251,17 @@ const { pricePerNight, abritelId, cleaningFee } = Astro.props;
       }
     }
 
-    inInput.addEventListener('change', updatePrice);
-    outInput.addEventListener('change', updatePrice);
+    [arrival, departure].forEach(el => el.addEventListener('change', calculate));
 
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
-      const chkin = inInput.value;
-      const chkout = outInput.value;
-      const adults = adultsSelect.value;
+      const url = new URL(`https://www.abritel.fr/location-vacances/${id}`);
 
-      // Construction de l'URL propre avec les paramètres Abritel corrects
-      let url = `https://www.abritel.fr/location-vacances/${id}`;
+      if (arrival.value) url.searchParams.append('chkin', arrival.value);
+      if (departure.value) url.searchParams.append('chkout', departure.value);
+      if (guests.value) url.searchParams.append('adults', guests.value);
 
-      // On n'ajoute les paramètres que s'ils sont remplis
-      const params = new URLSearchParams();
-      if (chkin) params.append('chkin', chkin);
-      if (chkout) params.append('chkout', chkout);
-      if (adults) params.append('adults', adults);
-
-      if (params.toString()) {
-        url += `?${params.toString()}`;
-      }
-
-      window.open(url, '_blank');
+      window.open(url.toString(), '_blank');
     });
   });
 </script>
