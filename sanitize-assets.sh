@@ -1,33 +1,27 @@
 #!/bin/bash
 
-# Target directory (current directory by default)
 TARGET_DIR=${1:-.}
 
-# 1. First pass: Rename files to lowercase and replace spaces/underscores with hyphens
-find "$TARGET_DIR" -depth -name "*[A-Z ]*" -exec bash -c '
-  for file; do
+# Use -depth to handle children before parents
+find "$TARGET_DIR" -depth | while read -r file; do
     dir=$(dirname "$file")
     base=$(basename "$file")
-    # Convert to lowercase and replace spaces/underscores with hyphens
-    new_base=$(echo "$base" | tr "[:upper:]" "[:lower:]" | tr " _" "-")
+
+    # 1. Lowercase
+    # 2. Manual mapping of French accents to ASCII
+    # 3. Replace any non-alphanumeric (except . and -) with a hyphen
+    # 4. Cleanup multiple/trailing hyphens
+    new_base=$(echo "$base" | tr '[:upper:]' '[:lower:]' | \
+        sed 'y/àâéèêëîïôûùç/aaeeeeiiouuc/' | \
+        sed -E "s/[^a-z0-9.]/-/g" | \
+        sed -E "s/-+/-/g" | \
+        sed -E "s/^-//;s/-$//;s/-\././g")
 
     if [ "$base" != "$new_base" ]; then
-      mv -v "$file" "$dir/$new_base"
+        if [ ! -e "$dir/$new_base" ]; then
+            mv -v "$file" "$dir/$new_base"
+        else
+            echo "Warning: $new_base already exists, skipping $base"
+        fi
     fi
-  done
-' bash {} +
-
-# 2. Second pass: Remove accents (Requires iconv)
-# This converts UTF-8 to ASCII by stripping non-standard characters
-find "$TARGET_DIR" -depth -exec bash -c '
-  for file; do
-    dir=$(dirname "$file")
-    base=$(basename "$file")
-    # Transliterate to ASCII (é -> e, etc.)
-    new_base=$(echo "$base" | iconv -f utf-8 -t ascii//TRANSLIT)
-
-    if [ "$base" != "$new_base" ]; then
-      mv -v "$file" "$dir/$new_base"
-    fi
-  done
-' bash {} +
+done
