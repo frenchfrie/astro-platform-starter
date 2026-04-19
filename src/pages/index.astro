@@ -1,6 +1,15 @@
 ---
 // src/pages/index.astro
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+
+// Importation des fichiers comme des modules
+import imgLogis from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
+import imgGarenne from '../assets/gites/la-garenne/exterieur-vue-aerienne-face.jpg';
+
+import imgAerial from '../assets/feydoux/aerial.jpg';
+import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
 ---
 
 <BaseLayout
@@ -9,7 +18,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- ─── HERO ── -->
   <header class="hero">
-    <img src="/src/assets/feydoux/aerial.jpg" alt="Vue aérienne du domaine" class="hero-img" />
+    <Image
+        src={imgAerial}
+        alt="Vue aérienne du domaine"
+        class="hero-img"
+        width={1920}
+        height={1080}
+        format="webp"
+        loading="eager"
+    />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Bienvenue au domaine</p>
@@ -51,7 +68,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <article class="gite-card">
         <div class="card-img-wrap">
-          <img src="/src/assets/gites/le-logis-de-feydoux/exterieur-vue Le logis avec piscine.jpg" alt="Vue aérienne du domaine" class="hero-img" />
+          <Image
+              src={imgLogis}
+              alt="Vue aérienne du domaine Le Logis avec piscine"
+              class="hero-img"
+              width={1920}
+              height={1080}
+              format="webp"
+              quality="mid"
+          />
           <div class="card-badge">Piscine privée</div>
         </div>
         <div class="card-body">
@@ -65,7 +90,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <article class="gite-card">
         <div class="card-img-wrap">
-          <img src="/src/assets/gites/la-garenne/vue aérienne face.jpg" alt="Vue aérienne du domaine" class="hero-img" />
+          <Image
+              src={imgGarenne}
+              alt="Vue aérienne de face du gîte La Garenne"
+              class="hero-img"
+              width={1920}
+              height={1080}
+              format="webp"
+              quality="mid"
+          />
           <div class="card-badge">Jacuzzi privatif</div>
         </div>
         <div class="card-body">
@@ -82,7 +115,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- ─── PISCINE & JACUZZI ── -->
   <section class="pool-section">
-    <img src="/src/assets/gites/le-logis-de-feydoux/exterieur-vue Le logis avec piscine.jpg" alt="Piscine du domaine et jacuzzi privatif" class="pool-img" />
+    <Image
+        src={imgPool}
+        alt="Piscine du domaine et jacuzzi privatif"
+        class="pool-img"
+        width={1200}
+        height={800}
+        format="webp"
+    />
     <div class="pool-overlay"></div>
     <div class="pool-content">
       <span class="label light">Détente & bien-être</span>
