@@ -6,7 +6,8 @@
   "cleaningFee": 120,
   "maxGuests": 8,
   "deposit": 500,
-  "abritelUrl": "https://www.abritel.fr/location-vacances/pXXXXXXX",
+  "abritelUrl": "https://www.abritel.fr/location-vacances/p2664458",
+  "abritelId": "p2664458",
   "photos": [
     { "src": "/src/assets/gites/le-logis-de-feydoux/Vue Le logis avec piscine.jpg", "alt": "Vue extérieure — Le Logis de Feydoux" },
     { "src": "/src/assets/gites/le-logis-de-feydoux/Chambre grande étage 2.jpg", "alt": "Séjour" },

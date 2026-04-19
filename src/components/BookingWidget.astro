@@ -1,214 +1,234 @@
 ---
-// src/components/BookingWidget.astro
-// Props configurables pour chaque gîte
-
 interface Props {
-  pricePerNight: number;  // ex: 180
-  cleaningFee:   number;  // ex: 120
-  maxGuests:     number;  // ex: 8
-  deposit:       number;  // caution en €
-  email:         string;
-  giteName:      string;
+  pricePerNight: number;
+  abritelId: string; // ex: "p2664458"
+  cleaningFee: number;
 }
 
-const {
-  pricePerNight,
-  cleaningFee,
-  maxGuests,
-  deposit,
-  email,
-  giteName,
-} = Astro.props;
+const { pricePerNight, abritelId, cleaningFee } = Astro.props;
 ---
 
-<div class="booking-card" id="reserver">
-  <div class="booking-price">
-    <span class="price-amount">À partir de <strong>{pricePerNight} €</strong></span>
+<div class="booking-widget-card" id="booking-widget">
+  <div class="price-display">
+    <span class="price-value">{pricePerNight}€</span>
     <span class="price-unit">/ nuit</span>
   </div>
-  <p class="booking-note">Tarif pour {maxGuests} personnes · Toutes charges incluses</p>
 
-  <div class="booking-dates">
-    <div class="date-input">
-      <label for="checkin">Arrivée</label>
-      <input type="date" id="checkin" />
+  <div class="booking-inputs-container">
+    <div class="date-grid">
+      <div class="input-field border-right">
+        <label for="chkin">Arrivée</label>
+        <input type="date" id="chkin" name="chkin" />
+      </div>
+      <div class="input-field">
+        <label for="chkout">Départ</label>
+        <input type="date" id="chkout" name="chkout" />
+      </div>
     </div>
-    <div class="date-sep">→</div>
-    <div class="date-input">
-      <label for="checkout">Départ</label>
-      <input type="date" id="checkout" />
+    <div class="input-field border-top">
+      <label for="adults">Voyageurs</label>
+      <select id="adults" name="adults">
+        <option value="1">1 voyageur</option>
+        <option value="2" selected>2 voyageurs</option>
+        <option value="3">3 voyageurs</option>
+        <option value="4">4 voyageurs</option>
+      </select>
     </div>
   </div>
 
-  <div class="booking-guests">
-    <label>Voyageurs</label>
-    <div class="guest-counter">
-      <button class="guest-btn" id="guestMinus" aria-label="Diminuer">−</button>
-      <span id="guestCount">2</span>
-      <button class="guest-btn" id="guestPlus"  aria-label="Augmenter">+</button>
-    </div>
-  </div>
+  <button id="abritel-submit" class="cta-button" data-id={abritelId}>
+    Vérifier la disponibilité
+  </button>
 
-  <div class="booking-summary" id="bookingSummary" hidden>
-    <div class="summary-row">
-      <span id="summaryNights">— nuits × {pricePerNight} €</span>
-      <span id="summarySubtotal">—</span>
+  <p class="disclaimer">
+    Vous serez redirigé vers <strong>Abritel</strong> pour finaliser la réservation.
+    Disponibilité non garantie sur ce site.
+  </p>
+
+  <div id="price-summary" class="price-summary hidden">
+    <div class="summary-line">
+      <span>{pricePerNight}€ x <span id="days-count">0</span> nuits</span>
+      <span id="subtotal-amount">0€</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-line">
       <span>Frais de ménage</span>
-      <span>{cleaningFee} €</span>
+      <span>{cleaningFee}€</span>
     </div>
-    <div class="summary-row summary-total">
+    <div class="total-line">
       <span>Total estimé</span>
-      <span id="grandTotal">—</span>
+      <span id="final-total">0€</span>
     </div>
-  </div>
-
-  <a href={`mailto:${email}?subject=Réservation%20${encodeURIComponent(giteName)}`}
-     class="btn-book" id="btnBook">
-    Demander la disponibilité
-  </a>
-  <p class="booking-disclaimer">Aucun paiement à cette étape · Réponse sous 24h</p>
-
-  <div class="booking-info">
-    <div class="binfo"><span>Caution</span> {deposit} €</div>
-    <div class="binfo"><span>Arrivée</span> dès 16h00</div>
-    <div class="binfo"><span>Départ</span> avant 11h00</div>
   </div>
 </div>
 
 <style>
-  .booking-card {
-    background: var(--light);
-    border: 1px solid var(--stone);
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(26,22,18,.08);
+  .booking-widget-card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
   }
 
-  .booking-price {
-    display: flex; align-items: baseline; gap: .4rem;
-    margin-bottom: .4rem;
+  .price-display {
+    margin-bottom: 24px;
   }
-  .price-amount { font-size: 1.05rem; color: var(--mid); }
-  .price-amount strong {
+
+  .price-value {
     font-family: var(--font-display);
-    font-size: 1.9rem; font-weight: 300; color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
   }
-  .price-unit { font-size: .82rem; color: var(--mid); }
-  .booking-note { font-size: .75rem; color: var(--mid); margin-bottom: 1.5rem; }
 
-  .booking-dates {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: end;
-    border: 1px solid var(--stone);
-    border-radius: 4px;
+  .price-unit {
+    color: var(--mid);
+    font-size: 0.9rem;
+  }
+
+  /* Le conteneur de formulaire style Abritel/Airbnb */
+  .booking-inputs-container {
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    margin-bottom: 16px;
     overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .date-input { padding: .75rem 1rem; }
-  .date-input label {
-    display: block;
-    font-size: .65rem; font-weight: 500; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--warm); margin-bottom: .3rem;
-  }
-  .date-input input {
-    border: none; background: transparent;
-    font-family: var(--font-body); font-size: .9rem; color: var(--dark);
-    width: 100%; cursor: pointer; outline: none;
-  }
-  .date-sep { padding: .5rem; color: var(--stone); font-size: 1.1rem; }
-
-  .booking-guests {
-    display: flex; justify-content: space-between; align-items: center;
-    border: 1px solid var(--stone); border-radius: 4px;
-    padding: .75rem 1rem; margin-bottom: 1.5rem;
-  }
-  .booking-guests label {
-    font-size: .75rem; font-weight: 500; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--mid);
-  }
-  .guest-counter { display: flex; align-items: center; gap: 1rem; }
-  .guest-btn {
-    background: var(--stone); border: none; cursor: pointer;
-    width: 28px; height: 28px; border-radius: 50%;
-    font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
-    transition: background .2s;
-  }
-  .guest-btn:hover { background: var(--warm); color: var(--light); }
-  #guestCount {
-    font-family: var(--font-display); font-size: 1.3rem;
-    min-width: 1.5rem; text-align: center;
   }
 
-  .booking-summary { margin-bottom: 1.5rem; }
-  .summary-row {
-    display: flex; justify-content: space-between;
-    font-size: .88rem; color: var(--mid);
-    padding: .4rem 0; border-bottom: 1px solid var(--stone);
-  }
-  .summary-total {
-    font-weight: 500; color: var(--dark); font-size: .95rem;
-    padding-top: .8rem; border-bottom: none;
+  .date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .btn-book {
-    display: block; width: 100%;
-    background: var(--warm); color: var(--dark); text-align: center;
-    font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-    padding: 1rem; border-radius: 4px;
-    transition: opacity .2s, transform .2s;
-    margin-bottom: .8rem;
+  .input-field {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
   }
-  .btn-book:hover { opacity: .88; transform: translateY(-1px); }
-  .booking-disclaimer { font-size: .72rem; color: var(--mid); text-align: center; margin-bottom: 1.2rem; }
 
-  .booking-info {
-    display: flex; flex-direction: column; gap: .4rem;
-    padding-top: 1rem; border-top: 1px solid var(--stone);
+  .border-right { border-right: 1px solid #b0b0b0; }
+  .border-top { border-top: 1px solid #b0b0b0; }
+
+  label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 4px;
   }
-  .binfo { font-size: .82rem; color: var(--mid); display: flex; gap: .5rem; }
-  .binfo span { color: var(--dark); font-weight: 500; min-width: 60px; }
+
+  input, select {
+    border: none;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+    color: var(--dark);
+    padding: 0;
+  }
+
+  .cta-button {
+    width: 100%;
+    background-color: #E61E4D; /* Rouge Abritel */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .cta-button:active {
+    transform: scale(0.98);
+  }
+
+  .disclaimer {
+    font-size: 12px;
+    color: var(--mid);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.4;
+  }
+
+  /* Résumé de prix (calculé en JS) */
+  .price-summary {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+  }
+
+  .hidden { display: none; }
+
+  .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: var(--mid);
+  }
+
+  .total-line {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--dark);
+    margin-top: 16px;
+    font-size: 1.1rem;
+  }
 </style>
 
-<script define:vars={{ pricePerNight, cleaningFee, maxGuests, email, giteName }}>
-  let guests = 2;
-  const guestCountEl = document.getElementById('guestCount');
+<script is:inline define:vars={{ pricePerNight, cleaningFee }}>
+  // Utilisation de define:vars pour injecter les données du serveur dans le client
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('abritel-submit');
+    const inInput = document.getElementById('chkin');
+    const outInput = document.getElementById('chkout');
+    const adultsSelect = document.getElementById('adults');
+    const summary = document.getElementById('price-summary');
 
-  document.getElementById('guestMinus').addEventListener('click', () => {
-    if (guests > 1) { guests--; guestCountEl.textContent = guests; updateSummary(); }
+    function updatePrice() {
+      const start = new Date(inInput.value);
+      const end = new Date(outInput.value);
+
+      if (start && end && end > start) {
+        const diffTime = Math.abs(end - start);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        document.getElementById('days-count').innerText = diffDays;
+        const baseTotal = diffDays * pricePerNight;
+        document.getElementById('subtotal-amount').innerText = `${baseTotal}€`;
+        document.getElementById('final-total').innerText = `${baseTotal + cleaningFee}€`;
+
+        summary.classList.remove('hidden');
+      } else {
+        summary.classList.add('hidden');
+      }
+    }
+
+    inInput.addEventListener('change', updatePrice);
+    outInput.addEventListener('change', updatePrice);
+
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const chkin = inInput.value;
+      const chkout = outInput.value;
+      const adults = adultsSelect.value;
+
+      // Construction de l'URL propre avec les paramètres Abritel corrects
+      let url = `https://www.abritel.fr/location-vacances/${id}`;
+
+      // On n'ajoute les paramètres que s'ils sont remplis
+      const params = new URLSearchParams();
+      if (chkin) params.append('chkin', chkin);
+      if (chkout) params.append('chkout', chkout);
+      if (adults) params.append('adults', adults);
+
+      if (params.toString()) {
+        url += `?${params.toString()}`;
+      }
+
+      window.open(url, '_blank');
+    });
   });
-  document.getElementById('guestPlus').addEventListener('click', () => {
-    if (guests < maxGuests) { guests++; guestCountEl.textContent = guests; updateSummary(); }
-  });
-
-  function updateSummary() {
-    const checkin  = document.getElementById('checkin').value;
-    const checkout = document.getElementById('checkout').value;
-    if (!checkin || !checkout) return;
-
-    const nights = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
-    if (nights <= 0) return;
-
-    const subtotal = nights * pricePerNight;
-    const total    = subtotal + cleaningFee;
-
-    document.getElementById('summaryNights').textContent   = `${nights} nuit${nights > 1 ? 's' : ''} × ${pricePerNight} €`;
-    document.getElementById('summarySubtotal').textContent = `${subtotal} €`;
-    document.getElementById('grandTotal').textContent      = `${total} €`;
-    document.getElementById('bookingSummary').hidden       = false;
-
-    // Met à jour le lien mailto avec les dates et le nombre de voyageurs
-    const d1 = new Date(checkin).toLocaleDateString('fr-FR');
-    const d2 = new Date(checkout).toLocaleDateString('fr-FR');
-    document.getElementById('btnBook').href =
-      `mailto:${email}?subject=Réservation%20${encodeURIComponent(giteName)}`
-      + `&body=Bonjour%2C%0A%0AJe%20souhaite%20réserver%20${encodeURIComponent(giteName)}`
-      + `%20du%20${encodeURIComponent(d1)}%20au%20${encodeURIComponent(d2)}`
-      + `%20pour%20${guests}%20personne${guests > 1 ? 's' : ''}.%0A%0AMerci.`;
-  }
-
-  document.getElementById('checkin').addEventListener('change', updateSummary);
-  document.getElementById('checkout').addEventListener('change', updateSummary);
 </script>

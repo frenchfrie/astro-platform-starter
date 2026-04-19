@@ -11,6 +11,7 @@ const gites = defineCollection({
         maxGuests: z.number(),
         deposit: z.number(),
         abritelUrl: z.string().url(),
+        abritelId: z.string(),
         photos: z.array(z.object({
             src: z.string(),
             alt: z.string()

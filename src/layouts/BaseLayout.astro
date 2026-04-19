@@ -11,6 +11,8 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 
 const isHome = activePage === 'home';
+const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-feydoux';
+
 ---
 
 <!DOCTYPE html>
@@ -22,6 +24,7 @@ const isHome = activePage === 'home';
   <meta name="description" content={description} />
 </head>
 <body class={isHome ? 'home-page' : ''}>
+
 <nav class="site-nav" id="main-nav">
   <div class="nav-container">
     <a href="/" class="logo">
@@ -32,7 +35,17 @@ const isHome = activePage === 'home';
       <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'logis' ? 'active' : ''}>Le Logis</a></li>
       <li><a href="/gites/la-garenne" class={activePage === 'garenne' ? 'active' : ''}>La Garenne</a></li>
       <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>La Région</a></li>
-      <li><a href="/contact" class="nav-cta">Réserver</a></li>
+      <li>{isGitePage ? (
+          /* Sur une page gîte, on pointe vers l'ID du widget de la page */
+          <a href="#booking-section" class="nav-cta">Réserver ce gîte</a>
+      ) : (
+          /* Ailleurs, on ouvre une sélection */
+          <button class="nav-cta" id="reserve-trigger">Réserver</button>
+          <div class="reserve-dropdown" id="reserve-menu">
+            <a href="/gites/le-logis-de-feydoux">Le Logis de Feydoux</a>
+            <a href="/gites/la-garenne">La Garenne</a>
+          </div>
+      )}</li>
     </ul>
 
     <button class="mobile-toggle" aria-label="Menu">
@@ -170,7 +183,31 @@ const isHome = activePage === 'home';
     .nav-links { display: none; } /* À remplacer par un menu "burger" */
   }
 
+  .nav-cta-container { position: relative; }
 
+  .reserve-dropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: var(--cream);
+    border: 1px solid var(--stone);
+    min-width: 200px;
+    display: none; /* Caché par défaut */
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .reserve-dropdown.show { display: flex; }
+
+  .reserve-dropdown a {
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--dark);
+    border-bottom: 1px solid var(--light);
+    text-decoration: none;
+  }
+
+  .reserve-dropdown a:hover { background: white; color: var(--warm); }
 
 </style>
 <script is:inline>
@@ -182,5 +219,19 @@ const isHome = activePage === 'home';
       nav.classList.remove('scrolled');
     }
   });
+
+  // Petit script JS pur pour le toggle du menu
+  const trigger = document.getElementById('reserve-trigger');
+  const menu = document.getElementById('reserve-menu');
+
+  if (trigger) {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('show');
+    });
+
+    // Fermer si on clique ailleurs
+    document.addEventListener('click', () => menu.classList.remove('show'));
+  }
 </script>
 </html>
