@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Récupération et tri des articles par date décroissante
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Le Blog du Domaine" activePage="blog">
+    <main class="blog-index">
+        <header class="blog-header">
+            <h1>Carnet de Voyage</h1>
+            <p>Découvrez la vie au domaine et nos secrets sur le Périgord Noir.</p>
+        </header>
+
+        <div class="blog-grid">
+            {posts.map(post => (
+                <article class="post-card">
+                    <a href={`/blog/${post.slug}`}>
+                        <div class="post-image">
+                            {/* Note: À remplacer par <Image /> pour la perf */}
+                            <img src={post.data.image} alt={post.data.title} />
+                        </div>
+                        <div class="post-content">
+                            <span class="category">{post.data.category.replace('-', ' ')}</span>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.excerpt}</p>
+                            <span class="read-more">Lire l'article →</span>
+                        </div>
+                    </a>
+                </article>
+            ))}
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .blog-index { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 3rem;
+    }
+    .post-card a { text-decoration: none; color: inherit; }
+    .category { color: var(--warm); font-size: 0.7rem; text-transform: uppercase; font-weight: 700; }
+    .post-card h2 { font-family: var(--font-display); margin: 0.5rem 0; font-size: 1.5rem; }
+    .post-image { aspect-ratio: 16/9; background: var(--stone); overflow: hidden; border-radius: 4px; }
+    .post-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .post-card:hover img { transform: scale(1.05); }
+</style>

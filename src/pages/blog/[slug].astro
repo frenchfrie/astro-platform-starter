@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const blogEntries = await getCollection('blog');
+    return blogEntries.map(entry => ({
+        params: { slug: entry.slug }, props: { entry }
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} activePage="blog">
+    <article class="post-article">
+        <header>
+            <span class="date">{entry.data.date.toLocaleDateString('fr-FR')}</span>
+            <h1>{entry.data.title}</h1>
+        </header>
+
+        <div class="prose">
+            <Content />
+        </div>
+    </article>
+</BaseLayout>
+
+<style is:global>
+    .post-article {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 8rem 2rem;
+    }
+
+    h1 {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-style: italic;
+        margin: 1rem 0 3rem;
+    }
+
+    /* Utilisation de :global pour styliser le HTML généré par le Markdown */
+    .prose :global(p) {
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        color: var(--mid);
+    }
+
+    .prose :global(img) {
+        width: 100%;
+        border-radius: 8px;
+        margin: 2rem 0;
+    }
+
+    /* On cible .prose pour ne pas casser le reste du site */
+    .prose h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        border-bottom: 1px solid var(--warm);
+        display: inline-block;
+    }
+
+    .prose ul {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .prose li {
+        margin-bottom: 0.8rem;
+        list-style: none;
+        position: relative;
+    }
+
+    /* Petit rappel de ton style "Boutique" */
+    .prose li::before {
+        content: "∗";
+        position: absolute;
+        left: -1.5rem;
+        color: var(--warm);
+    }
+
+    .prose blockquote {
+        border-left: 3px solid var(--warm);
+        padding: 1rem 2rem;
+        margin: 2rem 0;
+        background: var(--cream);
+        font-style: italic;
+        color: var(--dark);
+    }
+
+    .prose strong {
+        color: var(--dark);
+        font-weight: 600;
+    }
+</style>

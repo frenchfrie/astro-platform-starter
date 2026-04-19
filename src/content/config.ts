@@ -21,4 +21,19 @@ const gites = defineCollection({
     }),
 });
 
-export const collections = { gites };
+const blogCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        excerpt: z.string(),
+        date: z.date(),
+        category: z.enum(['vie-du-domaine', 'activites', 'gastronomie', 'patrimoine']),
+        image: z.string().optional(), // Chemin vers l'image dans assets
+        featured: z.boolean().default(false),
+    }),
+});
+
+export const collections = {
+    'blog': blogCollection,
+    gites
+};

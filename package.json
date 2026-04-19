@@ -7,7 +7,8 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "sanitize": "./sanitize-assets.sh src/assets"
     },
     "dependencies": {
         "@astrojs/netlify": "^6.6.0",

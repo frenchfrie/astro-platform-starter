@@ -35,6 +35,7 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
       <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'le-logis-de-feydoux' ? 'active' : ''}>Le Logis</a></li>
       <li><a href="/gites/la-garenne" class={activePage === 'la-garenne' ? 'active' : ''}>La Garenne</a></li>
       <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>La Région</a></li>
+      <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Blog</a></li>
       <li>{isGitePage ? (
           /* Sur une page gîte, on pointe vers l'ID du widget de la page */
           <a href="#booking-section" class="nav-cta">Réserver ce gîte</a>
