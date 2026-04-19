@@ -9,16 +9,16 @@
     "abritelUrl": "https://www.abritel.fr/location-vacances/p2664380",
     "abritelId": "p2664380",
     "photos": [
-        {"src":  "/src/assets/gites/vue-aerienne-cote.jpg", "alt": "Vue extérieure — La Garenne"},
-        {"src":  "/src/assets/gites/vue-aerienne-face.jpg", "alt":  "Vue aérienne de face"},
-        {"src":  "/src/assets/gites/sejour.jpg", "alt":  "Séjour"},
-        {"src":  "/src/assets/gites/sejour.jpg", "alt":  "Cuisine"},
-        {"src":  "/src/assets/gites/chambre-eucalyptus-glace.jpg", "alt": "Chambre principale"},
-        {"src":  "/src/assets/gites/douche-ardoise.jpg", "alt":  "Salle de bain"},
-        {"src":  "/src/assets/gites/penderie-entree-la-garenne.jpg", "alt": "Penderie de l'entrée"},
-        {"src":  "/src/assets/gites/portes.jpg", "alt":  "Portes"},
-        {"src":  "/src/assets/gites/salle-de-douche.jpg", "alt":  "Salle de douche"},
-        {"src":  "/src/assets/gites/sejour-coin-frigo.jpg", "alt":  "Séjour coin frigo"}
+        { "src": "/src/assets/gites/vue-aerienne-cote.jpg", "alt": "Vue extérieure — La Garenne" },
+        { "src": "/src/assets/gites/vue-aerienne-face.jpg", "alt": "Vue aérienne de face" },
+        { "src": "/src/assets/gites/sejour.jpg", "alt": "Séjour" },
+        { "src": "/src/assets/gites/sejour.jpg", "alt": "Cuisine" },
+        { "src": "/src/assets/gites/chambre-eucalyptus-glace.jpg", "alt": "Chambre principale" },
+        { "src": "/src/assets/gites/douche-ardoise.jpg", "alt": "Salle de bain" },
+        { "src": "/src/assets/gites/penderie-entree-la-garenne.jpg", "alt": "Penderie de l'entrée" },
+        { "src": "/src/assets/gites/portes.jpg", "alt": "Portes" },
+        { "src": "/src/assets/gites/salle-de-douche.jpg", "alt": "Salle de douche" },
+        { "src": "/src/assets/gites/sejour-coin-frigo.jpg", "alt": "Séjour coin frigo" }
     ],
     "amenities": {
         "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
@@ -26,13 +26,5 @@
         "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
         "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
     },
-    "features": [
-        "Jacuzzi privatif",
-        "Piscine chauffée",
-        "Cuisine équipée",
-        "Wifi gratuit",
-        "Barbecue",
-        "Parking privé",
-        "Jardin clos"
-    ]
+    "features": ["Jacuzzi privatif", "Piscine chauffée", "Cuisine équipée", "Wifi gratuit", "Barbecue", "Parking privé", "Jardin clos"]
 }

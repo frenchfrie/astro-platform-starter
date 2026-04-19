@@ -1,4 +1,3 @@
-
 /* On réinjecte le CSS structurel essentiel qui était dans vos fichiers d'origine */
 .main-layout {
     display: grid;
@@ -49,7 +48,9 @@
     color: var(--mid);
 }
 
-.amenity-item .icon { color: var(--warm); }
+.amenity-item .icon {
+    color: var(--warm);
+}
 
 .col-booking {
     position: sticky;
@@ -58,6 +59,11 @@
 }
 
 @media (max-width: 1024px) {
-    .main-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .col-booking { position: static; }
+    .main-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .col-booking {
+        position: static;
+    }
 }

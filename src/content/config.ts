@@ -2,23 +2,26 @@ import { defineCollection, z } from 'astro:content';
 
 const gites = defineCollection({
     type: 'data',
-    schema: ({ image }) => z.object({
-        id: z.string(),
-        title: z.string(),
-        description: z.string(),
-        pricePerNight: z.number(),
-        cleaningFee: z.number(),
-        maxGuests: z.number(),
-        deposit: z.number(),
-        abritelUrl: z.string().url(),
-        abritelId: z.string(),
-        photos: z.array(z.object({
-            src: z.string(),
-            alt: z.string()
-        })),
-        amenities: z.record(z.array(z.string())).optional(),
-        features: z.array(z.string()), // ex: ["Piscine", "Jacuzzi", "Wifi"]
-    }),
+    schema: ({ image }) =>
+        z.object({
+            id: z.string(),
+            title: z.string(),
+            description: z.string(),
+            pricePerNight: z.number(),
+            cleaningFee: z.number(),
+            maxGuests: z.number(),
+            deposit: z.number(),
+            abritelUrl: z.string().url(),
+            abritelId: z.string(),
+            photos: z.array(
+                z.object({
+                    src: z.string(),
+                    alt: z.string()
+                })
+            ),
+            amenities: z.record(z.array(z.string())).optional(),
+            features: z.array(z.string()) // ex: ["Piscine", "Jacuzzi", "Wifi"]
+        })
 });
 
 const blogCollection = defineCollection({
@@ -29,11 +32,11 @@ const blogCollection = defineCollection({
         date: z.date(),
         category: z.enum(['vie-du-domaine', 'activites', 'gastronomie', 'patrimoine']),
         image: z.string().optional(), // Chemin vers l'image dans assets
-        featured: z.boolean().default(false),
-    }),
+        featured: z.boolean().default(false)
+    })
 });
 
 export const collections = {
-    'blog': blogCollection,
+    blog: blogCollection,
     gites
 };

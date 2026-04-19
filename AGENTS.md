@@ -93,7 +93,7 @@ This project leverages TypeScript and React within an Astro framework. Adhering 
 ### General Best Practices
 
 - **Modularity:** Break down code into small, reusable modules and components.
-- **Comments:** Use comments to explain *why* certain decisions were made or for complex logic, rather than *what* the code does (which should be self-evident).
+- **Comments:** Use comments to explain _why_ certain decisions were made or for complex logic, rather than _what_ the code does (which should be self-evident).
 - **Avoid Anti-patterns:** Be mindful of common anti-patterns for Astro, React, and TypeScript.
 - **Accessibility:** Ensure all UI components are built with accessibility in mind.
 - **Performance:** Optimize for performance where necessary, especially for client-side React components.
@@ -103,4 +103,5 @@ This project leverages TypeScript and React within an Astro framework. Adhering 
 No `.cursor/rules/`, `.cursorrules`, or `.github/copilot-instructions.md` files were found in this repository. If such files are introduced in the future, agents should adhere to their instructions.
 
 ---
+
 **Note to Agents:** This `AGENTS.md` file is a living document. If you identify new conventions, build processes, or style guidelines not covered here, please propose updates.

@@ -2,5 +2,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Configuration existante
+    // Configuration existante
 });

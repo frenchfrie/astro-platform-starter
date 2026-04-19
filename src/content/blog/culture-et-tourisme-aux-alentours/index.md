@@ -1,9 +1,9 @@
 ---
-title: "Culture et tourisme aux alentours"
-excerpt: "Culture et tourisme aux alentours"
+title: 'Culture et tourisme aux alentours'
+excerpt: 'Culture et tourisme aux alentours'
 date: 2026-04-19
-category: "activites"
-image: "/src/assets/feydoux/aerial.jpg"
+category: 'activites'
+image: '/src/assets/feydoux/aerial.jpg'
 featured: true
 ---
 
@@ -29,7 +29,7 @@ Il s’agit de la seule grotte du Périgord qui présente des concrétions natur
 
             Abbaye de Boschaud (12km).
 
-Abbaye cistercienne du XIIe siècle, elle est ruinée par les guerres de religion, d’où la perte de la quasi-totalité de son cartulaire et de ses archives, elle est restaurée au XVIIe siècle, mais ferme avec la révolution. Elle présente la particularité de n’être pas construite près d’un cours d’eau mais de n’avoir été alimentée que par des puits.  Elle est devenue la propriété du village de Villars en 1967 et accueille désormais des manifestations culturelles.
+Abbaye cistercienne du XIIe siècle, elle est ruinée par les guerres de religion, d’où la perte de la quasi-totalité de son cartulaire et de ses archives, elle est restaurée au XVIIe siècle, mais ferme avec la révolution. Elle présente la particularité de n’être pas construite près d’un cours d’eau mais de n’avoir été alimentée que par des puits. Elle est devenue la propriété du village de Villars en 1967 et accueille désormais des manifestations culturelles.
 
 Château de Puyguilhem (11km).
 
@@ -45,4 +45,4 @@ Château fin XV début XVIe siècle, il présente une étonnante cuisine encore 
 
             Marché de Thiviers (15km).
 
-Il vous accueille chaque samedi matin, avenue Foch, devant l’église et les rues adjacentes. Plus de  100 stands sont dressés pour vous faire découvrir les produits du terroirs de cette capitale revendiquée du foie gras. Un autre marché se tient le mardi avec des producteurs locaux, uniquement pendant la saison estivale.
+Il vous accueille chaque samedi matin, avenue Foch, devant l’église et les rues adjacentes. Plus de 100 stands sont dressés pour vous faire découvrir les produits du terroirs de cette capitale revendiquée du foie gras. Un autre marché se tient le mardi avec des producteurs locaux, uniquement pendant la saison estivale.

@@ -8,7 +8,9 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "sanitize": "./sanitize-assets.sh src/assets"
+        "sanitize": "./sanitize-assets.sh src/assets",
+        "lint": "eslint .",
+        "format": "prettier --write ."
     },
     "dependencies": {
         "@astrojs/netlify": "^6.6.0",
@@ -36,6 +38,8 @@
         "eslint": "^9.39.4",
         "eslint-plugin-astro": "^1.7.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
-        "eslint-plugin-markdown": "^5.1.0"
+        "eslint-plugin-markdown": "^5.1.0",
+        "prettier": "^3.8.3",
+        "prettier-plugin-astro": "^0.14.1"
     }
 }

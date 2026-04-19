@@ -6,53 +6,53 @@ import markdown from 'eslint-plugin-markdown';
 export default [
     // 1. Global Ignore (Safety first)
     {
-        ignores: ["dist/", ".astro/", "node_modules/", "public/"]
+        ignores: ['dist/', '.astro/', 'node_modules/', 'public/']
     },
 
     // 2. TypeScript/JS Logic
     {
-        files: ["**/*.{js,ts,jsx,tsx}"],
+        files: ['**/*.{js,ts,jsx,tsx}'],
         plugins: {
-            '@typescript-eslint': tsPlugin,
+            '@typescript-eslint': tsPlugin
         },
         languageOptions: {
-            parser: tsParser,
+            parser: tsParser
         },
         rules: {
             ...tsPlugin.configs.recommended.rules,
-            "no-console": "warn",
+            'no-console': 'warn'
         }
     },
 
     // 3. Astro Components
     ...astroPlugin.configs.recommended,
     {
-        files: ["**/*.astro"],
+        files: ['**/*.astro'],
         languageOptions: {
             parser: astroPlugin.parser,
             parserOptions: {
                 parser: tsParser,
-                extraFileExtensions: [".astro"],
-            },
+                extraFileExtensions: ['.astro']
+            }
         },
         rules: {
-            "astro/no-unused-define-vars-in-style": "error",
-            "astro/jsx-a11y/anchor-is-valid": "warn",
-        },
+            'astro/no-unused-define-vars-in-style': 'error',
+            'astro/jsx-a11y/anchor-is-valid': 'warn'
+        }
     },
 
     // 4. Markdown Content
     {
-        files: ["**/*.md"],
+        files: ['**/*.md'],
         plugins: { markdown },
-        processor: "markdown/markdown",
+        processor: 'markdown/markdown'
     },
     // This lints the code blocks inside Markdown
     {
-        files: ["**/*.md/*.js", "**/*.md/*.ts"],
+        files: ['**/*.md/*.js', '**/*.md/*.ts'],
         rules: {
-            "no-console": "off",
-            "@typescript-eslint/no-unused-vars": "off"
+            'no-console': 'off',
+            '@typescript-eslint/no-unused-vars': 'off'
         }
     }
 ];

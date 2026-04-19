@@ -37,32 +37,22 @@ export default function BookingWidget({ pricePerNight, cleaningFee, maxGuests, a
                 <div className="grid grid-cols-2 border border-stone-300 rounded-lg overflow-hidden">
                     <div className="p-2 border-r border-stone-300">
                         <label className="block text-[10px] uppercase font-bold text-stone-500">Arrivée</label>
-                        <input
-                            type="date"
-                            className="w-full text-sm focus:outline-none"
-                            onChange={(e) => setDates({ ...dates, checkin: e.target.value })}
-                        />
+                        <input type="date" className="w-full text-sm focus:outline-none" onChange={(e) => setDates({ ...dates, checkin: e.target.value })} />
                     </div>
                     <div className="p-2">
                         <label className="block text-[10px] uppercase font-bold text-stone-500">Départ</label>
-                        <input
-                            type="date"
-                            className="w-full text-sm focus:outline-none"
-                            onChange={(e) => setDates({ ...dates, checkout: e.target.value })}
-                        />
+                        <input type="date" className="w-full text-sm focus:outline-none" onChange={(e) => setDates({ ...dates, checkout: e.target.value })} />
                     </div>
                 </div>
 
                 {/* Voyageurs */}
                 <div className="border border-stone-300 rounded-lg p-2">
                     <label className="block text-[10px] uppercase font-bold text-stone-500">Voyageurs</label>
-                    <select
-                        value={guests}
-                        onChange={(e) => setGuests(parseInt(e.target.value))}
-                        className="w-full text-sm focus:outline-none bg-transparent"
-                    >
+                    <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value))} className="w-full text-sm focus:outline-none bg-transparent">
                         {[...Array(maxGuests)].map((_, i) => (
-                            <option key={i+1} value={i+1}>{i+1} personne{i > 0 ? 's' : ''}</option>
+                            <option key={i + 1} value={i + 1}>
+                                {i + 1} personne{i > 0 ? 's' : ''}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -77,15 +67,15 @@ export default function BookingWidget({ pricePerNight, cleaningFee, maxGuests, a
                     Réserver sur Abritel
                 </a>
 
-                <p className="text-[11px] text-center text-stone-400">
-                    Vous allez être redirigé vers notre partenaire Abritel
-                </p>
+                <p className="text-[11px] text-center text-stone-400">Vous allez être redirigé vers notre partenaire Abritel</p>
 
                 {/* Récapitulatif dynamique */}
                 {bookingDetails && (
                     <div className="pt-4 border-t border-stone-100 space-y-2 animate-in fade-in slide-in-from-top-2">
                         <div className="flex justify-between text-sm text-stone-600">
-                            <span>{pricePerNight}€ x {bookingDetails.nights} nuits</span>
+                            <span>
+                                {pricePerNight}€ x {bookingDetails.nights} nuits
+                            </span>
                             <span>{bookingDetails.subtotal}€</span>
                         </div>
                         <div className="flex justify-between text-sm text-stone-600">

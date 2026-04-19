@@ -1,35 +1,27 @@
 {
-  "id": "le-logis-de-feydoux",
-  "title": "Le logis de Feydoux",
-  "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
-  "pricePerNight": 180,
-  "cleaningFee": 120,
-  "maxGuests": 8,
-  "deposit": 500,
-  "abritelUrl": "https://www.abritel.fr/location-vacances/p2664458",
-  "abritelId": "p2664458",
-  "photos": [
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Vue Le logis avec piscine.jpg", "alt": "Vue extérieure — Le Logis de Feydoux" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Chambre grande étage 2.jpg", "alt": "Séjour" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Chambre grande étage.jpg", "alt": "Cuisine" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Escalier gîte Le Logis.jpg", "alt": "Chambre principale" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Grande chambre étage.jpg", "alt": "Chambre double" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre étage.jpg", "alt": "Salle de bain" },
-    { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre placard.jpg", "alt": "Piscine" }
-  ],
-  "amenities": {
-    "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
-    "Cuisine": ["🍳 Cuisine équipée grand format", "🧊 Réfrigérateur + congélateur", "☕ Machine à café", "🧹 Lave-vaisselle"],
-    "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
-    "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
-  },
-  "features": [
-    "Jacuzzi privatif",
-    "Piscine chauffée",
-    "Cuisine équipée",
-    "Wifi gratuit",
-    "Barbecue",
-    "Parking privé",
-    "Jardin clos"
-  ]
+    "id": "le-logis-de-feydoux",
+    "title": "Le logis de Feydoux",
+    "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
+    "pricePerNight": 180,
+    "cleaningFee": 120,
+    "maxGuests": 8,
+    "deposit": 500,
+    "abritelUrl": "https://www.abritel.fr/location-vacances/p2664458",
+    "abritelId": "p2664458",
+    "photos": [
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Vue Le logis avec piscine.jpg", "alt": "Vue extérieure — Le Logis de Feydoux" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Chambre grande étage 2.jpg", "alt": "Séjour" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Chambre grande étage.jpg", "alt": "Cuisine" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Escalier gîte Le Logis.jpg", "alt": "Chambre principale" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Grande chambre étage.jpg", "alt": "Chambre double" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre étage.jpg", "alt": "Salle de bain" },
+        { "src": "/src/assets/gites/le-logis-de-feydoux/Petite chambre placard.jpg", "alt": "Piscine" }
+    ],
+    "amenities": {
+        "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
+        "Cuisine": ["🍳 Cuisine équipée grand format", "🧊 Réfrigérateur + congélateur", "☕ Machine à café", "🧹 Lave-vaisselle"],
+        "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
+        "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
+    },
+    "features": ["Jacuzzi privatif", "Piscine chauffée", "Cuisine équipée", "Wifi gratuit", "Barbecue", "Parking privé", "Jardin clos"]
 }

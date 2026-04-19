@@ -50,19 +50,19 @@ The project uses a comprehensive Tailwind CSS setup with custom theme variables 
 
 ```css
 @theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-serif: Georgia, 'Times New Roman', serif;
-    --color-primary: #8b6f4e;
-    --color-primary-light: #c4a97d;
-    --color-primary-dark: #5c4a33;
-    --color-accent: #6b7f3a;
-    --color-accent-light: #a3b86c;
-    --color-warm: #f5f0e8;
-    --color-warm-dark: #e8dfd2;
-    --color-text: #3a3226;
-    --color-text-light: #6b5e4f;
-    --color-complementary: #f5f0e8;
-    --color-primary-content: #ffffff;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --color-primary: #8b6f4e;
+  --color-primary-light: #c4a97d;
+  --color-primary-dark: #5c4a33;
+  --color-accent: #6b7f3a;
+  --color-accent-light: #a3b86c;
+  --color-warm: #f5f0e8;
+  --color-warm-dark: #e8dfd2;
+  --color-text: #3a3226;
+  --color-text-light: #6b5e4f;
+  --color-complementary: #f5f0e8;
+  --color-primary-content: #ffffff;
 }
 ```
 
@@ -87,6 +87,7 @@ The project is configured for Netlify deployment with:
 ### Setup
 
 1. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -98,18 +99,19 @@ The project is configured for Netlify deployment with:
 
 ### Commands
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build production site |
-| `npm run preview` | Preview build locally |
-| `npm run astro` | Run Astro CLI commands |
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build production site    |
+| `npm run preview` | Preview build locally    |
+| `npm run astro`   | Run Astro CLI commands   |
 
 ## Configuration Files
 
 ### Astro Configuration
 
 The project uses Astro's default configuration with:
+
 - Static site generation
 - Tailwind CSS integration
 - React support
@@ -118,6 +120,7 @@ The project uses Astro's default configuration with:
 ### VS Code Configuration
 
 The project includes recommended VS Code settings:
+
 - Tab size: 4 for most files, 2 for YAML/TOML/Markdown
 - Auto-formatting on save
 - Tailwind CSS language support
@@ -125,6 +128,7 @@ The project includes recommended VS Code settings:
 ## Deployment
 
 The project is configured for deployment to Netlify with:
+
 - Automatic builds from GitHub
 - Edge Functions for serverless logic
 - Image optimization via Netlify's Image CDN
