@@ -1,8 +1,5 @@
 ---
 // src/components/HeroGallery.astro
-// Props : photos[] avec { src, alt }
-// La première photo est la principale, les 4 suivantes forment la grille.
-
 interface Photo {
   src: string;
   alt: string;
@@ -18,7 +15,7 @@ const thumbs = photos.slice(1, 5);
 ---
 
 <section class="hero-gallery">
-  <div class="hero-main">
+  <div class="hero-main clickable" data-index="0" tabindex="0" role="button" aria-label="Ouvrir la galerie">
     <img src={main.src} alt={main.alt} />
     <button class="gallery-btn" id="openGallery">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -30,15 +27,14 @@ const thumbs = photos.slice(1, 5);
   </div>
 
   <div class="hero-grid">
-    {thumbs.map(p => (
-      <div class="hero-thumb">
-        <img src={p.src} alt={p.alt} />
-      </div>
+    {thumbs.map((p, i) => (
+        <div class="hero-thumb clickable" data-index={i + 1}>
+          <img src={p.src} alt={p.alt} />
+        </div>
     ))}
   </div>
 </section>
 
-<!-- ─── LIGHTBOX ── -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
   <button class="lb-prev"  id="lbPrev"  aria-label="Précédent">‹</button>
@@ -62,12 +58,14 @@ const thumbs = photos.slice(1, 5);
     background: var(--dark);
   }
 
-  .hero-main {
-    position: relative;
-    overflow: hidden;
+  .clickable { cursor: pointer; position: relative; overflow: hidden; }
+
+  .hero-main img, .hero-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s ease;
   }
-  .hero-main img { transition: transform .6s ease; }
-  .hero-main:hover img { transform: scale(1.03); }
+
+  .hero-main:hover img, .hero-thumb:hover img { transform: scale(1.04); }
 
   .gallery-btn {
     position: absolute;
@@ -81,6 +79,7 @@ const thumbs = photos.slice(1, 5);
     padding: .6rem 1.2rem;
     border-radius: 2px;
     transition: background .2s;
+    z-index: 10;
   }
   .gallery-btn:hover { background: var(--cream); }
 
@@ -90,11 +89,8 @@ const thumbs = photos.slice(1, 5);
     grid-template-rows: 1fr 1fr;
     gap: 4px;
   }
-  .hero-thumb { overflow: hidden; }
-  .hero-thumb img { transition: transform .5s ease; }
-  .hero-thumb:hover img { transform: scale(1.06); }
 
-  /* ── Lightbox ── */
+  /* ── Lightbox (Identique au précédent) ── */
   .lightbox {
     position: fixed; inset: 0; z-index: 1000;
     background: rgba(10,8,6,.97);
@@ -147,6 +143,41 @@ const thumbs = photos.slice(1, 5);
     .hero-grid { display: none; }
     .hero-gallery { grid-template-rows: 70vw; }
   }
+
+  .clickable {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* Force le curseur même sur les zones vides du conteneur */
+    display: block;
+  }
+
+  /* Optionnel : un léger overlay au survol pour feedback visuel */
+  .clickable::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s ease;
+  }
+
+  .clickable:hover::after {
+    background: rgba(0,0,0,0.1);
+  }
+
+  /* Empêche l'image de bloquer le hover du parent si besoin */
+  .clickable img {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Mais on veut que le bouton reste cliquable par dessus */
+  .gallery-btn {
+    pointer-events: auto;
+    z-index: 10;
+  }
 </style>
 
 <script define:vars={{ photos }}>
@@ -160,18 +191,24 @@ const thumbs = photos.slice(1, 5);
     lbImg.src = photos[current].src;
     lbImg.alt = photos[current].alt;
     lbCaption.textContent = `${photos[current].alt} · ${current + 1} / ${photos.length}`;
-    document.querySelectorAll('.lb-thumb').forEach((t, i) =>
-      t.classList.toggle('active', i === current)
-    );
+
+    document.querySelectorAll('.lb-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === current);
+      if(i === current) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
   }
 
   function open(index) {
-    current = index;
+    current = parseInt(index);
     if (!lbThumbs.children.length) buildThumbs();
+
+    // 1. On prépare le contenu d'abord (Invisible)
+    render();
+
+    // 2. On affiche ensuite (Évite le flash/changement visible)
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    render();
   }
 
   function close() {
@@ -192,7 +229,21 @@ const thumbs = photos.slice(1, 5);
     });
   }
 
-  document.getElementById('openGallery').addEventListener('click', () => open(0));
+  // Event Listeners sur toutes les images cliquables
+  document.querySelectorAll('.clickable').forEach(el => {
+    el.addEventListener('click', (e) => {
+      // Si on clique sur le bouton "Voir toutes les photos", open(0) sera appelé par son propre listener
+      // e.stopPropagation permet d'éviter les doubles ouvertures
+      if (e.target.closest('#openGallery')) return;
+      open(el.dataset.index);
+    });
+  });
+
+  document.getElementById('openGallery').addEventListener('click', (e) => {
+    e.stopPropagation();
+    open(0);
+  });
+
   document.getElementById('lbClose').addEventListener('click', close);
   document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + photos.length) % photos.length; render(); });
   document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % photos.length; render(); });
