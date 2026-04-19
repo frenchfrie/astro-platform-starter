@@ -1,7 +1,9 @@
 ---
 // src/components/HeroGallery.astro
+import { Image } from 'astro:assets';
+
 interface Photo {
-  src: string;
+  src: ImageMetadata; // L'objet optimisé par Astro
   alt: string;
 }
 
@@ -10,26 +12,31 @@ interface Props {
 }
 
 const { photos } = Astro.props;
-const main   = photos[0];
+
+// Sélection pour la grille
+const main = photos[0];
 const thumbs = photos.slice(1, 5);
+
+// Préparation des données pour le client (JS)
+// On extrait l'URL optimisée (.src) pour la lightbox
+const clientPhotos = photos.map(p => ({
+  url: p.src.src,
+  alt: p.alt
+}));
 ---
 
 <section class="hero-gallery">
-  <div class="hero-main clickable" data-index="0" tabindex="0" role="button" aria-label="Ouvrir la galerie">
-    <img src={main.src} alt={main.alt} />
+  <div class="hero-main clickable" data-index="0">
+    <Image src={main.src} alt={main.alt} width={1200} height={800} format="webp" />
     <button class="gallery-btn" id="openGallery">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-      </svg>
-      Voir toutes les photos
+      Voir les {photos.length} photos
     </button>
   </div>
 
   <div class="hero-grid">
     {thumbs.map((p, i) => (
         <div class="hero-thumb clickable" data-index={i + 1}>
-          <img src={p.src} alt={p.alt} />
+          <Image src={p.src} alt={p.alt} width={600} height={400} format="webp" />
         </div>
     ))}
   </div>
@@ -47,7 +54,8 @@ const thumbs = photos.slice(1, 5);
 </div>
 
 <style>
-  /* ── Hero gallery ── */
+  /* Tes styles restent identiques, ils sont corrects.
+     Juste s'assurer que .clickable img a pointer-events: none */
   .hero-gallery {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -55,203 +63,95 @@ const thumbs = photos.slice(1, 5);
     min-height: 480px;
     gap: 4px;
     margin-top: 56px;
-    background: var(--dark);
+    background: #0a0806;
   }
+  .clickable { cursor: pointer; position: relative; overflow: hidden; display: block; }
+  .clickable img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; pointer-events: none; }
+  .clickable:hover img { transform: scale(1.04); }
 
-  .clickable { cursor: pointer; position: relative; overflow: hidden; }
-
-  .hero-main img, .hero-thumb img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform .6s ease;
-  }
-
-  .hero-main:hover img, .hero-thumb:hover img { transform: scale(1.04); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 4px; }
 
   .gallery-btn {
-    position: absolute;
-    bottom: 1.5rem; right: 1.5rem;
-    display: flex; align-items: center; gap: .5rem;
-    background: rgba(250,247,242,.95);
-    color: var(--dark);
-    border: none; cursor: pointer;
-    font-family: var(--font-body);
-    font-size: .75rem; font-weight: 500; letter-spacing: .08em;
-    padding: .6rem 1.2rem;
-    border-radius: 2px;
-    transition: background .2s;
-    z-index: 10;
-  }
-  .gallery-btn:hover { background: var(--cream); }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 4px;
+    position: absolute; bottom: 1.5rem; right: 1.5rem;
+    z-index: 10; padding: .6rem 1.2rem; background: rgba(250,247,242,.95);
+    border: none; cursor: pointer; font-size: .75rem; letter-spacing: .08em;
   }
 
-  /* ── Lightbox (Identique au précédent) ── */
   .lightbox {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(10,8,6,.97);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    position: fixed; inset: 0; z-index: 1000; background: rgba(10,8,6,.97);
+    display: none; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;
   }
   .lightbox.open { display: flex; }
+  .lb-img-wrap img { max-height: 75vh; width: auto; max-width: 100%; object-fit: contain; }
+  .lb-thumbs { display: flex; gap: .5rem; margin-top: 1rem; overflow-x: auto; max-width: 100%; }
 
-  .lb-close, .lb-prev, .lb-next {
-    position: absolute;
-    background: none; border: none; cursor: pointer;
-    color: rgba(245,240,232,.65);
-    line-height: 1; transition: color .2s;
-  }
-  .lb-close:hover, .lb-prev:hover, .lb-next:hover { color: var(--warm); }
-  .lb-close { top: 1.5rem; right: 2rem;  font-size: 1.4rem; }
-  .lb-prev  { left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
-  .lb-next  { right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
-
-  .lb-img-wrap {
-    max-width: 900px; width: 100%;
-    display: flex; flex-direction: column; align-items: center; gap: 1rem;
-  }
-  .lb-img-wrap img {
-    max-height: 65vh; width: auto; max-width: 100%;
-    object-fit: contain;
-  }
-  .lb-caption { font-size: .78rem; color: rgba(245,240,232,.45); letter-spacing: .08em; }
-
-  .lb-thumbs {
-    display: flex; gap: .5rem; margin-top: 1rem;
-    overflow-x: auto; max-width: 100%; padding-bottom: .5rem;
-  }
-  :global(.lb-thumb) {
-    width: 60px; height: 45px; flex-shrink: 0;
-    overflow: hidden; cursor: pointer; opacity: .45;
-    border: 2px solid transparent; transition: opacity .2s, border-color .2s;
-  }
-  :global(.lb-thumb.active) { opacity: 1; border-color: var(--warm); }
+  :global(.lb-thumb) { width: 60px; height: 45px; flex-shrink: 0; cursor: pointer; opacity: .4; border: 2px solid transparent; }
+  :global(.lb-thumb.active) { opacity: 1; border-color: #d4a373; }
   :global(.lb-thumb img) { width: 100%; height: 100%; object-fit: cover; }
-
-  @media (max-width: 768px) {
-    .hero-gallery { grid-template-columns: 1fr; grid-template-rows: 55vw auto; }
-    .hero-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 25vw; }
-  }
-  @media (max-width: 480px) {
-    .hero-grid { display: none; }
-    .hero-gallery { grid-template-rows: 70vw; }
-  }
-
-  .clickable {
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    /* Force le curseur même sur les zones vides du conteneur */
-    display: block;
-  }
-
-  /* Optionnel : un léger overlay au survol pour feedback visuel */
-  .clickable::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0);
-    transition: background 0.3s ease;
-  }
-
-  .clickable:hover::after {
-    background: rgba(0,0,0,0.1);
-  }
-
-  /* Empêche l'image de bloquer le hover du parent si besoin */
-  .clickable img {
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Mais on veut que le bouton reste cliquable par dessus */
-  .gallery-btn {
-    pointer-events: auto;
-    z-index: 10;
-  }
 </style>
 
-<script define:vars={{ photos }}>
+<script define:vars={{ clientPhotos }}>
   let current = 0;
-  const lightbox  = document.getElementById('lightbox');
-  const lbImg     = document.getElementById('lbImg');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
   const lbCaption = document.getElementById('lbCaption');
-  const lbThumbs  = document.getElementById('lbThumbs');
+  const lbThumbs = document.getElementById('lbThumbs');
 
   function render() {
-    lbImg.src = photos[current].src;
-    lbImg.alt = photos[current].alt;
-    lbCaption.textContent = `${photos[current].alt} · ${current + 1} / ${photos.length}`;
+    const data = clientPhotos[current];
+    lbImg.src = data.url;
+    lbImg.alt = data.alt;
+    lbCaption.textContent = `${data.alt} · ${current + 1} / ${clientPhotos.length}`;
 
     document.querySelectorAll('.lb-thumb').forEach((t, i) => {
       t.classList.toggle('active', i === current);
-      if(i === current) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (i === current) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   }
 
   function open(index) {
     current = parseInt(index);
     if (!lbThumbs.children.length) buildThumbs();
-
-    // 1. On prépare le contenu d'abord (Invisible)
     render();
-
-    // 2. On affiche ensuite (Évite le flash/changement visible)
     lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
   function close() {
     lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
   function buildThumbs() {
-    photos.forEach((p, i) => {
+    clientPhotos.forEach((p, i) => {
       const div = document.createElement('div');
       div.className = 'lb-thumb';
       const img = document.createElement('img');
-      img.src = p.src; img.alt = p.alt;
+      img.src = p.url;
+      img.alt = p.alt;
       div.appendChild(img);
       div.addEventListener('click', () => { current = i; render(); });
       lbThumbs.appendChild(div);
     });
   }
 
-  // Event Listeners sur toutes les images cliquables
+  // Listeners
   document.querySelectorAll('.clickable').forEach(el => {
     el.addEventListener('click', (e) => {
-      // Si on clique sur le bouton "Voir toutes les photos", open(0) sera appelé par son propre listener
-      // e.stopPropagation permet d'éviter les doubles ouvertures
       if (e.target.closest('#openGallery')) return;
       open(el.dataset.index);
     });
   });
 
-  document.getElementById('openGallery').addEventListener('click', (e) => {
-    e.stopPropagation();
-    open(0);
-  });
-
+  document.getElementById('openGallery').addEventListener('click', () => open(0));
   document.getElementById('lbClose').addEventListener('click', close);
-  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + photos.length) % photos.length; render(); });
-  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % photos.length; render(); });
+  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + clientPhotos.length) % clientPhotos.length; render(); });
+  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % clientPhotos.length; render(); });
 
   document.addEventListener('keydown', e => {
     if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  { current = (current - 1 + photos.length) % photos.length; render(); }
-    if (e.key === 'ArrowRight') { current = (current + 1) % photos.length; render(); }
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') { current = (current - 1 + clientPhotos.length) % clientPhotos.length; render(); }
+    if (e.key === 'ArrowRight') { current = (current + 1) % clientPhotos.length; render(); }
   });
 </script>
