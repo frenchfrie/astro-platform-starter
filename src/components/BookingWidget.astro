@@ -10,13 +10,6 @@ const { pricePerNight, abritelId, cleaningFee } = Astro.props;
 
 <div class="booking-widget-container" id="booking-widget">
   <div class="booking-card">
-    <div class="price-header">
-      <div class="price-main">
-        <span class="amount">{pricePerNight}€</span>
-        <span class="label">/ nuit (à partir de)</span>
-      </div>
-      <div class="source-tag">Source : Abritel</div>
-    </div>
 
     <div class="selection-box">
       <div class="date-row">
@@ -42,30 +35,6 @@ const { pricePerNight, abritelId, cleaningFee } = Astro.props;
     <button id="abritel-link-btn" class="primary-button" data-id={abritelId}>
       Vérifier sur Abritel
     </button>
-
-    <div class="legal-notice">
-      <p>
-        <strong>Note importante :</strong> Les tarifs et disponibilités sont donnés à titre indicatif.
-        Seule la plateforme <strong>Abritel</strong> fait foi pour le calcul final de votre séjour.
-      </p>
-    </div>
-
-    <div id="estimate-summary" class="summary-box hidden">
-      <h4>Estimation du séjour</h4>
-      <div class="summary-item">
-        <span>{pricePerNight}€ x <span id="display-nights">0</span> nuits</span>
-        <span id="display-base">0€</span>
-      </div>
-      <div class="summary-item">
-        <span>Frais de ménage</span>
-        <span>{cleaningFee}€</span>
-      </div>
-      <div class="summary-total">
-        <span>Total estimé *</span>
-        <span id="display-total">0€</span>
-      </div>
-      <p class="footnote">* Hors taxes de séjour et frais de service Abritel.</p>
-    </div>
   </div>
 </div>
 

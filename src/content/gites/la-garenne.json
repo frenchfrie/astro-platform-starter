@@ -1,6 +1,6 @@
 {
     "id": "la-garenne",
-    "title": "La Garenne",
+    "title": "La Garenne - LOGO",
     "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
     "pricePerNight": 180,
     "cleaningFee": 120,
@@ -11,7 +11,7 @@
     "photos": [
         { "src": "../../assets/gites/la-garenne/exterieur-vue-aerienne-face.jpg", "alt": "Vue aérienne de La Garenne" },
         { "src": "../../assets/gites/la-garenne/salon.jpg", "alt": "Le salon chaleureux" },
-        { "src": "../../assets/gites/la-garenne/jacuzzi-exterieur.jpg", "alt": "Jacuzzi privé extérieur" },
+        { "src": "../../assets/gites/la-garenne/jacuzzi-exterieur.jpg", "alt": "SPA privé extérieur" },
         { "src": "../../assets/gites/la-garenne/chambre-celadon-1.jpg", "alt": "Chambre Céladon" },
         { "src": "../../assets/gites/la-garenne/cuisine.jpg", "alt": "Cuisine équipée moderne" },
 
@@ -42,13 +42,13 @@
         { "src": "../../assets/gites/la-garenne/exterieur-vue-garenne.jpg", "alt": "Extérieur Garenne" },
         { "src": "../../assets/gites/la-garenne/ferrures.jpg", "alt": "Détail ferrures historiques" },
         { "src": "../../assets/gites/la-garenne/porte-noyer.jpg", "alt": "Porte en noyer massif" },
-        { "src": "../../assets/gites/la-garenne/sdd.jpg", "alt": "Salle d'eau secondaire" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-sdd-2.jpg", "alt": "Salle d'eau secondaire" },
         { "src": "../../assets/gites/la-garenne/sejour.jpg", "alt": "Séjour lumineux" },
         { "src": "../../assets/gites/la-garenne/sejour-2.jpg", "alt": "Séjour vue 2" },
         { "src": "../../assets/gites/la-garenne/sejour-coin-frigo.jpg", "alt": "Espace froid" },
         { "src": "../../assets/gites/la-garenne/sejour-salle-a-manger.jpg", "alt": "Espace repas" },
         { "src": "../../assets/gites/la-garenne/volet-interieur-chambre.jpg", "alt": "Volet intérieur traditionnel" },
-        { "src": "../../assets/gites/la-garenne/vue-sur-cour.jpg", "alt": "Vue sur la cour intérieure" }
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-vue-sur-cour.jpg", "alt": "Vue sur la cour intérieure" }
     ],
     "amenities": {
         "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
@@ -56,5 +56,5 @@
         "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
         "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
     },
-    "features": ["Jacuzzi privatif", "Piscine chauffée", "Cuisine équipée", "Wifi gratuit", "Barbecue", "Parking privé", "Jardin clos"]
+    "features": ["SPA privatif", "Piscine chauffée", "Cuisine équipée", "Wifi gratuit", "Barbecue", "Parking privé", "Jardin clos"]
 }

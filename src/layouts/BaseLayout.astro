@@ -27,14 +27,14 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
 <nav class="site-nav" id="main-nav">
   <div class="nav-container">
     <a href="/" class="logo">
-      Le Domaine <span>Feydoux</span>
+      Les gîtes de <span>Feydoux</span>
     </a>
 
     <ul class="nav-links">
       <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'le-logis-de-feydoux' ? 'active' : ''}>Le Logis</a></li>
       <li><a href="/gites/la-garenne" class={activePage === 'la-garenne' ? 'active' : ''}>La Garenne</a></li>
-      <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>La Région</a></li>
-      <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Blog</a></li>
+      <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>A proximité</a></li>
+      <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Pour aller plus loin</a></li>
 
       {/* CORRECTION ICI : Ajout de la classe dropdown-anchor sur le li */}
       <li class="dropdown-anchor">
@@ -44,11 +44,11 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
             <>
               <button class="nav-cta" id="reserve-trigger">Réserver</button>
               <div class="reserve-dropdown" id="reserve-menu">
-                <a href="/gites/le-logis-de-feydoux">
+                <a href="/gites/le-logis-de-feydoux#booking-widget">
                   <strong>Le Logis de Feydoux</strong>
                   <span>6 personnes • Piscine</span>
                 </a>
-                <a href="/gites/la-garenne">
+                <a href="/gites/la-garenne#booking-widget">
                   <strong>La Garenne</strong>
                   <span>4 personnes • Jardin</span>
                 </a>
