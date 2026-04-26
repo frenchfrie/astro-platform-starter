@@ -9,6 +9,7 @@ interface Props {
 const { title, description, activePage} = Astro.props;
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import logoUrl from '../assets/logo-feydoux.svg?url';
 
 const isHome = activePage === 'home';
 ---
@@ -25,8 +26,9 @@ const isHome = activePage === 'home';
 
 <nav class="site-nav" id="main-nav">
   <div class="nav-container">
-    <a href="/" class="logo">
-      Les gîtes de <span>Feydoux</span>
+    <a href="/" class="logo" aria-label="Domaine de Feydoux — Accueil">
+      <img src={logoUrl} alt="" height="52" />
+      <span class="logo-text">Les gîtes de <strong>Feydoux</strong></span>
     </a>
 
     <button class="hamburger" id="hamburger-btn" aria-label="Menu">
@@ -136,21 +138,37 @@ const isHome = activePage === 'home';
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-style: italic;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--dark);
+    flex-shrink: 0;
   }
 
-
-  .logo span {
-    font-weight: 300;
-    color: var(--warm);
-    text-transform: uppercase;
-    font-size: 0.7rem;
+  .logo img {
+    height: 52px;
+    width: auto;
     display: block;
+    transition: opacity var(--transition);
+  }
+
+  .logo:hover img { opacity: 0.75; }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  .logo-text strong {
+    display: block;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.65rem;
+    text-transform: uppercase;
     letter-spacing: 3px;
+    color: var(--warm);
   }
 
   .nav-links {
