@@ -21,9 +21,9 @@ import { Image } from 'astro:assets';
 ---
 
 <BaseLayout title="Découvrir le Périgord Vert" activePage="region">
-    <main class="region-container">
+    <main class="page-container">
         <header class="region-header">
-            <span class="section-label">Évasion</span>
+            <span class="label">Évasion</span>
             <h1>Le Périgord Vert</h1>
             <p class="lead">Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les trésors de la Dordogne.</p>
         </header>
@@ -83,12 +83,6 @@ import { Image } from 'astro:assets';
 </BaseLayout>
 
 <style>
-    .region-container {
-        max-width: var(--max-width, 1300px);
-        margin: 0 auto;
-        padding: 6rem var(--side-pad);
-    }
-
     .region-header {
         text-align: center;
         max-width: 800px;
@@ -102,20 +96,6 @@ import { Image } from 'astro:assets';
         color: var(--dark);
         line-height: 1;
         margin: 0.5rem 0 2rem;
-    }
-
-    .section-label {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 0.8rem;
-        color: var(--warm);
-        font-weight: 500;
-    }
-
-    .lead {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        color: var(--mid);
     }
 
     /* Grille de découverte */

@@ -4,13 +4,13 @@ import { Image } from 'astro:assets';
 // Importe une belle photo de famille ou du domaine si tu en as une
 // import familleImg from '../assets/domaine-famille.jpg';
 
-import photoDomaine from '../assets/feydoux/chateau_face.jpg';
+import photoDomaine from '../assets/feydoux/chateau-face.jpg';
 ---
 
 <BaseLayout title="Notre Histoire" activePage="a-propos">
-    <main class="about-container">
+    <main class="page-container">
         <header class="about-header">
-            <span class="section-label">L'âme du lieu</span>
+            <span class="label">L'âme du lieu</span>
             <h1>Notre Histoire</h1>
         </header>
 
@@ -59,12 +59,6 @@ import photoDomaine from '../assets/feydoux/chateau_face.jpg';
 </BaseLayout>
 
 <style>
-    .about-container {
-        max-width: var(--max-width, 1300px);
-        margin: 0 auto;
-        padding: 6rem var(--side-pad);
-    }
-
     .about-header {
         text-align: center;
         margin-bottom: 5rem;
@@ -76,14 +70,6 @@ import photoDomaine from '../assets/feydoux/chateau_face.jpg';
         font-style: italic;
         color: var(--dark);
         margin-top: 0.5rem;
-    }
-
-    .section-label {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 0.8rem;
-        color: var(--warm);
-        font-weight: 500;
     }
 
     .story-grid {

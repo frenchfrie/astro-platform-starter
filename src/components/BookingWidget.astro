@@ -50,11 +50,11 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
   }
 
   .booking-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 16px;
+    background: var(--light);
+    border: 1px solid var(--stone);
+    border-radius: var(--radius-lg);
     padding: 24px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-card);
   }
 
   .price-header {
@@ -89,7 +89,7 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 
   /* Le cadre de saisie */
   .selection-box {
-    border: 1px solid #ccc;
+    border: 1px solid var(--stone);
     border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -98,7 +98,7 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
   .date-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--stone);
   }
 
   .field {
@@ -107,21 +107,21 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
     flex-direction: column;
   }
 
-  .border-left { border-left: 1px solid #ccc; }
-  .border-top { border-top: 1px solid #ccc; }
+  .border-left { border-left: 1px solid var(--stone); }
+  .border-top { border-top: 1px solid var(--stone); }
 
   label {
     font-size: 9px;
     font-weight: 900;
     text-transform: uppercase;
-    color: #333;
+    color: var(--dark);
     margin-bottom: 4px;
   }
 
   input, select {
     border: none;
     font-size: 14px;
-    color: #444;
+    color: var(--mid);
     outline: none;
     background: transparent;
     cursor: pointer;
@@ -129,36 +129,38 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 
   .primary-button {
     width: 100%;
-    background: linear-gradient(135deg, #E61E4D 0%, #D70466 100%);
-    color: white;
+    background: var(--warm);
+    color: var(--dark);
     border: none;
     padding: 16px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 700;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: opacity var(--transition), transform var(--transition);
     margin-bottom: 20px;
   }
 
   .primary-button:hover {
+    opacity: 0.88;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(230, 30, 77, 0.3);
   }
 
   .legal-notice {
     font-size: 11px;
     color: var(--mid);
     line-height: 1.5;
-    background: #f9f9f9;
+    background: var(--cream);
     padding: 12px;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     margin-bottom: 20px;
   }
 
   /* Résumé des prix */
   .summary-box {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--stone);
     padding-top: 20px;
   }
 
@@ -183,13 +185,13 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
     font-size: 1.1rem;
     margin-top: 16px;
     color: var(--dark);
-    border-top: 1px dotted #ccc;
+    border-top: 1px dotted var(--stone);
     padding-top: 16px;
   }
 
   .footnote {
     font-size: 10px;
-    color: #999;
+    color: var(--mid);
     margin-top: 10px;
     font-style: italic;
   }

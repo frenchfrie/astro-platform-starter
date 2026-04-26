@@ -6,19 +6,33 @@
 
 /* ── TOKENS ── */
 :root {
+    /* ── Palette ── */
     --cream: #f5f0e8;
     --stone: #e8e0d0;
     --warm: #c8a96e;
     --dark: #1a1612;
     --mid: #5a4a38;
     --light: #faf7f2;
+    --dark-rgb: 26, 22, 18;
+    --warm-rgb: 200, 169, 110;
 
-    --max-width: 1600px;
+    /* ── Typography ── */
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Jost', sans-serif;
 
+    /* ── Layout ── */
+    --max-width: 1300px;
     --section-pad: clamp(4rem, 8vw, 7rem);
     --side-pad: clamp(1.5rem, 7vw, 6rem);
+    --nav-height: 56px;
+
+    /* ── Tokens UI ── */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.06);
+    --transition: 0.2s;
 }
 
 /* ── RESET ── */
@@ -65,6 +79,48 @@ img {
 }
 
 /* ── UTILITAIRES ── */
+
+/* Text clamping */
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp-1 { -webkit-line-clamp: 1; }
+.line-clamp-2 { -webkit-line-clamp: 2; }
+.line-clamp-3 { -webkit-line-clamp: 3; }
+.line-clamp-4 { -webkit-line-clamp: 4; }
+
+/* Accessible inline links — use .link on <a> inside body copy */
+.link {
+    color: var(--mid);
+    text-decoration: underline;
+    text-decoration-color: var(--warm);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+.link:hover {
+    color: var(--warm);
+    text-decoration-color: var(--warm);
+}
+.link:visited {
+    color: var(--mid);
+    text-decoration-color: var(--stone);
+}
+
+/* Global focus ring — applies to all interactive elements */
+:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
 .label {
     display: inline-block;
     font-family: var(--font-body);
@@ -118,80 +174,18 @@ img {
 }
 .btn-ghost:hover {
     border-color: var(--warm);
-    background: rgba(200, 169, 110, 0.08);
+    background: rgba(var(--warm-rgb), 0.08);
 }
 
-/* ── FOOTER ── */
-footer {
-    background: var(--dark);
-    color: rgba(245, 240, 232, 0.65);
+/* ── PAGE UTILITIES ── */
+.page-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem var(--side-pad);
 }
 
-.footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    padding: 4rem var(--side-pad) 3rem;
-    border-bottom: 1px solid rgba(245, 240, 232, 0.08);
-}
-
-.footer-brand .logo {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-style: italic;
-    color: var(--cream);
-    margin-bottom: 0.75rem;
-}
-.footer-brand p {
-    font-size: 0.88rem;
-    line-height: 1.7;
-}
-
-.footer-nav h4,
-.footer-contact h4 {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--warm);
-    margin-bottom: 1rem;
-}
-
-.footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-.footer-nav a {
-    font-size: 0.88rem;
-    color: rgba(245, 240, 232, 0.6);
-    transition: color 0.2s;
-}
-.footer-nav a:hover {
-    color: var(--cream);
-}
-
-.footer-contact p {
-    font-size: 0.88rem;
-    line-height: 1.9;
-}
-
-.footer-bottom {
-    padding: 1.5rem var(--side-pad);
-    font-size: 0.75rem;
-    color: rgba(245, 240, 232, 0.3);
-}
-
-/* ── RESPONSIVE FOOTER ── */
-@media (max-width: 900px) {
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-}
-@media (max-width: 580px) {
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
+.lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--mid);
 }

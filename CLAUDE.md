@@ -47,12 +47,49 @@ Home page (`activePage="home"`) has no top padding (the hero fills the viewport)
 
 ### Styling
 
-- **Design tokens** are CSS custom properties defined in `src/styles/global.css`: `--cream`, `--stone`, `--warm`, `--dark`, `--mid`, `--light`, `--font-display` (Cormorant Garamond), `--font-body` (Jost), `--section-pad`, `--side-pad`, `--max-width`.
-- Page-level styles are scoped `<style>` blocks inside each `.astro` file.
-- Shared component styles live in `src/styles/gite-components.css`.
-- Tailwind utility classes are used in the React `BookingWidget.tsx` only.
+The CSS is organized in three layers. Always respect this structure — do not bypass it.
+
+#### Layer 1 — Design tokens (`src/styles/global.css` `:root`)
+
+All visual values live here as CSS custom properties. **Never hardcode a color, shadow, radius, or transition value outside of `:root`.** Always use the matching token.
+
+| Group | Tokens |
+|---|---|
+| Palette | `--cream`, `--stone`, `--warm`, `--dark`, `--mid`, `--light` |
+| RGB variants (for `rgba()`) | `--dark-rgb`, `--warm-rgb` |
+| Typography | `--font-display`, `--font-body` |
+| Layout | `--max-width` (1300px), `--section-pad`, `--side-pad`, `--nav-height` |
+| UI | `--radius-sm` (2px), `--radius-md` (4px), `--radius-lg` (16px), `--shadow-soft`, `--shadow-card`, `--transition` |
+
+#### Layer 2 — Global utilities (`src/styles/global.css` below `:root`)
+
+Reusable classes that any page or component may use without redefinition:
+
+- `.page-container` — standard max-width content wrapper (use this instead of per-page container classes)
+- `.label` — uppercase accent label in `--warm` (replaces `.section-label`, `.subtitle` variants)
+- `.lead` — large intro paragraph
+- `.line-clamp-1` → `.line-clamp-4` — text truncation
+- `.link` — accessible inline anchor with underline + focus ring
+- `.btn-primary`, `.btn-ghost` — shared button styles
+- `:focus-visible` — global keyboard focus ring
+
+**Rules:**
+- Do not redefine these utilities in scoped `<style>` blocks. Use the global class directly in HTML.
+- Do not add a new scoped `.section-label`, `.subtitle`, or page container class — use `.label` and `.page-container`.
+
+#### Layer 3 — Component/page scoped styles
+
+Scoped `<style>` blocks inside `.astro` files contain only layout and structure specific to that component or page. They must not duplicate Layer 2 utilities and must not contain hardcoded color/shadow/radius values — use tokens.
+
+- `src/components/*.astro` — component-scoped styles
+- `src/pages/**/*.astro` — page-scoped styles
+
+#### What does NOT exist
+
+- `src/styles/gite-components.css` — deleted, do not recreate it.
+- Tailwind utility classes are used in `BookingWidget.tsx` only.
 - All images are processed through `astro:assets` (`<Image>` component) with explicit `width`, `height`, and `format="webp"`.
-  /model
+
 ### Adding a new gîte
 
 1. Create `src/content/gites/<slug>.json` following the schema in `src/content/config.ts`.
