@@ -1,5 +1,5 @@
 ---
-title: 'La Gastronomie en Périgord Noir : Un festival de saveurs'
+title: 'La Gastronomie en Périgord Vert : Un festival de saveurs'
 excerpt: 'Truffes, foies gras, cèpes et confits... Découvrez pourquoi notre région est la capitale mondiale du bien-vivre.'
 date: 2026-04-15
 category: 'gastronomie'

@@ -1,6 +1,6 @@
 ---
 title: 'Activités Nature : Entre rivière et forêts'
-excerpt: "Randonnées, VTT ou descentes en canoë, le Périgord Noir est un terrain de jeu infini pour les amoureux d'outdoor."
+excerpt: "Randonnées, VTT ou descentes en canoë, le Périgord Vert est un terrain de jeu infini pour les amoureux d'outdoor."
 date: 2026-04-10
 category: 'activites'
 image: '/assets/blog/nature.jpg'

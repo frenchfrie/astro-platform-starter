@@ -1,13 +1,13 @@
 ---
 title: 'Top 5 des activités incontournables autour de Sarlat'
-excerpt: 'De la cité médiévale aux jardins suspendus de Marqueyssac, découvrez comment réussir votre séjour en Périgord Noir.'
+excerpt: 'De la cité médiévale aux jardins suspendus de Marqueyssac, découvrez comment réussir votre séjour en Périgord Vert.'
 date: 2026-04-19
 category: 'activites'
 image: '/src/assets/feydoux/aerial.jpg'
 featured: true
 ---
 
-Le Périgord Noir est une terre d'histoire et de gastronomie. Depuis le **Domaine de Feydoux**, vous êtes idéalement placés pour rayonner vers les sites les plus prestigieux de la région. Voici notre sélection personnelle pour ne rien manquer.
+Le Périgord Vert est une terre d'histoire et de gastronomie. Depuis le **Domaine de Feydoux**, vous êtes idéalement placés pour rayonner vers les sites les plus prestigieux de la région. Voici notre sélection personnelle pour ne rien manquer.
 
 ## 1. Perdre le sens du temps à Sarlat
 

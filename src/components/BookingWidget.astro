@@ -3,9 +3,11 @@ interface Props {
   pricePerNight: number;
   abritelId: string;
   cleaningFee: number;
+  maxGuests?: number;
 }
 
-const { pricePerNight, abritelId, cleaningFee } = Astro.props;
+const { pricePerNight, abritelId, cleaningFee, maxGuests = 4 } = Astro.props;
+const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 ---
 
 <div class="booking-widget-container" id="booking-widget">
@@ -25,7 +27,7 @@ const { pricePerNight, abritelId, cleaningFee } = Astro.props;
       <div class="field border-top">
         <label>Voyageurs</label>
         <select id="guest-count">
-          {[1, 2, 3, 4].map(n => (
+          {guestOptions.map(n => (
               <option value={n} selected={n === 2}>{n} voyageur{n > 1 ? 's' : ''}</option>
           ))}
         </select>
@@ -44,6 +46,7 @@ const { pricePerNight, abritelId, cleaningFee } = Astro.props;
     top: 100px;
     width: 100%;
     max-width: 380px;
+    scroll-margin-top: calc(var(--nav-height) + 1.5rem);
   }
 
   .booking-card {

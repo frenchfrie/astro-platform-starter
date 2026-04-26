@@ -6,12 +6,12 @@ Source: `doc/ux_feedbacks.md`
 
 ## Navigation
 
-- [ ] Uniformiser la couleur des liens nav : blanc partout (actuellement variable selon la page)
-- [ ] Corriger le décalage du bouton "Réserver" dans la nav (il pousse les liens gîtes)
-- [ ] Unifier les deux composants BookingWidget (`.astro` et `.tsx`) en un seul
-- [ ] Corriger le bouton "Réserver" nav : le scroll vers `#booking-widget` ne fonctionne pas
-- [ ] Dropdown nav "Réserver" : rediriger directement sur Abritel (sans passer par la page gîte)
-- [ ] Responsive nav : corriger l'affichage mobile (menu caché sans hamburger)
+- [x] Uniformiser la couleur des liens nav : blanc partout (actuellement variable selon la page)
+- [x] Corriger le décalage du bouton "Réserver" dans la nav (il pousse les liens gîtes)
+- [x] Unifier les deux composants BookingWidget (`.astro` et `.tsx`) en un seul
+- [x] Corriger le bouton "Réserver" nav : le scroll vers `#booking-widget` ne fonctionne pas
+- [x] Dropdown nav "Réserver" : rediriger directement sur Abritel (sans passer par la page gîte)
+- [x] Responsive nav : corriger l'affichage mobile (menu caché sans hamburger)
 
 ---
 

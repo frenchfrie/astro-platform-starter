@@ -11,7 +11,6 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 
 const isHome = activePage === 'home';
-const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-feydoux';
 ---
 
 <!DOCTYPE html>
@@ -30,31 +29,30 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
       Les gîtes de <span>Feydoux</span>
     </a>
 
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <ul class="nav-links">
       <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'le-logis-de-feydoux' ? 'active' : ''}>Le Logis</a></li>
       <li><a href="/gites/la-garenne" class={activePage === 'la-garenne' ? 'active' : ''}>La Garenne</a></li>
       <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>A proximité</a></li>
       <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Pour aller plus loin</a></li>
 
-      {/* CORRECTION ICI : Ajout de la classe dropdown-anchor sur le li */}
       <li class="dropdown-anchor">
-        {isGitePage ? (
-            <a href="#booking-widget" class="nav-cta">Réserver ce gîte</a>
-        ) : (
-            <>
-              <button class="nav-cta" id="reserve-trigger">Réserver</button>
-              <div class="reserve-dropdown" id="reserve-menu">
-                <a href="/gites/le-logis-de-feydoux#booking-widget">
-                  <strong>Le Logis de Feydoux</strong>
-                  <span>6 personnes • Piscine</span>
-                </a>
-                <a href="/gites/la-garenne#booking-widget">
-                  <strong>La Garenne</strong>
-                  <span>4 personnes • Jardin</span>
-                </a>
-              </div>
-            </>
-        )}
+        <button class="nav-cta" id="reserve-trigger">Réserver</button>
+        <div class="reserve-dropdown" id="reserve-menu">
+          <a href="https://www.abritel.fr/location-vacances/p2664458" target="_blank" rel="noopener noreferrer">
+            <strong>Le Logis de Feydoux</strong>
+            <span>6 personnes • Piscine</span>
+          </a>
+          <a href="https://www.abritel.fr/location-vacances/p2664380" target="_blank" rel="noopener noreferrer">
+            <strong>La Garenne</strong>
+            <span>4 personnes • Jardin</span>
+          </a>
+        </div>
       </li>
     </ul>
   </div>
@@ -84,6 +82,22 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     });
     document.addEventListener('click', () => menu.classList.remove('show'));
   }
+
+  const hamburger = document.getElementById('hamburger-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  }
 </script>
 
 </body>
@@ -103,13 +117,13 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     align-items: center;
     padding: 0 var(--side-pad);
     transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
   }
 
   .site-nav.scrolled {
-    background: rgba(255, 255, 255, 0.95);
     height: 70px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
   }
 
   .nav-container {
@@ -128,6 +142,7 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     text-decoration: none;
     color: var(--dark);
   }
+
 
   .logo span {
     font-weight: 300;
@@ -155,6 +170,7 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     position: relative;
   }
 
+
   .nav-links a:not(.nav-cta)::after {
     content: '';
     position: absolute;
@@ -177,11 +193,15 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     padding: 0.7rem 1.4rem;
     border: none;
     border-radius: 2px;
+    font-family: var(--font-body);
     font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    text-decoration: none;
     cursor: pointer;
     transition: background 0.3s;
+    display: inline-block;
   }
 
   .nav-cta:hover { background: var(--warm); }
@@ -233,8 +253,59 @@ const isGitePage = activePage === 'la-garenne' || activePage === 'le-logis-de-fe
     text-transform: uppercase;
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--dark);
+    transition: all 0.3s;
+  }
+
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 768px) {
-    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.5rem var(--side-pad);
+      gap: 1.5rem;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links a:not(.nav-cta) { font-size: 1rem; color: var(--dark); }
+
+    .dropdown-anchor { width: 100%; }
+
+    .nav-cta { display: block; text-align: center; }
+
+    .reserve-dropdown {
+      position: static;
+      width: 100%;
+      margin-top: 0.5rem;
+      box-shadow: none;
+      border-radius: 0;
+    }
   }
 </style>
 </html>
