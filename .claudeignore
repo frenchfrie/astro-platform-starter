@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Binary assets — not useful for code analysis
+src/assets/
+public/images/
+public/favicon.svg
+
+# IDE / OS
+.idea/
+.vscode/
