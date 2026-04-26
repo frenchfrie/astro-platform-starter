@@ -15,150 +15,42 @@ const {
   'aria-hidden': ariaHidden,
 } = Astro.props;
 ---
-
 <svg
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:cc="http://creativecommons.org/ns#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.w3.org/2000/svg"
     viewBox={viewBox}
     height={height}
     width="auto"
-    style={`color: ${color}`}
+    style={`color: ${color}; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round;`}
     class={className}
     aria-hidden={ariaHidden}
     role={ariaHidden ? undefined : 'img'}
 >
-    <defs>
-        <clipPath id="clipPath18" clipPathUnits="userSpaceOnUse">
-            <path d="M 0,1080 H 1920 V 0 H 0 Z" />
-        </clipPath>
-        <clipPath id="clipPath146" clipPathUnits="userSpaceOnUse">
-            <path d="M 0,1080 H 1920 V 0 H 0 Z" />
-        </clipPath>
-    </defs>
-    <g transform="matrix(1.3333333,0,0,-1.3333333,0,1440)">
-        <g>
-            <g clip-path="url(#clipPath18)">
-                <g transform="translate(1149.6333,519.1176)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="m 0,0 c 0,-116.903 -84.298,-211.672 -188.284,-211.672 -103.987,0 -188.284,94.769 -188.284,211.672 0,116.903 84.297,211.672 188.284,211.672 C -84.298,211.672 0,116.903 0,0 Z" />
-                </g>
-                <g transform="translate(1163.1903,519.1514)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="m 0,0 c 0,-125.369 -90.402,-227 -201.919,-227 -111.516,0 -201.918,101.631 -201.918,227 0,125.369 90.402,227 201.918,227 C -90.402,227 0,125.369 0,0 Z" />
-                </g>
-                <path
-                    style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                    d="M 1032.627,574.556 H 891.183 V 372.897 h 141.444 z" />
-                <g transform="translate(985.3312,685.5076)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 C -16.422,-0.127 -32.844,-0.255 -49.266,-0.382 -68.94,-34.384 -88.615,-68.385 -108.289,-102.387 H 59.022 C 39.348,-68.258 19.674,-34.129 0,0 Z" />
-                </g>
-                <g transform="translate(891.1829,473.7265)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 H 141.444" />
-                </g>
-                <path
-                    style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                    d="m 978.194,439.078 h -32.578 v -66.182 h 32.578 z" />
-                <path
-                    style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                    d="m 975.719,497.863 h -27.217 v 52.556 h 27.217 z" />
-                <g transform="translate(962.1111,550.4193)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 V -52.556" />
-                </g>
-                <g transform="translate(948.5028,536.7937)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 H 27.217" />
-                </g>
-                <g transform="translate(948.5028,511.0996)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 H 27.217" />
-                </g>
-                <g transform="translate(983.3483,550.9059)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="m 0,0 h -43.299 c -2.543,3.179 -5.086,6.359 -7.629,9.538 H 8.866 C 5.911,6.359 2.955,3.179 0,0 Z" />
-                </g>
-                <g transform="translate(982.936,439.8936)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="m 0,0 h -43.299 c -2.543,3.23 -5.086,6.459 -7.629,9.689 H 8.866 C 5.911,6.459 2.955,3.23 0,0 Z" />
-                </g>
-                <path
-                    style="fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                    d="m 992.008,489.883 h -59.794 v 7.397 h 59.794 z" />
-                <g transform="translate(1032.627,574.5561)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="m 0,0 h -141.444 c -3.162,2.855 -6.323,5.71 -9.485,8.565 H 8.247 C 5.498,5.71 2.749,2.855 0,0 Z" />
-                </g>
-                <g transform="translate(1032.6921,372.8969)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 H 64.97" />
-                </g>
-                <g transform="translate(1032.6921,493.5545)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 H 115.502" />
-                </g>
-            </g>
-        </g>
+    <style>
+        .adorn { font-family: 'Adorn Copperplate'; fill: currentColor; stroke: none; }
+    </style>
 
+    <g transform="matrix(1.333, 0, 0, -1.333, 0, 1440)">
 
+        <ellipse cx="961.35" cy="519.12" rx="188.28" ry="211.67" stroke-width="4" />
+        <ellipse cx="961.27" cy="519.15" rx="201.92" ry="227" stroke-width="8" />
+
+        <rect x="891.18" y="372.9" width="141.44" height="201.66" stroke-width="2" />
+        <path d="M 985.33,685.5 L 936.06,685.1 L 877.04,583.1 H 1044.35 Z" stroke-width="2" /> <line x1="891.18" y1="473.73" x2="1032.62" y2="473.73" stroke-width="2" />
+
+        <rect x="945.62" y="372.9" width="32.58" height="66.18" stroke-width="2" />
+        <rect x="948.5" y="497.86" width="27.22" height="52.56" stroke-width="2" />
+        <path d="M 962.11,550.4 V 497.8 M 948.5,536.8 H 975.7 M 948.5,511.1 H 975.7" stroke-width="1" />
 
         <defs>
-            <path id="textArc" d="M 711,519 A 250,250 0 0 1 1211,519" fill="none" />
+            <path id="txtArc" d="M 742,600 A 250,225 0 0 1 1163,640" />
         </defs>
-
-        <text
-            style="font-family:'Adorn Copperplate'; font-size:46px; fill:currentColor;"
-            transform="translate(0, 1038) scale(1, -1)"
-        >
-            <textPath href="#textArc" startOffset="50%" text-anchor="middle">
-                Château de Feydoux
-            </textPath>
+        <text class="adorn" font-size="46" transform="translate(0, 1240) scale(1, -1)">
+            <textPath href="#txtArc" startOffset="50%" text-anchor="middle">Château de Feydoux</textPath>
         </text>
 
-        <g>
-            <g clip-path="url(#clipPath146)">
-                <g transform="translate(937.809,685.8049)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 V 19.076 Z" />
-                </g>
-                <g transform="translate(984.809,685.8049)">
-                    <path
-                        style="fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                        d="M 0,0 V 19.076 Z" />
-                </g>
-            </g>
+        <g class="adorn" transform="scale(1, -1)">
+            <text x="834.96" y="-252.18" font-size="27">Ab anno MDCL</text>
+            <text x="778.21" y="-199.38" font-size="44">Fidelis tamen</text>
         </g>
-        <text
-            style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27px;font-family:'Adorn Copperplate';writing-mode:lr-tb;fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none"
-            transform="matrix(1,0,0,-1,834.9585,252.1758)">
-            <tspan y="0"
-                   x="0 26.973 47.384998 55.485001 76.949997 99.549004 121.608 143.64 151.74001 183.54601 209.89799 233.98199">
-                Ab anno MDCL
-            </tspan>
-        </text>
-        <text
-            style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44px;font-family:'Adorn Copperplate';writing-mode:lr-tb;fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none"
-            transform="matrix(1,0,0,-1,778.2109,199.376)">
-            <tspan y="0"
-                   x="0 33.043999 48.487999 82.103996 112.244 139.216 154.66 181.896 195.09599 219.076 254.056 298.80399 329.604">
-                Fidelis tamen
-            </tspan>
-        </text>
     </g>
 </svg>

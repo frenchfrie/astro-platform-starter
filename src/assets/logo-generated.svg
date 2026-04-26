@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+    <defs>
+        <path id="topArcPath" d="M 50,200 A 150,150 0 0,1 350,200" fill="none"/>
+    </defs>
+
+    <rect x="0" y="0" width="400" height="500" fill="#202020"/>
+
+    <g transform="translate(0,0)">
+        <circle cx="200" cy="200" r="160" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="black" stroke-width="1"/>
+
+        <text font-family="classic-serif, serif" font-size="20" fill="black" text-rendering="geometricPrecision">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">CHÂTEAU DE FEYDOUX</textPath>
+        </text>
+
+        <g transform="translate(200,200)">
+            <rect x="-35" y="-50" width="70" height="100" fill="none" stroke="black" stroke-width="1"/>
+
+            <rect x="-10" y="-30" width="20" height="20" fill="none" stroke="black" stroke-width="1"/>
+            <line x1="0" y1="-30" x2="0" y2="-10" stroke="black" stroke-width="1"/>
+            <line x1="-10" y1="-20" x2="10" y2="-20" stroke="black" stroke-width="1"/>
+
+            <rect x="-15" y="10" width="30" height="40" fill="none" stroke="black" stroke-width="1"/>
+
+            <line x1="-35" y1="-50" x2="-20" y2="-100" stroke="black" stroke-width="1"/>
+            <line x1="35" y1="-50" x2="20" y2="-100" stroke="black" stroke-width="1"/>
+            <line x1="-20" y1="-100" x2="20" y2="-100" stroke="black" stroke-width="1"/>
+
+            <line x1="-15" y1="-100" x2="-15" y2="-110" stroke="black" stroke-width="1"/>
+            <line x1="15" y1="-100" x2="15" y2="-110" stroke="black" stroke-width="1"/>
+
+            <rect x="35" y="10" width="40" height="40" fill="none" stroke="black" stroke-width="1"/>
+        </g>
+    </g>
+
+    <g transform="translate(200, 420)">
+        <text x="0" y="0" text-anchor="middle" font-family="classic-serif, serif" font-size="16" fill="black">Ab anno MDCL</text>
+        <text x="0" y="30" text-anchor="middle" font-family="classic-serif, serif" font-size="16" fill="black">Fidelis tamen</text>
+    </g>
+</svg>
