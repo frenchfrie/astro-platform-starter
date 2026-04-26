@@ -73,3 +73,17 @@ Source: `doc/ux_feedbacks.md`
 - [ ] Footer : améliorer l'accessibilité du copyright (contraste, balisage)
 - [ ] Limites entre les photos dans les galeries : passer en blanc (pas noir)
 - [ ] Éviter les contrastes blanc/noir brutaux — rester dans la palette chaude du site
+
+
+
+
+- Lempzours
+- Saint-Jean-de-Côle (6km)
+- Brantôme (15km)
+- Bourdeilles (22km)
+- Grottes de Villars (10km)
+- Abbaye de Boschaud (12km)
+- Château de Puyguilhem (11km)
+- Sorges (9km)
+- Château des Bories (22 km)
+- Marché de Thiviers (15km)

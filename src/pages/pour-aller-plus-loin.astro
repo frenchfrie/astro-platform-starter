@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+// --- À METTRE À JOUR : Importe tes photos de la région ici ---
+// import sarlatImg from '../assets/region/sarlat.jpg';
+// import dordogneImg from '../assets/region/riviere-dordogne.jpg';
+// import gastronomieImg from '../assets/region/marche-perigord.jpg';
+
+// Pourquoi cette structure est "super" ?
+// Le Rythme (Z-Pattern) : En alternant Image-Texte puis Texte-Image, on évite la monotonie et on guide l'œil de l'utilisateur naturellement.
+//
+// L'Information Pratique : Mentionner la distance ("10 minutes") est rassurant pour le locataire qui prépare ses journées.
+//
+// Thémabilité : Le style utilise les mêmes variables (--font-display, --warm) que tes pages de gîtes pour une unité parfaite.
+//
+// SEO local : Les mots-clés "Sarlat", "Périgord Vert", "Dordogne" et "Châteaux" sont placés sémantiquement dans les titres (h2) pour attirer les recherches Google.
+//
+// Note sur les images : Quand tu ajouteras tes propres photos avec <Image />, elles prendront automatiquement tout l'espace de la colonne grâce à l'aspect-ratio, tout en restant optimisées par Astro.
+
+---
+
+<BaseLayout title="Découvrir le Périgord Vert" activePage="region">
+    <main class="page-container">
+        <header class="region-header">
+            <span class="label">Évasion</span>
+            <h1>Le Périgord Vert</h1>
+            <p class="lead">Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les trésors de la Dordogne.</p>
+        </header>
+
+        <section class="discovery-section">
+            <div class="discovery-grid">
+                <div class="discovery-text">
+                    <h2>Sarlat-la-Canéda</h2>
+                    <p class="distance">À seulement 10 minutes du domaine</p>
+                    <p>Capitale du Périgord Vert, Sarlat est une cité médiévale d'une richesse exceptionnelle. Flânez dans ses ruelles pavées, admirez ses façades de calcaire blond et ne manquez pas son célèbre marché le samedi matin pour déguster les produits du terroir.</p>
+                    <ul class="highlights">
+                        <li>∗ Cathédrale Saint-Sacerdos</li>
+                        <li>∗ Lanterne des Morts</li>
+                        <li>∗ Marché couvert (Église Sainte-Marie)</li>
+                    </ul>
+                </div>
+                <div class="discovery-image">
+                    <div class="image-placeholder">
+                        {/* Remplace par : <Image src={sarlatImg} alt="Sarlat" /> */}
+                        <span>Photo : La cité médiévale de Sarlat</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discovery-section alt-bg">
+            <div class="discovery-grid reverse">
+                <div class="discovery-text">
+                    <h2>La Vallée des Châteaux</h2>
+                    <p>Surnommée la vallée des 1001 châteaux, la Dordogne offre des panoramas spectaculaires. Beynac, Castelnaud ou les jardins suspendus de Marqueyssac sont autant d'étapes incontournables à moins de 20 minutes du domaine.</p>
+                    <p><strong>Notre conseil :</strong> Découvrez la vallée depuis la rivière en canoë-kayak pour une perspective unique sur les forteresses médiévales.</p>
+                </div>
+                <div class="discovery-image">
+                    <div class="image-placeholder">
+                        {/* Remplace par : <Image src={dordogneImg} alt="Vallée Dordogne" /> */}
+                        <span>Photo : Vue sur la rivière et les châteaux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discovery-section">
+            <div class="discovery-grid">
+                <div class="discovery-text">
+                    <h2>L'Art de Vivre</h2>
+                    <p>Le Périgord est mondialement connu pour sa table. Truffes, foies gras, cèpes et confits font la renommée de notre région. Nous partagerons avec vous nos meilleures adresses de producteurs locaux et de fermes-auberges authentiques.</p>
+                </div>
+                <div class="discovery-image">
+                    <div class="image-placeholder">
+                        {/* Remplace par : <Image src={gastronomieImg} alt="Gastronomie" /> */}
+                        <span>Photo : Marché local ou table périgourdine</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    .region-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 8rem;
+    }
+
+    .region-header h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-style: italic;
+        color: var(--dark);
+        line-height: 1;
+        margin: 0.5rem 0 2rem;
+    }
+
+    /* Grille de découverte */
+    .discovery-section {
+        margin-bottom: 8rem;
+        padding: 4rem 0;
+    }
+
+    .discovery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .discovery-grid.reverse {
+        direction: rtl; /* Inverse l'ordre visuel sur desktop */
+    }
+
+    .discovery-grid.reverse .discovery-text {
+        direction: ltr; /* Remet le texte dans le bon sens */
+    }
+
+    .discovery-text h2 {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .distance {
+        color: var(--warm);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+
+    .discovery-text p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--mid);
+        margin-bottom: 1.5rem;
+    }
+
+    .highlights {
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .highlights li {
+        color: var(--dark);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /* Images et Placeholders */
+    .image-placeholder {
+        background-color: var(--stone);
+        aspect-ratio: 16/10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mid);
+        font-style: italic;
+        border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .discovery-grid, .discovery-grid.reverse {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            direction: ltr;
+        }
+        .region-header { margin-bottom: 4rem; }
+    }
+</style>

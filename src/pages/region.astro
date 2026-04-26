@@ -1,84 +1,40 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-// --- À METTRE À JOUR : Importe tes photos de la région ici ---
-// import sarlatImg from '../assets/region/sarlat.jpg';
-// import dordogneImg from '../assets/region/riviere-dordogne.jpg';
-// import gastronomieImg from '../assets/region/marche-perigord.jpg';
-
-// Pourquoi cette structure est "super" ?
-// Le Rythme (Z-Pattern) : En alternant Image-Texte puis Texte-Image, on évite la monotonie et on guide l'œil de l'utilisateur naturellement.
-//
-// L'Information Pratique : Mentionner la distance ("10 minutes") est rassurant pour le locataire qui prépare ses journées.
-//
-// Thémabilité : Le style utilise les mêmes variables (--font-display, --warm) que tes pages de gîtes pour une unité parfaite.
-//
-// SEO local : Les mots-clés "Sarlat", "Périgord Vert", "Dordogne" et "Châteaux" sont placés sémantiquement dans les titres (h2) pour attirer les recherches Google.
-//
-// Note sur les images : Quand tu ajouteras tes propres photos avec <Image />, elles prendront automatiquement tout l'espace de la colonne grâce à l'aspect-ratio, tout en restant optimisées par Astro.
-
+const locations = await getCollection('region');
 ---
 
 <BaseLayout title="Découvrir le Périgord Vert" activePage="region">
     <main class="page-container">
         <header class="region-header">
-            <span class="label">Évasion</span>
+            <span class="label">Aux alentours</span>
             <h1>Le Périgord Vert</h1>
-            <p class="lead">Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les trésors de la Dordogne.</p>
+            <p class="lead">Villages classés, abbayes médiévales, grottes préhistoriques et marchés de terroir — le Domaine de Feydoux est au cœur d'un patrimoine exceptionnel, tout accessible en moins de 25 minutes.</p>
         </header>
 
-        <section class="discovery-section">
-            <div class="discovery-grid">
-                <div class="discovery-text">
-                    <h2>Sarlat-la-Canéda</h2>
-                    <p class="distance">À seulement 10 minutes du domaine</p>
-                    <p>Capitale du Périgord Vert, Sarlat est une cité médiévale d'une richesse exceptionnelle. Flânez dans ses ruelles pavées, admirez ses façades de calcaire blond et ne manquez pas son célèbre marché le samedi matin pour déguster les produits du terroir.</p>
-                    <ul class="highlights">
-                        <li>∗ Cathédrale Saint-Sacerdos</li>
-                        <li>∗ Lanterne des Morts</li>
-                        <li>∗ Marché couvert (Église Sainte-Marie)</li>
-                    </ul>
-                </div>
-                <div class="discovery-image">
-                    <div class="image-placeholder">
-                        {/* Remplace par : <Image src={sarlatImg} alt="Sarlat" /> */}
-                        <span>Photo : La cité médiévale de Sarlat</span>
+        {locations.map((loc, i) => (
+            <section class="discovery-section">
+                <div class={`discovery-grid${i % 2 !== 0 ? ' reverse' : ''}`}>
+                    <div class="discovery-text">
+                        <h2>{loc.data.title}</h2>
+                        <p class="distance">{loc.data.distance}</p>
+                        <p>{loc.data.description}</p>
+                        <ul class="highlights">
+                            {loc.data.highlights.map(h => <li>∗ {h}</li>)}
+                        </ul>
+                    </div>
+                    <div class="discovery-image">
+                        {loc.data.image
+                            ? <Image src={loc.data.image as ImageMetadata} alt={loc.data.imageAlt ?? loc.data.title} width={800} height={500} format="webp" />
+                            : <div class="image-placeholder"><span>Photo : {loc.data.title}</span></div>
+                        }
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="discovery-section alt-bg">
-            <div class="discovery-grid reverse">
-                <div class="discovery-text">
-                    <h2>La Vallée des Châteaux</h2>
-                    <p>Surnommée la vallée des 1001 châteaux, la Dordogne offre des panoramas spectaculaires. Beynac, Castelnaud ou les jardins suspendus de Marqueyssac sont autant d'étapes incontournables à moins de 20 minutes du domaine.</p>
-                    <p><strong>Notre conseil :</strong> Découvrez la vallée depuis la rivière en canoë-kayak pour une perspective unique sur les forteresses médiévales.</p>
-                </div>
-                <div class="discovery-image">
-                    <div class="image-placeholder">
-                        {/* Remplace par : <Image src={dordogneImg} alt="Vallée Dordogne" /> */}
-                        <span>Photo : Vue sur la rivière et les châteaux</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="discovery-section">
-            <div class="discovery-grid">
-                <div class="discovery-text">
-                    <h2>L'Art de Vivre</h2>
-                    <p>Le Périgord est mondialement connu pour sa table. Truffes, foies gras, cèpes et confits font la renommée de notre région. Nous partagerons avec vous nos meilleures adresses de producteurs locaux et de fermes-auberges authentiques.</p>
-                </div>
-                <div class="discovery-image">
-                    <div class="image-placeholder">
-                        {/* Remplace par : <Image src={gastronomieImg} alt="Gastronomie" /> */}
-                        <span>Photo : Marché local ou table périgourdine</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        ))}
     </main>
 </BaseLayout>
 
@@ -98,7 +54,6 @@ import { Image } from 'astro:assets';
         margin: 0.5rem 0 2rem;
     }
 
-    /* Grille de découverte */
     .discovery-section {
         margin-bottom: 8rem;
         padding: 4rem 0;
@@ -112,11 +67,11 @@ import { Image } from 'astro:assets';
     }
 
     .discovery-grid.reverse {
-        direction: rtl; /* Inverse l'ordre visuel sur desktop */
+        direction: rtl;
     }
 
     .discovery-grid.reverse .discovery-text {
-        direction: ltr; /* Remet le texte dans le bon sens */
+        direction: ltr;
     }
 
     .discovery-text h2 {
@@ -156,7 +111,6 @@ import { Image } from 'astro:assets';
         font-weight: 500;
     }
 
-    /* Images et Placeholders */
     .image-placeholder {
         background-color: var(--stone);
         aspect-ratio: 16/10;
@@ -165,10 +119,9 @@ import { Image } from 'astro:assets';
         justify-content: center;
         color: var(--mid);
         font-style: italic;
-        border-radius: 2px;
+        border-radius: var(--radius-sm);
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
         .discovery-grid, .discovery-grid.reverse {
             grid-template-columns: 1fr;

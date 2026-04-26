@@ -36,7 +36,21 @@ const blogCollection = defineCollection({
     })
 });
 
+const region = defineCollection({
+    type: 'data',
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            distance: z.string(),
+            description: z.string(),
+            highlights: z.array(z.string()),
+            image: image().optional(),
+            imageAlt: z.string().optional(),
+        })
+});
+
 export const collections = {
     blog: blogCollection,
-    gites
+    gites,
+    region,
 };

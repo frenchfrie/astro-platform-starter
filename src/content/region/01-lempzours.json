@@ -1,0 +1,13 @@
+{
+  "title": "Lempzours",
+  "distance": "Le village du domaine",
+  "description": "Lempzours est un village au caractère préservé, marqué par la présence templière. Son église médiévale, ornée d'une litre funéraire et de peintures de saints limousins, côtoie un lavoir et une mairie installée dans l'ancienne école. Le Château de la Guionie, ancienne demeure templière, se visite sur rendez-vous.",
+  "highlights": [
+    "Église templière médiévale",
+    "Litre funéraire et peintures de saints",
+    "Lavoir communal",
+    "Château de la Guionie (visites)"
+  ],
+  "image": "../../assets/feydoux/chateau-face.jpg",
+  "imageAlt": "Le Château de Feydoux à Lempzours"
+}
