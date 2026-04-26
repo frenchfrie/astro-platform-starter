@@ -9,7 +9,7 @@ interface Props {
 const { title, description, activePage} = Astro.props;
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
-import logoUrl from '../assets/logo-feydoux.svg?url';
+import LogoFeydoux from '../components/LogoFeydoux.astro';
 
 const isHome = activePage === 'home';
 ---
@@ -27,7 +27,7 @@ const isHome = activePage === 'home';
 <nav class="site-nav" id="main-nav">
   <div class="nav-container">
     <a href="/" class="logo" aria-label="Domaine de Feydoux — Accueil">
-      <img src={logoUrl} alt="" height="52" />
+      <LogoFeydoux height={52} color="var(--dark)" aria-hidden={true} />
       <span class="logo-text">Les gîtes de <strong>Feydoux</strong></span>
     </a>
 
