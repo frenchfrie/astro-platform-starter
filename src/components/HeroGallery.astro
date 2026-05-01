@@ -61,8 +61,7 @@ const clientPhotos = photos.map((p) => ({
     .hero-gallery {
         display: grid;
         grid-template-columns: 1.6fr 1fr;
-        grid-template-rows: 70vh;
-        min-height: 480px;
+        grid-template-rows: clamp(380px, 55vw, 680px);
         gap: 4px;
         margin-top: var(--nav-height);
         background: var(--dark);
@@ -97,7 +96,7 @@ const clientPhotos = photos.map((p) => ({
         right: 1.5rem;
         z-index: 10;
         padding: 0.6rem 1.2rem;
-        background: rgba(250, 247, 242, 0.95);
+        background: rgba(250, 247, 242, 0.7);
         border: none;
         cursor: pointer;
         font-size: 0.75rem;

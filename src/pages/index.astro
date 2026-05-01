@@ -3,7 +3,6 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-
 // Importation des fichiers comme des modules
 import imgLogis from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
 import imgGarenne from '../assets/gites/la-garenne/exterieur-vue-aerienne-face.jpg';
@@ -12,333 +11,483 @@ import imgAerial from '../assets/feydoux/aerial.jpg';
 import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
 ---
 
-<BaseLayout
-  title="Le Domaine — Deux gîtes de caractère avec piscine et jacuzzi"
-  activePage="home">
-
-  <!-- ─── HERO ── -->
-  <header class="hero">
-    <Image
-        src={imgAerial}
-        alt="Vue aérienne du domaine"
-        class="hero-img"
-        width={1920}
-        height={1080}
-        format="webp"
-        loading="eager"
-    />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Bienvenue au domaine</p>
-      <h1>Un refuge<br /><em>hors du temps</em></h1>
-      <p class="hero-sub">Deux gîtes de caractère au cœur d'une nature préservée</p>
-      <div class="hero-actions">
-        <a href="/gites/le-logis-de-feydoux" class="btn-primary">Découvrir les gîtes</a>
-        <a href="/region" class="btn-ghost">Explorer la région</a>
-      </div>
-    </div>
-    <div class="scroll-hint">↓</div>
-  </header>
-
-  <!-- ─── INTRO ── -->
-  <section class="intro">
-    <div class="intro-text">
-      <span class="label">Notre histoire</span>
-      <h2>Deux gîtes,<br />une même âme</h2>
-      <p>
-        Nichés au sein d'un domaine familial, nos deux gîtes indépendants offrent
-        intimité, confort et authenticité. Que vous veniez en couple, en famille
-        ou entre amis, vous trouverez ici un espace pour souffler, rêver et
-        vous ressourcer.
-      </p>
-    </div>
-    <div class="intro-stats">
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label">Gîtes privatifs</span></div>
-      <div class="stat"><span class="stat-num">1</span><span class="stat-label">Piscine chauffée</span></div>
-      <div class="stat"><span class="stat-num">1</span><span class="stat-label">SPA</span></div>
-      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Souvenirs à créer</span></div>
-    </div>
-  </section>
-
-  <!-- ─── GÎTES ── -->
-  <section class="gites">
-    <span class="label centered">Nos hébergements</span>
-    <h2 class="centered">Choisissez votre séjour</h2>
-    <div class="gites-grid">
-
-      <article class="gite-card">
-        <div class="card-img-wrap">
-          <Image
-              src={imgLogis}
-              alt="Vue aérienne du domaine Le Logis avec piscine"
-              class="hero-img"
-              width={1920}
-              height={1080}
-              format="webp"
-              quality="mid"
-          />
-          <div class="card-badge">Piscine privée</div>
+<BaseLayout title="Le Domaine — Deux gîtes de caractère avec piscine et jacuzzi" activePage="home">
+    <!-- ─── HERO ── -->
+    <header class="hero">
+        <Image src={imgAerial} alt="Vue aérienne du domaine" class="hero-img" width={1920} height={1080} format="webp" loading="eager" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Bienvenue au domaine</p>
+            <h1>Un refuge<br /><em>hors du temps</em></h1>
+            <p class="hero-sub">Deux gîtes de caractère au cœur d'une nature préservée</p>
+            <div class="hero-actions">
+                <a href="/gites/le-logis-de-feydoux" class="btn-primary">Découvrir les gîtes</a>
+                <a href="/region" class="btn-ghost">Explorer la région</a>
+            </div>
         </div>
-        <div class="card-body">
-          <h3>Le Logis de Feydoux</h3>
-          <p class="card-capacity">👥 8 personnes &nbsp;·&nbsp; 🛏 4 chambres &nbsp;·&nbsp; 3 Salles de douche</p>
-          <p class="card-desc">Grands espaces, piscine chauffée privée et sérénité absolue au cœur de la nature.</p>
-          <div class="card-tags"><span>Piscine</span><span>Barbecue</span><span>Wifi</span></div>
-          <a href="/gites/le-logis-de-feydoux" class="btn-card">Voir le gîte →</a>
+        <div class="scroll-hint">↓</div>
+    </header>
+
+    <!-- ─── INTRO ── -->
+    <section class="intro">
+        <div class="intro-text">
+            <span class="label">Notre histoire</span>
+            <h2>Deux gîtes,<br />une même âme</h2>
+            <p>
+                Au pied du vieux château, le commun Sud, autrefois probablement rempart, a été transformé pour devenir l’écrin d’un séjour alliant repos et
+                culture, détente et découvertes, dans un environnement naturel préservé, loin du bruit et de l’agitation et pourtant proche de lieux de
+                ravissement, d’un patrimoine remarquable et de tables gourmandes.
+            </p>
         </div>
-      </article>
-
-      <article class="gite-card">
-        <div class="card-img-wrap">
-          <Image
-              src={imgGarenne}
-              alt="Vue aérienne de face du gîte La Garenne"
-              class="hero-img"
-              width={1920}
-              height={1080}
-              format="webp"
-              quality="mid"
-          />
-          <div class="card-badge">Jacuzzi privatif</div>
+        <div class="intro-stats">
+            <div class="stat"><span class="stat-num">2</span><span class="stat-label">Gîtes privatifs</span></div>
+            <div class="stat"><span class="stat-num">1</span><span class="stat-label">Piscine chauffée</span></div>
+            <div class="stat"><span class="stat-num">1</span><span class="stat-label">SPA</span></div>
+            <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Souvenirs à créer</span></div>
         </div>
-        <div class="card-body">
-          <h3>La Garenne</h3>
-          <p class="card-capacity">👥 4 personnes &nbsp;·&nbsp; 🛏 2 chambres &nbsp;·&nbsp; 2 Salles de douche</p>
-          <p class="card-desc">Cocon romantique avec SPA sous les étoiles, décoration soignée.</p>
-          <div class="card-tags"><span>SPA</span><span>Barbecue</span><span>Wifi</span></div>
-          <a href="/gites/la-garenne" class="btn-card">Voir le gîte →</a>
+    </section>
+
+    <!-- ─── GÎTES ── -->
+    <section class="gites">
+        <span class="label centered">Nos hébergements</span>
+        <h2 class="centered">Choisissez votre séjour</h2>
+        <div class="gites-grid">
+            <article class="gite-card">
+                <div class="card-img-wrap">
+                    <Image
+                        src={imgLogis}
+                        alt="Vue aérienne du domaine Le Logis avec piscine"
+                        class="hero-img"
+                        width={1920}
+                        height={1080}
+                        format="webp"
+                        quality="mid"
+                    />
+                    <div class="card-badge">Piscine privée</div>
+                </div>
+                <div class="card-body">
+                    <h3>Le Logis de Feydoux</h3>
+                    <p class="card-capacity">👥 8 personnes &nbsp;·&nbsp; 🛏 4 chambres &nbsp;·&nbsp; 3 Salles de douche</p>
+                    <p class="card-desc">Grands espaces, piscine chauffée privée et sérénité absolue au cœur de la nature.</p>
+                    <div class="card-tags"><span>Piscine</span><span>Barbecue</span><span>Wifi</span></div>
+                    <a href="/gites/le-logis-de-feydoux" class="btn-card">Voir le gîte →</a>
+                </div>
+            </article>
+
+            <article class="gite-card">
+                <div class="card-img-wrap">
+                    <Image
+                        src={imgGarenne}
+                        alt="Vue aérienne de face du gîte La Garenne"
+                        class="hero-img"
+                        width={1920}
+                        height={1080}
+                        format="webp"
+                        quality="mid"
+                    />
+                    <div class="card-badge">Jacuzzi privatif</div>
+                </div>
+                <div class="card-body">
+                    <h3>La Garenne</h3>
+                    <p class="card-capacity">👥 4 personnes &nbsp;·&nbsp; 🛏 2 chambres &nbsp;·&nbsp; 2 Salles de douche</p>
+                    <p class="card-desc">Cocon romantique avec SPA sous les étoiles, décoration soignée.</p>
+                    <div class="card-tags"><span>SPA</span><span>Barbecue</span><span>Wifi</span></div>
+                    <a href="/gites/la-garenne" class="btn-card">Voir le gîte →</a>
+                </div>
+            </article>
         </div>
-      </article>
+    </section>
 
-    </div>
-  </section>
+    <!-- ─── PISCINE & JACUZZI ── -->
+    <section class="pool-section">
+        <Image src={imgPool} alt="Piscine du domaine et jacuzzi privatif" class="pool-img" width={1200} height={800} format="webp" />
+        <div class="pool-overlay"></div>
+        <div class="pool-content">
+            <span class="label light">Détente & bien-être</span>
+            <h2>L'eau comme art<br /><em>de vivre</em></h2>
+            <p>
+                Plongez dans la piscine chauffée ou glissez-vous dans le jacuzzi sous un ciel étoilé. Des moments de pur bonheur qui font de ce séjour une
+                expérience inoubliable.
+            </p>
+        </div>
+    </section>
 
-  <!-- ─── PISCINE & JACUZZI ── -->
-  <section class="pool-section">
-    <Image
-        src={imgPool}
-        alt="Piscine du domaine et jacuzzi privatif"
-        class="pool-img"
-        width={1200}
-        height={800}
-        format="webp"
-    />
-    <div class="pool-overlay"></div>
-    <div class="pool-content">
-      <span class="label light">Détente & bien-être</span>
-      <h2>L'eau comme art<br /><em>de vivre</em></h2>
-      <p>
-        Plongez dans la piscine chauffée ou glissez-vous dans le jacuzzi
-        sous un ciel étoilé. Des moments de pur bonheur qui font de ce séjour
-        une expérience inoubliable.
-      </p>
-    </div>
-  </section>
-
-  <!-- ─── RÉGION TEASER ── -->
-  <section class="region-teaser">
-    <div class="region-text">
-      <span class="label">Autour du domaine</span>
-      <h2>Une région qui<br />ne demande qu'à<br />être explorée</h2>
-      <p>
-        Marchés provençaux, sentiers de randonnée, caves à visiter,
-        villages perchés… Chaque journée réserve une nouvelle découverte
-        à quelques minutes du domaine.
-      </p>
-      <a href="/region" class="btn-primary">Découvrir la région</a>
-    </div>
-    <div class="region-mosaic">
-      <div class="mosaic-item m1"><span>Marchés</span></div>
-      <div class="mosaic-item m2"><span>Randonnées</span></div>
-      <div class="mosaic-item m3"><span>Villages</span></div>
-      <div class="mosaic-item m4"><span>Gastronomie</span></div>
-    </div>
-  </section>
-
+    <!-- ─── RÉGION TEASER ── -->
+    <section class="region-teaser">
+        <div class="region-text">
+            <span class="label">Autour du domaine</span>
+            <h2>Une région qui<br />ne demande qu'à<br />être explorée</h2>
+            <p>
+                Marchés provençaux, sentiers de randonnée, caves à visiter, villages perchés… Chaque journée réserve une nouvelle découverte à quelques minutes
+                du domaine.
+            </p>
+            <a href="/region" class="btn-primary">Découvrir la région</a>
+        </div>
+        <div class="region-mosaic">
+            <div class="mosaic-item m1"><span>Marchés</span></div>
+            <div class="mosaic-item m2"><span>Randonnées</span></div>
+            <div class="mosaic-item m3"><span>Villages</span></div>
+            <div class="mosaic-item m4"><span>Gastronomie</span></div>
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    height: 100svh; min-height: 600px;
-    display: flex; align-items: flex-end;
-    overflow: hidden;
-  }
-  .hero-img {
-    position: absolute; inset: 0;
-    animation: zoomSlow 20s ease-in-out infinite alternate;
-  }
-  @keyframes zoomSlow {
-    from { transform: scale(1); }
-    to   { transform: scale(1.06); }
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
+    /* ── HERO ── */
+    .hero {
+        position: relative;
+        height: 100svh;
+        min-height: 600px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .hero-img {
+        position: absolute;
+        inset: 0;
+        animation: zoomSlow 20s ease-in-out infinite alternate;
+    }
+    @keyframes zoomSlow {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.06);
+        }
+    }
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
       /* Dégradé blanc en haut pour le menu */
-        linear-gradient(
-            to bottom,
-            rgb(255 255 255 / 0.5) 0%,
-            transparent 30%
-        ),
-          /* Dégradé sombre très subtil en bas pour le titre Hero */
-        linear-gradient(
-            to top,
-            rgb(0 0 0 / 0.3) 0%,
-            transparent 40%
-        );
-  }
-  .hero-content {
-    position: relative;
-    padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
-    max-width: 720px;
-    animation: fadeUp .9s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .hero-eyebrow {
-    font-size: .72rem; font-weight: 500; letter-spacing: .2em;
-    text-transform: uppercase; color: var(--warm); margin-bottom: 1rem;
-  }
-  .hero-content h1 {
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    color: var(--cream); line-height: 1.05; margin-bottom: 1.2rem;
-  }
-  .hero-content h1 em { font-style: italic; color: var(--warm); }
-  .hero-sub {
-    font-size: clamp(.95rem, 1.5vw, 1.1rem);
-    color: rgba(245,240,232,.7); margin-bottom: 2.5rem; max-width: 480px;
-  }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .scroll-hint {
-    position: absolute; bottom: 2rem; right: clamp(1.5rem, 5vw, 4rem);
-    color: rgba(245,240,232,.4); font-size: 1.2rem;
-    animation: bob 2s ease-in-out infinite;
-  }
-  @keyframes bob {
-    0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(8px); }
-  }
+            linear-gradient(to bottom, rgb(255 255 255 / 0.5) 0%, transparent 30%),
+            /* Dégradé sombre très subtil en bas pour le titre Hero */ linear-gradient(to top, rgb(0 0 0 / 0.3) 0%, transparent 40%);
+    }
+    .hero-content {
+        position: relative;
+        padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
+        max-width: 720px;
+        animation: fadeUp 0.9s ease both;
+    }
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+    .hero-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--warm);
+        margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        color: var(--cream);
+        line-height: 1.05;
+        margin-bottom: 1.2rem;
+    }
+    .hero-content h1 em {
+        font-style: italic;
+        color: var(--warm);
+    }
+    .hero-sub {
+        font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+        color: rgba(245, 240, 232, 0.7);
+        margin-bottom: 2.5rem;
+        max-width: 480px;
+    }
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        right: clamp(1.5rem, 5vw, 4rem);
+        color: rgba(245, 240, 232, 0.4);
+        font-size: 1.2rem;
+        animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(8px);
+        }
+    }
 
-  /* ── INTRO ── */
-  .intro {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    align-items: center;
-    padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
-  }
-  .intro-text h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.2rem; }
-  .intro-text p  { color: var(--mid); font-size: 1rem; max-width: 440px; }
-  .intro-stats {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 2px; background: var(--stone);
-  }
-  .stat {
-    background: var(--light); padding: 2rem 1.5rem;
-    display: flex; flex-direction: column; gap: .4rem;
-    transition: background .2s;
-  }
-  .stat:hover { background: var(--cream); }
-  .stat-num {
-    font-family: var(--font-display); font-size: 3.2rem;
-    color: var(--warm); line-height: 1;
-  }
-  .stat-label { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); }
+    /* ── INTRO ── */
+    .intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .intro-text h2 {
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        margin-bottom: 1.2rem;
+    }
+    .intro-text p {
+        color: var(--mid);
+        font-size: 1rem;
+        max-width: 440px;
+    }
+    .intro-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--stone);
+    }
+    .stat {
+        background: var(--light);
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        transition: background 0.2s;
+    }
+    .stat:hover {
+        background: var(--cream);
+    }
+    .stat-num {
+        font-family: var(--font-display);
+        font-size: 3.2rem;
+        color: var(--warm);
+        line-height: 1;
+    }
+    .stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+    }
 
-  /* ── GÎTES ── */
-  .gites {
-    background: var(--cream);
-    padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
-  }
-  .gites h2.centered { text-align: center; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; }
-  .gites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    /* ── GÎTES ── */
+    .gites {
+        background: var(--cream);
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .gites h2.centered {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 3rem;
+    }
+    .gites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
 
-  .gite-card {
-    background: var(--light); border-radius: 4px; overflow: hidden;
-    transition: transform .3s, box-shadow .3s;
-  }
-  .gite-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(26,22,18,.12); }
+    .gite-card {
+        background: var(--light);
+        border-radius: 4px;
+        overflow: hidden;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+    }
+    .gite-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px rgba(26, 22, 18, 0.12);
+    }
 
-  .card-img-wrap { position: relative; height: 260px; overflow: hidden; }
-  .card-img-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #d4c4a8 0%, #b8a882 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(26,22,18,.4); font-size: .85rem; letter-spacing: .08em;
-  }
-  .card-badge {
-    position: absolute; top: 1rem; left: 1rem;
-    background: var(--dark); color: var(--warm);
-    font-size: .65rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-    padding: .35rem .8rem; border-radius: 2px;
-  }
-  .card-body { padding: 1.8rem; }
-  .card-body h3 { font-size: 1.6rem; margin-bottom: .4rem; }
-  .card-capacity { font-size: .82rem; color: var(--mid); margin-bottom: 1rem; }
-  .card-desc { font-size: .92rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.65; }
-  .card-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .card-tags span {
-    font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
-    border: 1px solid var(--stone); padding: .25rem .75rem; border-radius: 20px; color: var(--mid);
-  }
-  .btn-card {
-    display: inline-block; font-size: .8rem; font-weight: 500; letter-spacing: .06em;
-    color: var(--dark); border-bottom: 1px solid var(--warm); padding-bottom: 2px;
-    transition: color .2s;
-  }
-  .btn-card:hover { color: var(--warm); }
+    .card-img-wrap {
+        position: relative;
+        height: 260px;
+        overflow: hidden;
+    }
+    .card-img-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #d4c4a8 0%, #b8a882 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(26, 22, 18, 0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+    }
+    .card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--dark);
+        color: var(--warm);
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.8rem;
+        border-radius: 2px;
+    }
+    .card-body {
+        padding: 1.8rem;
+    }
+    .card-body h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+    }
+    .card-capacity {
+        font-size: 0.82rem;
+        color: var(--mid);
+        margin-bottom: 1rem;
+    }
+    .card-desc {
+        font-size: 0.92rem;
+        color: var(--mid);
+        margin-bottom: 1.2rem;
+        line-height: 1.65;
+    }
+    .card-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .card-tags span {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--stone);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        color: var(--mid);
+    }
+    .btn-card {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        color: var(--dark);
+        border-bottom: 1px solid var(--warm);
+        padding-bottom: 2px;
+        transition: color 0.2s;
+    }
+    .btn-card:hover {
+        color: var(--warm);
+    }
 
-  /* ── POOL ── */
-  .pool-section {
-    position: relative; height: clamp(400px, 65vh, 700px);
-    overflow: hidden; display: flex; align-items: center;
-  }
-  .pool-img { position: absolute; inset: 0; }
-  .pool-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(15,11,8,.82) 0%, rgba(15,11,8,.35) 60%, rgba(15,11,8,.1) 100%);
-  }
-  .pool-content {
-    position: relative;
-    padding: 3rem clamp(1.5rem, 8vw, 7rem); max-width: 560px;
-  }
-  .pool-content h2 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--cream); margin-bottom: 1.2rem; }
-  .pool-content h2 em { font-style: italic; color: var(--warm); }
-  .pool-content p { color: rgba(245,240,232,.75); font-size: 1rem; line-height: 1.75; }
+    /* ── POOL ── */
+    .pool-section {
+        position: relative;
+        height: clamp(400px, 65vh, 700px);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .pool-img {
+        position: absolute;
+        inset: 0;
+    }
+    .pool-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(15, 11, 8, 0.82) 0%, rgba(15, 11, 8, 0.35) 60%, rgba(15, 11, 8, 0.1) 100%);
+    }
+    .pool-content {
+        position: relative;
+        padding: 3rem clamp(1.5rem, 8vw, 7rem);
+        max-width: 560px;
+    }
+    .pool-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--cream);
+        margin-bottom: 1.2rem;
+    }
+    .pool-content h2 em {
+        font-style: italic;
+        color: var(--warm);
+    }
+    .pool-content p {
+        color: rgba(245, 240, 232, 0.75);
+        font-size: 1rem;
+        line-height: 1.75;
+    }
 
-  /* ── RÉGION ── */
-  .region-teaser { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
-  .region-text {
-    padding: var(--section-pad) clamp(1.5rem, 6vw, 5rem);
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .region-text h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.2rem; }
-  .region-text p  { color: var(--mid); font-size: .95rem; margin-bottom: 2rem; max-width: 420px; }
-  .region-mosaic {
-    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 3px; background: var(--stone);
-  }
-  .mosaic-item {
-    display: flex; align-items: flex-end; padding: 1rem 1.2rem;
-    font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-    color: rgba(26,22,18,.55); transition: filter .3s;
-  }
-  .mosaic-item:hover { filter: brightness(1.08); }
-  .m1 { background: linear-gradient(135deg,#d4c4a8,#baa880); }
-  .m2 { background: linear-gradient(135deg,#c4b498,#a89070); }
-  .m3 { background: linear-gradient(135deg,#b8a880,#c4b490); }
-  .m4 { background: linear-gradient(135deg,#ccc0a0,#b0a080); }
+    /* ── RÉGION ── */
+    .region-teaser {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 520px;
+    }
+    .region-text {
+        padding: var(--section-pad) clamp(1.5rem, 6vw, 5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .region-text h2 {
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        margin-bottom: 1.2rem;
+    }
+    .region-text p {
+        color: var(--mid);
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        max-width: 420px;
+    }
+    .region-mosaic {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 3px;
+        background: var(--stone);
+    }
+    .mosaic-item {
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem 1.2rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(26, 22, 18, 0.55);
+        transition: filter 0.3s;
+    }
+    .mosaic-item:hover {
+        filter: brightness(1.08);
+    }
+    .m1 {
+        background: linear-gradient(135deg, #d4c4a8, #baa880);
+    }
+    .m2 {
+        background: linear-gradient(135deg, #c4b498, #a89070);
+    }
+    .m3 {
+        background: linear-gradient(135deg, #b8a880, #c4b490);
+    }
+    .m4 {
+        background: linear-gradient(135deg, #ccc0a0, #b0a080);
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .intro { grid-template-columns: 1fr; gap: 2.5rem; }
-    .region-teaser { grid-template-columns: 1fr; }
-    .region-mosaic { min-height: 320px; }
-  }
-  @media (max-width: 580px) {
-    .hero-content h1 { font-size: 2.6rem; }
-  }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+        .intro {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+        .region-teaser {
+            grid-template-columns: 1fr;
+        }
+        .region-mosaic {
+            min-height: 320px;
+        }
+    }
+    @media (max-width: 580px) {
+        .hero-content h1 {
+            font-size: 2.6rem;
+        }
+    }
 </style>

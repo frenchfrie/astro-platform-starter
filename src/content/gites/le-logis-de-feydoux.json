@@ -1,11 +1,9 @@
 {
     "id": "le-logis-de-feydoux",
     "title": "Le logis de Feydoux",
-    "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
-    "pricePerNight": 180,
-    "cleaningFee": 120,
+    "description": "Ce gîte qui vous accueille occupe la partie Est du commun. Le bâtiment, tout en conservant sa structure de base, a été complètement repris, du sol au toit et dans ses abords au Sud. Des artisans locaux, œuvrant avec goût, dans le respect des matériaux anciens, tout en alliant esthétique et confort ont été sélectionnés pour donner une nouvelle vie à cette construction. Dans le souci d’une économie durable et écologique, Ils ont réutilisé les matériaux des bâtiments préexistants partiellement remaniés, ainsi que des poutres et planches de chênes, châtaigniers, noyers et même de cerisiers issus de la propriété. Ainsi, le gîte Le Logis de Feydoux a été conçu pour vous accueillir de manière spacieuse dans un cadre propice au ressourcement. Il se compose de quatre chambres dont deux au rez-de-chaussée et deux à l’étage. Chaque chambre du rez-de-chaussée dispose d’une salle de douche et wc tandis que les chambres de l’étage se partagent une salle de douche et un wc indépendant. Un grand séjour de 49 M2 donnant sur une cour. Cette dernière est équipée de mobilier de jardin et d’un barbecue et vous permet d’accéder directement à la piscine qui vous est réservée.",
+    "priceRange": "À partir de 180 € / nuit",
     "maxGuests": 8,
-    "deposit": 500,
     "abritelUrl": "https://www.abritel.fr/location-vacances/p2664458",
     "abritelId": "p2664458",
     "photos": [

@@ -2,10 +2,8 @@
     "id": "la-garenne",
     "title": "La Garenne",
     "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
-    "pricePerNight": 180,
-    "cleaningFee": 120,
+    "priceRange": "À partir de 180 € / nuit",
     "maxGuests": 8,
-    "deposit": 500,
     "abritelUrl": "https://www.abritel.fr/location-vacances/p2664380",
     "abritelId": "p2664380",
     "photos": [

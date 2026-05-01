@@ -7,10 +7,8 @@ const gites = defineCollection({
             id: z.string(),
             title: z.string(),
             description: z.string(),
-            pricePerNight: z.number(),
-            cleaningFee: z.number(),
+            priceRange: z.string(),
             maxGuests: z.number(),
-            deposit: z.number(),
             abritelUrl: z.string().url(),
             abritelId: z.string(),
             photos: z.array(
@@ -45,12 +43,12 @@ const region = defineCollection({
             description: z.string(),
             highlights: z.array(z.string()),
             image: image().optional(),
-            imageAlt: z.string().optional(),
+            imageAlt: z.string().optional()
         })
 });
 
 export const collections = {
     blog: blogCollection,
     gites,
-    region,
+    region
 };

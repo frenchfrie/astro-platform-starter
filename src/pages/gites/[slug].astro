@@ -32,12 +32,12 @@ const { data } = entry;
         </article>
 
         <aside class="col-booking" id="booking-widget">
-            <BookingWidget pricePerNight={data.pricePerNight} abritelId={data.abritelId} cleaningFee={data.cleaningFee} maxGuests={data.maxGuests} />
+            <BookingWidget priceRange={data.priceRange} abritelId={data.abritelId} maxGuests={data.maxGuests} />
         </aside>
     </main>
 
     <div class="mobile-book-bar" id="mobileBookBar">
-        <span class="mobile-price"><strong>{data.pricePerNight} €</strong> / nuit</span>
+        <span class="mobile-price">{data.priceRange}</span>
         <a href="#booking-widget" class="btn-primary">Réserver</a>
     </div>
 
