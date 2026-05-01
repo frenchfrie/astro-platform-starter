@@ -8,8 +8,9 @@ import Amenities from '../../components/Amenities.astro';
 
 export async function getStaticPaths() {
     const giteEntries = await getCollection('gites');
-    return giteEntries.map(entry => ({
-        params: { slug: entry.id }, props: { entry },
+    return giteEntries.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry }
     }));
 }
 
@@ -30,15 +31,23 @@ const { data } = entry;
             <Amenities amenities={data.amenities} />
         </article>
 
-        <aside class="col-booking">
-            <BookingWidget
-                pricePerNight={data.pricePerNight}
-                abritelId={data.abritelId}
-                cleaningFee={data.cleaningFee}
-                maxGuests={data.maxGuests}
-            />
+        <aside class="col-booking" id="booking-widget">
+            <BookingWidget pricePerNight={data.pricePerNight} abritelId={data.abritelId} cleaningFee={data.cleaningFee} maxGuests={data.maxGuests} />
         </aside>
     </main>
+
+    <div class="mobile-book-bar" id="mobileBookBar">
+        <span class="mobile-price"><strong>{data.pricePerNight} €</strong> / nuit</span>
+        <a href="#booking-widget" class="btn-primary">Réserver</a>
+    </div>
+
+    <script>
+        const bar = document.getElementById('mobileBookBar');
+        const widget = document.getElementById('booking-widget');
+        if (bar && widget) {
+            new IntersectionObserver(([entry]) => bar.classList.toggle('is-hidden', entry.isIntersecting), { threshold: 0.1 }).observe(widget);
+        }
+    </script>
 </BaseLayout>
 
 <style>
@@ -65,8 +74,56 @@ const { data } = entry;
         height: fit-content;
     }
 
+    .mobile-book-bar {
+        display: none;
+    }
+
     @media (max-width: 1024px) {
-        .main-layout { grid-template-columns: 1fr; }
-        .col-booking { position: static; }
+        .main-layout {
+            grid-template-columns: 1fr;
+        }
+        .col-booking {
+            position: static;
+        }
+
+        .mobile-book-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem var(--side-pad);
+            background: var(--cream);
+            border-top: 1px solid var(--stone);
+            box-shadow: var(--shadow-soft);
+            z-index: 100;
+        }
+
+        .mobile-book-bar.is-hidden {
+            display: none;
+        }
+
+        .mobile-price {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .main-layout {
+            padding-bottom: 6rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .main-layout {
+            padding-top: 2rem;
+            gap: 2rem;
+        }
+
+        .description {
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+        }
     }
 </style>

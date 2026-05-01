@@ -1,56 +1,77 @@
 ---
 interface Props {
-  color?: string;
-  height?: number | string;
-  viewBox?: string;
-  class?: string;
-  'aria-hidden'?: boolean;
+    color?: string;
+    height?: number | string;
+    viewBox?: string;
+    class?: string;
+    'aria-hidden'?: boolean;
 }
 
-const {
-  color = 'currentColor',
-  height = 52,
-  viewBox = '940 400 960 860',
-  class: className,
-  'aria-hidden': ariaHidden,
-} = Astro.props;
+const { color = 'currentColor', height = 52, class: className, 'aria-hidden': ariaHidden } = Astro.props;
 ---
+
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox={viewBox}
+    viewBox="0 0 400 500"
     height={height}
     width="auto"
-    style={`color: ${color}; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round;`}
     class={className}
+    style={`color: ${color}; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round;`}
     aria-hidden={ariaHidden}
     role={ariaHidden ? undefined : 'img'}
 >
-    <style>
-        .adorn { font-family: 'Adorn Copperplate'; fill: currentColor; stroke: none; }
-    </style>
+    <g transform="translate(0,0)">
+        <!-- Medaillon -->
+        <circle cx="200" cy="200" r="160" fill="none" stroke-width="4"></circle>
+        <circle cx="200" cy="200" r="150" fill="none" stroke-width="1"></circle>
 
-    <g transform="matrix(1.333, 0, 0, -1.333, 0, 1440)">
-
-        <ellipse cx="961.35" cy="519.12" rx="188.28" ry="211.67" stroke-width="4" />
-        <ellipse cx="961.27" cy="519.15" rx="201.92" ry="227" stroke-width="8" />
-
-        <rect x="891.18" y="372.9" width="141.44" height="201.66" stroke-width="2" />
-        <path d="M 985.33,685.5 L 936.06,685.1 L 877.04,583.1 H 1044.35 Z" stroke-width="2" /> <line x1="891.18" y1="473.73" x2="1032.62" y2="473.73" stroke-width="2" />
-
-        <rect x="945.62" y="372.9" width="32.58" height="66.18" stroke-width="2" />
-        <rect x="948.5" y="497.86" width="27.22" height="52.56" stroke-width="2" />
-        <path d="M 962.11,550.4 V 497.8 M 948.5,536.8 H 975.7 M 948.5,511.1 H 975.7" stroke-width="1" />
-
+        <!-- Textes medaillon -->
         <defs>
-            <path id="txtArc" d="M 742,600 A 250,225 0 0 1 1163,640" />
+            <path id="topArcPath" d="M 10,210 A 160,162 0 0,1 385,220" fill="none"></path>
         </defs>
-        <text class="adorn" font-size="46" transform="translate(0, 1240) scale(1, -1)">
-            <textPath href="#txtArc" startOffset="50%" text-anchor="middle">Château de Feydoux</textPath>
+
+        <text font-family="Adorn Copperplate, classic-serif, serif" font-size="32" fill="black" text-rendering="geometricPrecision">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">Château de Feydoux</textPath>
         </text>
 
-        <g class="adorn" transform="scale(1, -1)">
-            <text x="834.96" y="-252.18" font-size="27">Ab anno MDCL</text>
-            <text x="778.21" y="-199.38" font-size="44">Fidelis tamen</text>
+        <g transform="translate(200,200)">
+            <!-- Dessin chateau -->
+
+            <!-- corps -->
+            <rect x="-50" y="-30" width="100" height="140" fill="none" stroke-width="1"></rect>
+            <line x1="50" y1="30" x2="146" y2="30" stroke-width="1"></line>
+            <line x1="50" y1="110" x2="101" y2="110" stroke-width="1"></line>
+
+            <!-- toit -->
+            <polygon points="-55,-35 55,-35 20,-100 -20,-100" fill="none" stroke-width="1"></polygon>
+            <polygon points="-50,-30 -55,-35 55,-35 50,-30" fill="none" stroke-width="1"></polygon>
+
+            <!-- antennes -->
+            <line x1="-20" y1="-100" x2="-20" y2="-115" stroke-width="1"></line>
+            <line x1="20" y1="-100" x2="20" y2="-115" stroke-width="1"></line>
+
+            <!-- corniche facade -->
+            <line x1="-50" y1="50" x2="50" y2="50" stroke-width="1"></line>
+
+            <!-- fenetre -->
+            <g transform="translate(0,20)">
+                <rect x="-10" y="-30" width="20" height="40" fill="none" stroke-width="2"></rect>
+                <line x1="0" y1="-30" x2="0" y2="10" stroke-width="1"></line>
+                <line x1="-10" y1="-20" x2="10" y2="-20" stroke-width="1"></line>
+                <line x1="-10" y1="0" x2="10" y2="0" stroke-width="1"></line>
+                <rect x="-20" y="10" width="40" height="6" fill="none" stroke-width="1"></rect>
+                <polygon points="-15,-30 -20,-35 20,-35 15,-30" fill="none" stroke-width="1"></polygon>
+            </g>
+
+            <!-- porte -->
+            <rect x="-10" y="70" width="20" height="40" fill="none" stroke-width="1"></rect>
+            <polygon points="-15,70 -20,65 20,65 15,70" fill="none" stroke-width="1"></polygon>
         </g>
+    </g>
+
+    <g transform="translate(200, 390)">
+        <!-- Textes du bas -->
+        <text x="0" y="0" text-anchor="middle" font-family="Adorn Copperplate, classic-serif, serif" font-size="26" fill="black">Ab anno MDCL </text>
+        <text x="0" y="44" text-anchor="middle" font-family="Adorn Copperplate, classic-serif, serif" font-size="44" fill="black">Fidelis tamen </text>
     </g>
 </svg>

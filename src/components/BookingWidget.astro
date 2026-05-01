@@ -1,9 +1,9 @@
 ---
 interface Props {
-  pricePerNight: number;
-  abritelId: string;
-  cleaningFee: number;
-  maxGuests?: number;
+    pricePerNight: number;
+    abritelId: string;
+    cleaningFee: number;
+    maxGuests?: number;
 }
 
 const { pricePerNight, abritelId, cleaningFee, maxGuests = 4 } = Astro.props;
@@ -11,231 +11,243 @@ const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 ---
 
 <div class="booking-widget-container" id="booking-widget">
-  <div class="booking-card">
+    <div class="booking-card">
+        <div class="selection-box">
+            <div class="date-row">
+                <div class="field">
+                    <label>Arrivée</label>
+                    <input type="date" id="arrival-date" />
+                </div>
+                <div class="field border-left">
+                    <label>Départ</label>
+                    <input type="date" id="departure-date" />
+                </div>
+            </div>
+            <div class="field border-top">
+                <label>Voyageurs</label>
+                <select id="guest-count">
+                    {
+                        guestOptions.map((n) => (
+                            <option value={n} selected={n === 2}>
+                                {n} voyageur{n > 1 ? 's' : ''}
+                            </option>
+                        ))
+                    }
+                </select>
+            </div>
+        </div>
 
-    <div class="selection-box">
-      <div class="date-row">
-        <div class="field">
-          <label>Arrivée</label>
-          <input type="date" id="arrival-date" />
-        </div>
-        <div class="field border-left">
-          <label>Départ</label>
-          <input type="date" id="departure-date" />
-        </div>
-      </div>
-      <div class="field border-top">
-        <label>Voyageurs</label>
-        <select id="guest-count">
-          {guestOptions.map(n => (
-              <option value={n} selected={n === 2}>{n} voyageur{n > 1 ? 's' : ''}</option>
-          ))}
-        </select>
-      </div>
+        <button id="abritel-link-btn" class="primary-button" data-id={abritelId}> Vérifier sur Abritel </button>
     </div>
-
-    <button id="abritel-link-btn" class="primary-button" data-id={abritelId}>
-      Vérifier sur Abritel
-    </button>
-  </div>
 </div>
 
 <style>
-  .booking-widget-container {
-    position: sticky;
-    top: 100px;
-    width: 100%;
-    max-width: 380px;
-    scroll-margin-top: calc(var(--nav-height) + 1.5rem);
-  }
+    .booking-widget-container {
+        position: sticky;
+        top: 100px;
+        width: 100%;
+        max-width: 380px;
+        scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+    }
 
-  .booking-card {
-    background: var(--light);
-    border: 1px solid var(--stone);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    box-shadow: var(--shadow-card);
-  }
+    .booking-card {
+        background: var(--light);
+        border: 1px solid var(--stone);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow-card);
+    }
 
-  .price-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 24px;
-  }
+    .price-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
 
-  .amount {
-    display: block;
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--dark);
-  }
+    .amount {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--dark);
+    }
 
-  .label {
-    font-size: 0.85rem;
-    color: var(--mid);
-  }
+    .label {
+        font-size: 0.85rem;
+        color: var(--mid);
+    }
 
-  .source-tag {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 8px;
-    background: var(--cream);
-    color: var(--warm);
-    border-radius: 4px;
-    font-weight: 600;
-  }
+    .source-tag {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 8px;
+        background: var(--cream);
+        color: var(--warm);
+        border-radius: 4px;
+        font-weight: 600;
+    }
 
-  /* Le cadre de saisie */
-  .selection-box {
-    border: 1px solid var(--stone);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
+    /* Le cadre de saisie */
+    .selection-box {
+        border: 1px solid var(--stone);
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
 
-  .date-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid var(--stone);
-  }
+    .date-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        border-bottom: 1px solid var(--stone);
+    }
 
-  .field {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-  }
+    .field {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+    }
 
-  .border-left { border-left: 1px solid var(--stone); }
-  .border-top { border-top: 1px solid var(--stone); }
+    .border-left {
+        border-left: 1px solid var(--stone);
+    }
+    .border-top {
+        border-top: 1px solid var(--stone);
+    }
 
-  label {
-    font-size: 9px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: var(--dark);
-    margin-bottom: 4px;
-  }
+    label {
+        font-size: 9px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--dark);
+        margin-bottom: 4px;
+    }
 
-  input, select {
-    border: none;
-    font-size: 14px;
-    color: var(--mid);
-    outline: none;
-    background: transparent;
-    cursor: pointer;
-  }
+    input,
+    select {
+        border: none;
+        font-size: 14px;
+        color: var(--mid);
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+        width: 100%;
+        min-width: 0;
+    }
 
-  .primary-button {
-    width: 100%;
-    background: var(--warm);
-    color: var(--dark);
-    border: none;
-    padding: 16px;
-    border-radius: var(--radius-md);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity var(--transition), transform var(--transition);
-    margin-bottom: 20px;
-  }
+    .primary-button {
+        width: 100%;
+        background: var(--warm);
+        color: var(--dark);
+        border: none;
+        padding: 16px;
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+            opacity var(--transition),
+            transform var(--transition);
+        margin-bottom: 20px;
+    }
 
-  .primary-button:hover {
-    opacity: 0.88;
-    transform: translateY(-1px);
-  }
+    .primary-button:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+    }
 
-  .legal-notice {
-    font-size: 11px;
-    color: var(--mid);
-    line-height: 1.5;
-    background: var(--cream);
-    padding: 12px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-  }
+    .legal-notice {
+        font-size: 11px;
+        color: var(--mid);
+        line-height: 1.5;
+        background: var(--cream);
+        padding: 12px;
+        border-radius: var(--radius-md);
+        margin-bottom: 20px;
+    }
 
-  /* Résumé des prix */
-  .summary-box {
-    border-top: 1px solid var(--stone);
-    padding-top: 20px;
-  }
+    /* Résumé des prix */
+    .summary-box {
+        border-top: 1px solid var(--stone);
+        padding-top: 20px;
+    }
 
-  .summary-box h4 {
-    font-size: 1rem;
-    margin-bottom: 16px;
-    color: var(--dark);
-  }
+    .summary-box h4 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+        color: var(--dark);
+    }
 
-  .summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    color: var(--mid);
-  }
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        color: var(--mid);
+    }
 
-  .summary-total {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 800;
-    font-size: 1.1rem;
-    margin-top: 16px;
-    color: var(--dark);
-    border-top: 1px dotted var(--stone);
-    padding-top: 16px;
-  }
+    .summary-total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 800;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        color: var(--dark);
+        border-top: 1px dotted var(--stone);
+        padding-top: 16px;
+    }
 
-  .footnote {
-    font-size: 10px;
-    color: var(--mid);
-    margin-top: 10px;
-    font-style: italic;
-  }
+    .footnote {
+        font-size: 10px;
+        color: var(--mid);
+        margin-top: 10px;
+        font-style: italic;
+    }
 
-  .hidden { display: none; }
+    .hidden {
+        display: none;
+    }
 </style>
 
 <script is:inline define:vars={{ pricePerNight, cleaningFee }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const arrival = document.getElementById('arrival-date');
-    const departure = document.getElementById('departure-date');
-    const guests = document.getElementById('guest-count');
-    const summary = document.getElementById('estimate-summary');
-    const btn = document.getElementById('abritel-link-btn');
+    document.addEventListener('DOMContentLoaded', () => {
+        const arrival = document.getElementById('arrival-date');
+        const departure = document.getElementById('departure-date');
+        const guests = document.getElementById('guest-count');
+        const summary = document.getElementById('estimate-summary');
+        const btn = document.getElementById('abritel-link-btn');
 
-    function calculate() {
-      const d1 = new Date(arrival.value);
-      const d2 = new Date(departure.value);
+        function calculate() {
+            const d1 = new Date(arrival.value);
+            const d2 = new Date(departure.value);
 
-      if (d1 && d2 && d2 > d1) {
-        const nights = Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24));
-        const base = nights * pricePerNight;
+            if (d1 && d2 && d2 > d1) {
+                const nights = Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24));
+                const base = nights * pricePerNight;
 
-        document.getElementById('display-nights').innerText = nights;
-        document.getElementById('display-base').innerText = `${base}€`;
-        document.getElementById('display-total').innerText = `${base + cleaningFee}€`;
+                document.getElementById('display-nights').innerText = nights;
+                document.getElementById('display-base').innerText = `${base}€`;
+                document.getElementById('display-total').innerText = `${base + cleaningFee}€`;
 
-        summary.classList.remove('hidden');
-      } else {
-        summary.classList.add('hidden');
-      }
-    }
+                summary.classList.remove('hidden');
+            } else {
+                summary.classList.add('hidden');
+            }
+        }
 
-    [arrival, departure].forEach(el => el.addEventListener('change', calculate));
+        [arrival, departure].forEach((el) => el.addEventListener('change', calculate));
 
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-id');
-      const url = new URL(`https://www.abritel.fr/location-vacances/${id}`);
+        btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            const url = new URL(`https://www.abritel.fr/location-vacances/${id}`);
 
-      if (arrival.value) url.searchParams.append('chkin', arrival.value);
-      if (departure.value) url.searchParams.append('chkout', departure.value);
-      if (guests.value) url.searchParams.append('adults', guests.value);
+            if (arrival.value) url.searchParams.append('chkin', arrival.value);
+            if (departure.value) url.searchParams.append('chkout', departure.value);
+            if (guests.value) url.searchParams.append('adults', guests.value);
 
-      window.open(url.toString(), '_blank');
+            window.open(url.toString(), '_blank');
+        });
     });
-  });
 </script>

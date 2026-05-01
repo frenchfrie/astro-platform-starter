@@ -10,7 +10,7 @@
 
         <!-- Textes medaillon -->
         <defs>
-            <path id="topArcPath" d="M 17,220 A 160,162 0 0,1 385,220" fill="none"/>
+            <path id="topArcPath" d="M 10,210 A 160,162 0 0,1 385,220" fill="none"/>
         </defs>
 
         <text font-family="Adorn Copperplate, classic-serif, serif" font-size="32" fill="black" text-rendering="geometricPrecision">

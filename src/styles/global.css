@@ -48,6 +48,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     background: var(--light);
     color: var(--dark);
