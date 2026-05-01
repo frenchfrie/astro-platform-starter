@@ -17,15 +17,17 @@ import { Image } from 'astro:assets';
 // SEO local : Les mots-clés "Sarlat", "Périgord Vert", "Dordogne" et "Châteaux" sont placés sémantiquement dans les titres (h2) pour attirer les recherches Google.
 //
 // Note sur les images : Quand tu ajouteras tes propres photos avec <Image />, elles prendront automatiquement tout l'espace de la colonne grâce à l'aspect-ratio, tout en restant optimisées par Astro.
-
 ---
 
-<BaseLayout title="Découvrir le Périgord Vert" activePage="region">
+<BaseLayout title="Découvrir le Périgord Vert" activePage="pour-aller-plus-loin">
     <main class="page-container">
         <header class="region-header">
             <span class="label">Évasion</span>
             <h1>Le Périgord Vert</h1>
-            <p class="lead">Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les trésors de la Dordogne.</p>
+            <p class="lead">
+                Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les
+                trésors de la Dordogne.
+            </p>
         </header>
 
         <section class="discovery-section">
@@ -33,7 +35,10 @@ import { Image } from 'astro:assets';
                 <div class="discovery-text">
                     <h2>Sarlat-la-Canéda</h2>
                     <p class="distance">À seulement 10 minutes du domaine</p>
-                    <p>Capitale du Périgord Vert, Sarlat est une cité médiévale d'une richesse exceptionnelle. Flânez dans ses ruelles pavées, admirez ses façades de calcaire blond et ne manquez pas son célèbre marché le samedi matin pour déguster les produits du terroir.</p>
+                    <p>
+                        Capitale du Périgord Vert, Sarlat est une cité médiévale d'une richesse exceptionnelle. Flânez dans ses ruelles pavées, admirez ses
+                        façades de calcaire blond et ne manquez pas son célèbre marché le samedi matin pour déguster les produits du terroir.
+                    </p>
                     <ul class="highlights">
                         <li>∗ Cathédrale Saint-Sacerdos</li>
                         <li>∗ Lanterne des Morts</li>
@@ -53,8 +58,13 @@ import { Image } from 'astro:assets';
             <div class="discovery-grid reverse">
                 <div class="discovery-text">
                     <h2>La Vallée des Châteaux</h2>
-                    <p>Surnommée la vallée des 1001 châteaux, la Dordogne offre des panoramas spectaculaires. Beynac, Castelnaud ou les jardins suspendus de Marqueyssac sont autant d'étapes incontournables à moins de 20 minutes du domaine.</p>
-                    <p><strong>Notre conseil :</strong> Découvrez la vallée depuis la rivière en canoë-kayak pour une perspective unique sur les forteresses médiévales.</p>
+                    <p>
+                        Surnommée la vallée des 1001 châteaux, la Dordogne offre des panoramas spectaculaires. Beynac, Castelnaud ou les jardins suspendus de
+                        Marqueyssac sont autant d'étapes incontournables à moins de 20 minutes du domaine.
+                    </p>
+                    <p>
+                        <strong>Notre conseil :</strong> Découvrez la vallée depuis la rivière en canoë-kayak pour une perspective unique sur les forteresses médiévales.
+                    </p>
                 </div>
                 <div class="discovery-image">
                     <div class="image-placeholder">
@@ -69,7 +79,10 @@ import { Image } from 'astro:assets';
             <div class="discovery-grid">
                 <div class="discovery-text">
                     <h2>L'Art de Vivre</h2>
-                    <p>Le Périgord est mondialement connu pour sa table. Truffes, foies gras, cèpes et confits font la renommée de notre région. Nous partagerons avec vous nos meilleures adresses de producteurs locaux et de fermes-auberges authentiques.</p>
+                    <p>
+                        Le Périgord est mondialement connu pour sa table. Truffes, foies gras, cèpes et confits font la renommée de notre région. Nous
+                        partagerons avec vous nos meilleures adresses de producteurs locaux et de fermes-auberges authentiques.
+                    </p>
                 </div>
                 <div class="discovery-image">
                     <div class="image-placeholder">
@@ -170,11 +183,14 @@ import { Image } from 'astro:assets';
 
     /* Responsive */
     @media (max-width: 900px) {
-        .discovery-grid, .discovery-grid.reverse {
+        .discovery-grid,
+        .discovery-grid.reverse {
             grid-template-columns: 1fr;
             gap: 3rem;
             direction: ltr;
         }
-        .region-header { margin-bottom: 4rem; }
+        .region-header {
+            margin-bottom: 4rem;
+        }
     }
 </style>

@@ -5,9 +5,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('blog');
-    return blogEntries.map(entry => ({
+    return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
-        props: { entry },
+        props: { entry }
     }));
 }
 
@@ -17,7 +17,7 @@ const { Content } = await entry.render();
 const allPosts = await getCollection('blog');
 
 const relatedPosts = allPosts
-    .filter(post => {
+    .filter((post) => {
         // 1. Exclure l'article en cours de lecture
         const isNotCurrent = post.slug !== entry.slug;
         // 2. Vérifier si c'est la même catégorie
@@ -33,11 +33,10 @@ interface Props {
 }
 
 // Si on n'a pas assez d'articles dans la même catégorie, on complète avec les derniers articles
-const fallbackPosts = relatedPosts.length < 2
-    ? allPosts
-        .filter(post => post.slug !== entry.slug && !relatedPosts.find(r => r.slug === post.slug))
-        .slice(0, 2 - relatedPosts.length)
-    : [];
+const fallbackPosts =
+    relatedPosts.length < 2
+        ? allPosts.filter((post) => post.slug !== entry.slug && !relatedPosts.find((r) => r.slug === post.slug)).slice(0, 2 - relatedPosts.length)
+        : [];
 
 const finalRelatedPosts = [...relatedPosts, ...fallbackPosts];
 
@@ -46,12 +45,10 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
     month: 'long',
     day: 'numeric'
 });
-
 ---
 
 <BaseLayout title={entry.data.title} activePage="blog">
     <article class="article-wrapper">
-
         <header class="article-header">
             <div class="meta">
                 <span class="category">{entry.data.category.replace(/-/g, ' ')}</span>
@@ -62,11 +59,13 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
             <p class="lead">{entry.data.excerpt}</p>
         </header>
 
-        {entry.data.image && (
-            <div class="main-image-container">
-                <img src={entry.data.image} alt="" />
-            </div>
-        )}
+        {
+            entry.data.image && (
+                <div class="main-image-container">
+                    <img src={entry.data.image} alt="" />
+                </div>
+            )
+        }
 
         <div class="content-body">
             <div class="prose">
@@ -79,27 +78,31 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
                 <span class="divider-icon">∗</span>
             </div>
 
-            {relatedPosts.length > 0 && (
-                <section class="suggestions">
-                    <h3 class="suggestion-title">
-                        <span>Exploration : {entry.data.category}</span>
-                        Continuer la lecture
-                    </h3>
-                    <div class="suggestion-grid">
-                        {finalRelatedPosts.map(post => (
-                            <a href={`/blog/${post.slug}`} class="suggestion-card">
-                                <div class="card-meta">DANS {post.data.category.toUpperCase()}</div>
-                                <h4>{post.data.title}</h4>
-                                <span class="link-text">Lire l'article</span>
-                            </a>
-                        ))}
-                    </div>
-                </section>
-            )}
+            {
+                relatedPosts.length > 0 && (
+                    <section class="suggestions">
+                        <h3 class="suggestion-title">
+                            <span>Exploration : {entry.data.category}</span>
+                            Continuer la lecture
+                        </h3>
+                        <div class="suggestion-grid">
+                            {finalRelatedPosts.map((post) => (
+                                <a href={`/blog/${post.slug}`} class="suggestion-card">
+                                    <div class="card-meta">DANS {post.data.category.toUpperCase()}</div>
+                                    <h4>{post.data.title}</h4>
+                                    <span class="link-text">Lire l'article</span>
+                                </a>
+                            ))}
+                        </div>
+                    </section>
+                )
+            }
 
             <div class="navigation-bottom">
-                <a href="/blog" class="btn-back">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <a href="/src/pages/_blog" class="btn-back">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                        ><path d="M19 12H5M12 19l-7-7 7-7"></path></svg
+                    >
                     Retour au blog
                 </a>
             </div>
@@ -128,7 +131,10 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
         font-weight: 600;
     }
 
-    .sep { margin: 0 10px; color: var(--stone); }
+    .sep {
+        margin: 0 10px;
+        color: var(--stone);
+    }
 
     h1 {
         font-family: var(--font-display);
@@ -171,7 +177,9 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
         color: var(--dark);
     }
 
-    .prose :global(p) { margin-bottom: 1.5rem; }
+    .prose :global(p) {
+        margin-bottom: 1.5rem;
+    }
 
     .article-footer {
         margin-top: 8rem;
@@ -186,8 +194,9 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
         margin-bottom: 4rem;
     }
 
-    .footer-divider::before, .footer-divider::after {
-        content: "";
+    .footer-divider::before,
+    .footer-divider::after {
+        content: '';
         flex: 1;
         height: 1px;
         background: var(--stone);
@@ -232,7 +241,9 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
         transition: opacity var(--transition) ease;
     }
 
-    .suggestion-card:hover { opacity: 0.7; }
+    .suggestion-card:hover {
+        opacity: 0.7;
+    }
 
     .card-meta {
         font-size: 0.7rem;
@@ -275,9 +286,13 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
         transition: color var(--transition);
     }
 
-    .btn-back:hover { color: var(--warm); }
+    .btn-back:hover {
+        color: var(--warm);
+    }
 
     @media (max-width: 700px) {
-        .suggestion-grid { grid-template-columns: 1fr; }
+        .suggestion-grid {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
