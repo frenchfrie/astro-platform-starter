@@ -1,54 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-
-// --- À METTRE À JOUR : Importe tes photos de la région ici ---
-// import sarlatImg from '../assets/region/sarlat.jpg';
-// import dordogneImg from '../assets/region/riviere-dordogne.jpg';
-// import gastronomieImg from '../assets/region/marche-perigord.jpg';
-
-// Pourquoi cette structure est "super" ?
-// Le Rythme (Z-Pattern) : En alternant Image-Texte puis Texte-Image, on évite la monotonie et on guide l'œil de l'utilisateur naturellement.
-//
-// L'Information Pratique : Mentionner la distance ("10 minutes") est rassurant pour le locataire qui prépare ses journées.
-//
-// Thémabilité : Le style utilise les mêmes variables (--font-display, --warm) que tes pages de gîtes pour une unité parfaite.
-//
-// SEO local : Les mots-clés "Sarlat", "Périgord Vert", "Dordogne" et "Châteaux" sont placés sémantiquement dans les titres (h2) pour attirer les recherches Google.
-//
-// Note sur les images : Quand tu ajouteras tes propres photos avec <Image />, elles prendront automatiquement tout l'espace de la colonne grâce à l'aspect-ratio, tout en restant optimisées par Astro.
 ---
 
-<BaseLayout title="Découvrir le Périgord Vert" activePage="pour-aller-plus-loin">
+<BaseLayout title="Pour aller plus loin" activePage="pour-aller-plus-loin">
     <main class="page-container">
         <header class="region-header">
             <span class="label">Évasion</span>
-            <h1>Le Périgord Vert</h1>
+            <h1>Pour aller plus loin</h1>
             <p class="lead">
-                Entre châteaux millénaires, vallées verdoyantes et gastronomie d'exception, le Domaine de Feydoux est le point de départ idéal pour explorer les
-                trésors de la Dordogne.
+                Châteaux perchés sur des éperons rocheux, cités romaines, abbayes millénaires et musées insolites — le Périgord Vert réserve bien des surprises
+                aux curieux qui s'aventurent au-delà du domaine.
             </p>
         </header>
 
         <section class="discovery-section">
             <div class="discovery-grid">
                 <div class="discovery-text">
-                    <h2>Sarlat-la-Canéda</h2>
-                    <p class="distance">À seulement 10 minutes du domaine</p>
+                    <h2>Périgueux</h2>
                     <p>
-                        Capitale du Périgord Vert, Sarlat est une cité médiévale d'une richesse exceptionnelle. Flânez dans ses ruelles pavées, admirez ses
-                        façades de calcaire blond et ne manquez pas son célèbre marché le samedi matin pour déguster les produits du terroir.
+                        Ville d’art et d’histoire, Périgueux mérite de s’y arrêter, d’en arpenter les rues et ruelles, de profiter de ses commerces locaux et de
+                        se rendre dans ses églises typiques chargées d’histoire et de sacré. Vous découvrirez ses arènes romaines ; le musée gallo-romain de
+                        Vézuna bâti autour de la villa de Pompéius, dotée d’un chauffage par le sol et orné de fresques ; la Tour de Vésone, sauvée de la
+                        démolition et du vandalisme par Henri Athanase, Wlgrin de Taillefer ; le château Barrière de la famille de Jeanne de Barrière que vous
+                        retrouverez à Sarlat. Cette femme énergique a sauvé sa ville de l’envahisseur. La tour Mataguerre du nom de son célèbre prisonnier qui
+                        est la seule tour subsistante d’un ensemble défensif constitué de 28 portes encadrées de deux tours chacune. Il faut bien sûr visiter la
+                        cathédrale millénaire Saint Front qui est le modèle de la basilique du Sacré Cœur de Paris, se rendre rues Limogeane, des Farges,
+                        Eguilleries, passage de la Clautre, …sans omettre un détour par son musée militaire.
                     </p>
                     <ul class="highlights">
-                        <li>∗ Cathédrale Saint-Sacerdos</li>
-                        <li>∗ Lanterne des Morts</li>
-                        <li>∗ Marché couvert (Église Sainte-Marie)</li>
+                        <li>∗ Arènes romaines et tour de Vésuna</li>
+                        <li>∗ Cathédrale Saint-Front (classée UNESCO)</li>
+                        <li>∗ Tour Mataguerre et château Barrière</li>
+                        <li>∗ Musée militaire</li>
                     </ul>
                 </div>
                 <div class="discovery-image">
                     <div class="image-placeholder">
-                        {/* Remplace par : <Image src={sarlatImg} alt="Sarlat" /> */}
-                        <span>Photo : La cité médiévale de Sarlat</span>
+                        {/* <Image src={perigueuxImg} alt="Cathédrale Saint-Front de Périgueux" width={800} height={500} format="webp" /> */}
+                        <span>Photo : La cathédrale Saint-Front</span>
                     </div>
                 </div>
             </div>
@@ -57,19 +46,19 @@ import { Image } from 'astro:assets';
         <section class="discovery-section alt-bg">
             <div class="discovery-grid reverse">
                 <div class="discovery-text">
-                    <h2>La Vallée des Châteaux</h2>
+                    <h2>Hautefort</h2>
                     <p>
-                        Surnommée la vallée des 1001 châteaux, la Dordogne offre des panoramas spectaculaires. Beynac, Castelnaud ou les jardins suspendus de
-                        Marqueyssac sont autant d'étapes incontournables à moins de 20 minutes du domaine.
-                    </p>
-                    <p>
-                        <strong>Notre conseil :</strong> Découvrez la vallée depuis la rivière en canoë-kayak pour une perspective unique sur les forteresses médiévales.
+                        Le château est situé sur un éperon rocheux qui domine la commune et le village de Hautefort. Créé sur une période allant de la fin du
+                        XVIe siècle à la fin du XVIIe sur les bases d’une ancienne forteresse médiévale, son architecture évoque nettement les châteaux de la
+                        Loire et Versailles. Embelli notamment par l’ajout au XIXe siècle d’un jardin à la française et d’un parc paysager, c’est un site unique
+                        qui allie la splendeur de la nature et la majesté de l’architecture, à une culture du raffinement héritée et transmise au fil du temps.
+                        L’hôtel Dieu de ce bourg renferme le musée de l’histoire de la médecine.
                     </p>
                 </div>
                 <div class="discovery-image">
                     <div class="image-placeholder">
-                        {/* Remplace par : <Image src={dordogneImg} alt="Vallée Dordogne" /> */}
-                        <span>Photo : Vue sur la rivière et les châteaux</span>
+                        {/* <Image src={hautefortImg} alt="Château de Hautefort" width={800} height={500} format="webp" /> */}
+                        <span>Photo : Le château de Hautefort</span>
                     </div>
                 </div>
             </div>
@@ -78,16 +67,57 @@ import { Image } from 'astro:assets';
         <section class="discovery-section">
             <div class="discovery-grid">
                 <div class="discovery-text">
-                    <h2>L'Art de Vivre</h2>
+                    <h2>Château de Jumilhac</h2>
                     <p>
-                        Le Périgord est mondialement connu pour sa table. Truffes, foies gras, cèpes et confits font la renommée de notre région. Nous
-                        partagerons avec vous nos meilleures adresses de producteurs locaux et de fermes-auberges authentiques.
+                        Situé aux marches du Périgord et du Limousin et défendant depuis l’époque gauloise la route de l’or extrait aux environs, le château de
+                        Jumilhac a traversé les âges et subi les convoitises de ses envahisseurs : Wisigoths, Francs, Sarrasins, Vikings. Devenu château-fort au
+                        Moyen-âge, il fut convoité par Richard Cœur-de-Lion et Philippe Auguste avant de tomber aux mains du Prince Noir et d’être libéré par le
+                        Connétable du Guesclin. C’est Antoine Chapelle, maître de forges, alchimiste et soutien infaillible d’Henri IV, qui en fit la Perle
+                        Noire du Haut-Périgord et le coiffa de féériques toitures aux faîtières à symboliques alchimiques après avoir reçu le titre de Comte de
+                        Jumilhac (1597). Attention, pour parvenir au château et village de Jumilhac vous devrez emprunter une route qui compte près de 100
+                        virages…
+                    </p>
+                    <p>
+                        <strong>À noter :</strong> La route menant au château compte environ cent virages — le voyage fait partie de l'aventure.
                     </p>
                 </div>
                 <div class="discovery-image">
                     <div class="image-placeholder">
-                        {/* Remplace par : <Image src={gastronomieImg} alt="Gastronomie" /> */}
-                        <span>Photo : Marché local ou table périgourdine</span>
+                        {/* <Image src={jumilhacImg} alt="Château de Jumilhac" width={800} height={500} format="webp" /> */}
+                        <span>Photo : Les toits alchimiques de Jumilhac</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discovery-section alt-bg">
+            <div class="discovery-grid reverse">
+                <div class="discovery-text">
+                    <h2>Tourtoirac</h2>
+                    <p>
+                        Charmante et pittoresque commune traversée par l’Auvezère, Tourtoirac est renommée pour son imposante Abbaye et sa grotte, véritable
+                        perle géologique du Périgord, découverte en 1995. La scénographie et la visite guidée vous conduisent dans une féérie de colonnes et
+                        draperies, excentriques et improbables. Le parcours est aménagé pour l’accessibilité aux personnes à mobilité réduite, fauteuils
+                        roulants et poussettes.
+                    </p>
+                    <p>
+                        L’abbaye de Tourtoirac (MH), est l’un des plus grands établissements monastiques du Périgord. Elle a été construite par le vicomte Guy
+                        de Limoges à partir de 1003 pour s’achever en 1025. Elle étendait largement son influence sur la région.
+                    </p>
+                    <p>
+                        Le musée des rois d’Araucanie et de Patagonie retrace l’épopée d’Antoine de Tounens, né à Chourgnac d’Ans. Proclamé roi par les tribus
+                        Mapuches, pour-chassé par l’armée chilienne il finit sa vie à Tourtoirac et repose au cimetière du village.
+                    </p>
+                    <ul class="highlights">
+                        <li>∗ Abbaye (Monument Historique)</li>
+                        <li>∗ Grotte de Tourtoirac</li>
+                        <li>∗ Musée des Rois d'Araucanie et de Patagonie</li>
+                    </ul>
+                </div>
+                <div class="discovery-image">
+                    <div class="image-placeholder">
+                        {/* <Image src={tourtoiracImg} alt="Abbaye de Tourtoirac" width={800} height={500} format="webp" /> */}
+                        <span>Photo : L'abbaye de Tourtoirac</span>
                     </div>
                 </div>
             </div>
@@ -111,7 +141,6 @@ import { Image } from 'astro:assets';
         margin: 0.5rem 0 2rem;
     }
 
-    /* Grille de découverte */
     .discovery-section {
         margin-bottom: 8rem;
         padding: 4rem 0;
@@ -125,11 +154,11 @@ import { Image } from 'astro:assets';
     }
 
     .discovery-grid.reverse {
-        direction: rtl; /* Inverse l'ordre visuel sur desktop */
+        direction: rtl;
     }
 
     .discovery-grid.reverse .discovery-text {
-        direction: ltr; /* Remet le texte dans le bon sens */
+        direction: ltr;
     }
 
     .discovery-text h2 {
@@ -137,15 +166,6 @@ import { Image } from 'astro:assets';
         font-size: 2.5rem;
         color: var(--dark);
         margin-bottom: 1rem;
-    }
-
-    .distance {
-        color: var(--warm);
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        margin-bottom: 2rem;
-        font-weight: 600;
     }
 
     .discovery-text p {
@@ -169,7 +189,6 @@ import { Image } from 'astro:assets';
         font-weight: 500;
     }
 
-    /* Images et Placeholders */
     .image-placeholder {
         background-color: var(--stone);
         aspect-ratio: 16/10;
@@ -181,7 +200,6 @@ import { Image } from 'astro:assets';
         border-radius: 2px;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
         .discovery-grid,
         .discovery-grid.reverse {

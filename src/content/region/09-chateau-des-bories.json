@@ -1,12 +1,7 @@
 {
-  "title": "Château des Bories",
-  "distance": "À 22 km du domaine",
-  "description": "Édifié à la fin du XVe et au début du XVIe siècle, le château des Bories conserve des éléments d'origine remarquables : cuisine médiévale intacte, tour à vis unique en son genre et douves en eau. Un exemple rare de demeure seigneuriale périgourdine à peine retouchée par les siècles.",
-  "highlights": [
-    "Château de la fin du XVe siècle",
-    "Cuisine médiévale d'origine conservée",
-    "Tour à vis unique",
-    "Douves en eau"
-  ],
-  "image": "../../assets/feydoux/chateau-face.jpg"
+    "title": "Château des Bories",
+    "distance": "À 22 km du domaine",
+    "description": "Château fin XV début XVIe siècle, il présente une étonnante cuisine encore dotée d’éléments anciens, une tour escalier assez unique en son genre et des douves dont le propriétaire vous révèlera le secret.",
+    "highlights": ["Château de la fin du XVe siècle", "Cuisine médiévale d'origine conservée", "Tour à vis unique", "Douves en eau"],
+    "image": "../../assets/feydoux/chateau-face.jpg"
 }
