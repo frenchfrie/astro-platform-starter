@@ -10,7 +10,11 @@
         "astro": "astro",
         "sanitize": "./sanitize-assets.sh src/assets",
         "lint": "eslint .",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{astro,ts,tsx,js,jsx,json,md,mdx,yaml}": "prettier --write"
     },
     "dependencies": {
         "@astrojs/netlify": "^6.6.0",
@@ -39,6 +43,8 @@
         "eslint-plugin-astro": "^1.7.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-markdown": "^5.1.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "prettier": "^3.8.3",
         "prettier-plugin-astro": "^0.14.1"
     }

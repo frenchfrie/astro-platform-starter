@@ -1,3 +1,5 @@
+# Feedbacks sur l'UI pqr un pro
+
 Tab nav a laisser identique partout : passer en blanc partout
 Bouton réserver qui décalé les boutons de gîtes
 Boutons réserver qui a deux composants
@@ -38,5 +40,5 @@ Pas besoin de sous-titre pour les photos lightbox
 
 Désactiver le save image
 Watermark les images
-Plus de fil d'Ariane pour les mentions légales  on sait pas où on est
+Plus de fil d'Ariane pour les mentions légales on sait pas où on est
 Ouvrir une carte sur l'adresse

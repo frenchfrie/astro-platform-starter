@@ -1,245 +1,61 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   viewBox="0 0 2560 1440"
-   height="1440"
-   width="2560"
-   xml:space="preserve"
-   id="svg2"
-   version="1.1"><metadata
-     id="metadata8"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata>
-    <!-- Background -->
-    <rect x="0" y="0" width="2560" height="1440" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
 
-    <defs
-     id="defs6"><clipPath
-       id="clipPath18"
-       clipPathUnits="userSpaceOnUse"><path
-         id="path16"
-         d="M 0,1080 H 1920 V 0 H 0 Z" /></clipPath><clipPath
-       id="clipPath146"
-       clipPathUnits="userSpaceOnUse"><path
-         id="path144"
-         d="M 0,1080 H 1920 V 0 H 0 Z" /></clipPath></defs><g
-     transform="matrix(1.3333333,0,0,-1.3333333,0,1440)"
-     id="g10"><g
-       id="g12"><g
-         clip-path="url(#clipPath18)"
-         id="g14"><g
-           transform="translate(1149.6333,519.1176)"
-           id="g20"><path
-             id="path22"
-             style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="m 0,0 c 0,-116.903 -84.298,-211.672 -188.284,-211.672 -103.987,0 -188.284,94.769 -188.284,211.672 0,116.903 84.297,211.672 188.284,211.672 C -84.298,211.672 0,116.903 0,0 Z" /></g><g
-           transform="translate(1163.1903,519.1514)"
-           id="g24"><path
-             id="path26"
-             style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="m 0,0 c 0,-125.369 -90.402,-227 -201.919,-227 -111.516,0 -201.918,101.631 -201.918,227 0,125.369 90.402,227 201.918,227 C -90.402,227 0,125.369 0,0 Z" /></g><path
-           id="path28"
-           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           d="M 1032.627,574.556 H 891.183 V 372.897 h 141.444 z" /><g
-           transform="translate(985.3312,685.5076)"
-           id="g30"><path
-             id="path32"
-             style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 C -16.422,-0.127 -32.844,-0.255 -49.266,-0.382 -68.94,-34.384 -88.615,-68.385 -108.289,-102.387 H 59.022 C 39.348,-68.258 19.674,-34.129 0,0 Z" /></g><g
-           transform="translate(891.1829,473.7265)"
-           id="g34"><path
-             id="path36"
-             style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 H 141.444" /></g><path
-           id="path38"
-           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           d="m 978.194,439.078 h -32.578 v -66.182 h 32.578 z" /><path
-           id="path40"
-           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           d="m 975.719,497.863 h -27.217 v 52.556 h 27.217 z" /><g
-           transform="translate(962.1111,550.4193)"
-           id="g42"><path
-             id="path44"
-             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 V -52.556" /></g><g
-           transform="translate(948.5028,536.7937)"
-           id="g46"><path
-             id="path48"
-             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 H 27.217" /></g><g
-           transform="translate(948.5028,511.0996)"
-           id="g50"><path
-             id="path52"
-             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 H 27.217" /></g><g
-           transform="translate(983.3483,550.9059)"
-           id="g54"><path
-             id="path56"
-             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="m 0,0 h -43.299 c -2.543,3.179 -5.086,6.359 -7.629,9.538 H 8.866 C 5.911,6.359 2.955,3.179 0,0 Z" /></g><g
-           transform="translate(982.936,439.8936)"
-           id="g58"><path
-             id="path60"
-             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="m 0,0 h -43.299 c -2.543,3.23 -5.086,6.459 -7.629,9.689 H 8.866 C 5.911,6.459 2.955,3.23 0,0 Z" /></g><path
-           id="path62"
-           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           d="m 992.008,489.883 h -59.794 v 7.397 h 59.794 z" /><g
-           transform="translate(1032.627,574.5561)"
-           id="g64"><path
-             id="path66"
-             style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="m 0,0 h -141.444 c -3.162,2.855 -6.323,5.71 -9.485,8.565 H 8.247 C 5.498,5.71 2.749,2.855 0,0 Z" /></g><g
-           transform="translate(1032.6921,372.8969)"
-           id="g68"><path
-             id="path70"
-             style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 H 64.97" /></g><g
-           transform="translate(1032.6921,493.5545)"
-           id="g72"><path
-             id="path74"
-             style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 H 115.502" /></g></g></g><text
-       id="text78"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.0688591px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.3389079,0.94673282,0.89955996,-0.32202014,742.1802,600.6372)"><tspan
-         id="tspan76"
-         y="0"
-         x="0">C</tspan></text>
-<text
-       id="text82"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.80658722px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.4843146,0.88782424,0.84358606,-0.4601827,756.1924,639.3911)"><tspan
-         id="tspan80"
-         y="0"
-         x="0">h</tspan></text>
-<text
-       id="text86"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.4990921px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.61415512,0.81207555,0.77161101,-0.58355231,773.3779,671.0376)"><tspan
-         id="tspan84"
-         y="0"
-         x="0">â</tspan></text>
-<text
-       id="text90"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.19633865px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.72152526,0.72800367,0.6917286,-0.68557324,795.3794,699.7231)"><tspan
-         id="tspan88"
-         y="0"
-         x="0">t</tspan></text>
-<text
-       id="text94"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.46297836px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.80262232,0.62776796,0.59648756,-0.76262934,814.4492,719.2056)"><tspan
-         id="tspan92"
-         y="0"
-         x="0">e</tspan></text>
-<text
-       id="text98"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.77700043px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.88091837,0.49808638,0.47326824,-0.83702515,838.6792,738.4883)"><tspan
-         id="tspan96"
-         y="0"
-         x="0">a</tspan></text>
-<text
-       id="text102"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.06024551px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.94487774,0.34459218,0.32742336,-0.8977981,869.9297,756.2539)"><tspan
-         id="tspan100"
-         y="0"
-         x="0">u</tspan></text>
-<text
-       id="text106"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.70145798px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.99487985,0.11194942,0.10106473,-0.89814969,916.8711,771.9067)"><tspan
-         id="tspan104"
-         y="0"
-         x="0">d</tspan></text>
-<text
-       id="text110"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.74555588px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.99888079,-0.05239247,-0.04729867,-0.90176014,954.7261,776.0029)"><tspan
-         id="tspan108"
-         y="0"
-         x="0">e</tspan></text>
-<text
-       id="text114"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.41866302px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.96851701,-0.2757573,-0.24894739,-0.87434878,1001.5273,772.1201)"><tspan
-         id="tspan112"
-         y="0"
-         x="0">F</tspan></text>
-<text
-       id="text118"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.95716095px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.92284442,-0.42665577,-0.38517291,-0.83311643,1034.5615,762.6997)"><tspan
-         id="tspan116"
-         y="0"
-         x="0">e</tspan></text>
-<text
-       id="text122"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.35693359px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.85759985,-0.56970749,-0.5143175,-0.77421608,1064.2109,749.1523)"><tspan
-         id="tspan120"
-         y="0"
-         x="0">y</tspan></text>
-<text
-       id="text126"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.63102722px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.76746543,-0.7101345,-0.64109034,-0.69284558,1093.5566,729.8608)"><tspan
-         id="tspan124"
-         y="0"
-         x="0">d</tspan></text>
-<text
-       id="text130"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.02687454px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.63659982,-0.81836185,-0.73879458,-0.5747033,1121.6113,704.0156)"><tspan
-         id="tspan128"
-         y="0"
-         x="0">o</tspan></text>
-<text
-       id="text134"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.69758224px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.49287822,-0.8955527,-0.80847911,-0.44495545,1145.5342,673.2769)"><tspan
-         id="tspan132"
-         y="0"
-         x="0">u</tspan></text>
-<text
-       id="text138"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.22068405px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.34790257,-0.94939757,-0.8570907,-0.31407684,1163.833,640.0981)"><tspan
-         id="tspan136"
-         y="0"
-         x="0">x</tspan></text>
-<g
-       id="g140"><g
-         clip-path="url(#clipPath146)"
-         id="g142"><g
-           transform="translate(937.809,685.8049)"
-           id="g148"><path
-             id="path150"
-             style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 V 19.076 Z" /></g><g
-           transform="translate(984.809,685.8049)"
-           id="g152"><path
-             id="path154"
-             style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-             d="M 0,0 V 19.076 Z" /></g></g></g><text
-       id="text158"
-       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27px;font-family:'Adorn Copperplate';-inkscape-font-specification:AdornCopperplate;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(1,0,0,-1,834.9585,252.1758)"><tspan
-         id="tspan156"
-         y="0"
-         x="0 26.973 47.384998 55.485001 76.949997 99.549004 121.608 143.64 151.74001 183.54601 209.89799 233.98199">Ab anno MDCL</tspan></text>
-<text
-       id="text162"
-       style="font-size:44px;font-family:'Adorn Copperplate';"
-       transform="matrix(1,0,0,-1,778.2109,199.376)"><tspan
-         id="tspan160"
-         y="0"
-         x="0 33.043999 48.487999 82.103996 112.244 139.216 154.66 181.896 195.09599 219.076 254.056 298.80399 329.604">Fidelis tamen</tspan></text>
-</g></svg>
+    <!-- Background -->
+    <rect x="0" y="0" width="400" height="500" fill="white"/>
+
+    <g transform="translate(0,0)">
+        <!-- Medaillon -->
+        <circle cx="200" cy="200" r="160" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="black" stroke-width="1"/>
+
+        <!-- Textes medaillon -->
+        <defs>
+            <path id="topArcPath" d="M 17,220 A 160,162 0 0,1 385,220" fill="none"/>
+        </defs>
+
+        <text font-family="Adorn Copperplate, classic-serif, serif" font-size="32" fill="black" text-rendering="geometricPrecision">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">Château de Feydoux</textPath>
+        </text>
+
+        <g transform="translate(200,200)">
+            <!-- Dessin chateau -->
+
+            <!-- corps -->
+            <rect x="-50" y="-30" width="100" height="140" fill="none" stroke="black" stroke-width="1"/>
+            <line x1="50" y1="30" x2="146" y2="30" stroke="black" stroke-width="1"/>
+            <line x1="50" y1="110" x2="101" y2="110" stroke="black" stroke-width="1"/>
+
+            <!-- toit -->
+            <polygon points="-55,-35 55,-35 20,-100 -20,-100" fill="none" stroke="black" stroke-width="1"/>
+            <polygon points="-50,-30 -55,-35 55,-35 50,-30" stroke="black" fill="none" stroke-width="1"/>
+
+            <!-- antennes -->
+            <line x1="-20" y1="-100" x2="-20" y2="-115" stroke="black" stroke-width="1"/>
+            <line x1="20" y1="-100" x2="20" y2="-115" stroke="black" stroke-width="1"/>
+
+            <!-- corniche facade -->
+            <line x1="-50" y1="50" x2="50" y2="50" stroke="black" stroke-width="1"/>
+
+            <!-- fenetre -->
+            <g transform="translate(0,20)">
+                <rect x="-10" y="-30" width="20" height="40" fill="none" stroke="black" stroke-width="2"/>
+                <line x1="0" y1="-30" x2="0" y2="10" stroke="black" stroke-width="1"/>
+                <line x1="-10" y1="-20" x2="10" y2="-20" stroke="black" stroke-width="1"/>
+                <line x1="-10" y1="0" x2="10" y2="0" stroke="black" stroke-width="1"/>
+                <rect x="-20" y="10" width="40" height="6" fill="none" stroke="black" stroke-width="1"/>
+                <polygon points="-15,-30 -20,-35 20,-35 15,-30" stroke="black" fill="none" stroke-width="1"/>
+            </g>
+
+            <!-- porte -->
+            <rect x="-10" y="70" width="20" height="40" fill="none" stroke="black" stroke-width="1"/>
+            <polygon points="-15,70 -20,65 20,65 15,70" stroke="black" fill="none" stroke-width="1"/>
+
+        </g>
+    </g>
+
+    <g transform="translate(200, 390)">
+        <!-- Textes du bas -->
+        <text x="0" y="0" text-anchor="middle" font-family="Adorn Copperplate, classic-serif, serif" font-size="26" fill="black">Ab anno MDCL</text>
+        <text x="0" y="44" text-anchor="middle" font-family="Adorn Copperplate, classic-serif, serif" font-size="44" fill="black">Fidelis tamen</text>
+    </g>
+</svg>
