@@ -52,7 +52,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : retirer l'élément qui affiche le sous-titre/légende dans l'overlay lightbox (garder l'`alt` côté `<img>` pour l'accessibilité).
 - **Fait quand** : la lightbox n'affiche plus de texte sous l'image.
 
-### qw-5 — Style des entrées de blog déjà lues
+### [x] qw-5 — Style des entrées de blog déjà lues
 
 - **Source** : `ux_feedbacks.md:20`
 - **Fichiers** : `src/pages/pour-aller-plus-loin.astro` (ou `_blog/` si réactivé)

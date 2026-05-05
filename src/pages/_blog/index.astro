@@ -77,4 +77,15 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
     .post-card:hover img {
         transform: scale(1.05);
     }
+
+    .post-card a:visited h2 {
+        color: var(--mid);
+    }
+    .post-card a:visited .category {
+        color: var(--stone);
+    }
+    .post-card a:visited p,
+    .post-card a:visited .read-more {
+        color: var(--mid);
+    }
 </style>
