@@ -218,7 +218,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Contenu — densification & fusion
 
-### content-1 — Densifier "À proximité" avec lieux concrets
+### [x] content-1 — Densifier "À proximité" avec lieux concrets
 
 - **Source** : `ux_feedbacks.md:11`
 - **Fichiers** : `src/pages/region.astro` (et/ou `src/content/` si modélisation en collection)
