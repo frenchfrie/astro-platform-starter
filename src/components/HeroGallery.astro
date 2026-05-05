@@ -226,6 +226,21 @@ const clientPhotos = photos.map((p) => ({
         }
     }
 
+    @media (max-width: 480px) {
+        .hero-gallery {
+            grid-template-rows: 56vw 60px;
+        }
+        .hero-grid {
+            grid-template-rows: 60px;
+        }
+        .gallery-btn {
+            font-size: 0.65rem;
+            padding: 0.4rem 0.8rem;
+            bottom: 0.75rem;
+            right: 0.75rem;
+        }
+    }
+
     :global(.lb-thumb) {
         width: 80px;
         height: 60px;

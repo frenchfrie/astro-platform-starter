@@ -168,7 +168,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Galerie / Images
 
-### img-1 — Responsive photos
+### [x] img-1 — Responsive photos
 
 - **Source** : `ux_feedbacks.md:13`
 - **Fichiers** : `src/components/HeroGallery.astro`, grilles dans `index.astro`, `gites/[slug].astro`
