@@ -84,7 +84,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : choisir **"À proximité"** (terme déjà dominant) et remplacer toutes les occurrences de "la région" / "notre région" / "région" utilisées comme libellé navigationnel. Conserver "région" dans la prose descriptive si naturel.
 - **Fait quand** : les libellés de section, titres, et liens utilisent uniquement "À proximité".
 
-### copy-2 — Reformuler "Plongez dans la piscine"
+### [x] copy-2 — Reformuler "Plongez dans la piscine"
 
 - **Source** : `ux_feedbacks.md:37`
 - **Fichiers** : `src/pages/index.astro` ou contenu gîte concerné
