@@ -124,7 +124,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : ajouter `<Breadcrumb>` en haut de chaque page secondaire avec les niveaux corrects (Accueil > Section > Page).
 - **Fait quand** : toutes les pages hors `/` portent un fil d'Ariane.
 
-### bc-3 — Breadcrumb sur mentions légales
+### [x] bc-3 — Breadcrumb sur mentions légales
 
 - **Source** : `ux_feedbacks.md:43`
 - **Fichiers** : `src/pages/mentions-legales.astro`
