@@ -38,7 +38,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : bouton fixe bas-droite, visible après ~600px de scroll, scroll smooth vers `#top`. Utiliser tokens (`--radius-md`, `--shadow-card`, `--warm`).
 - **Fait quand** : présent sur toutes les pages, accessible clavier (`aria-label`), masqué en haut de page.
 
-### qw-3 — Désactiver enregistrement des images
+### [x] qw-3 — Désactiver enregistrement des images
 
 - **Source** : `ux_feedbacks.md:41`
 - **Fichiers** : `src/components/HeroGallery.astro` (et toute autre `<Image>` dans des galeries)
