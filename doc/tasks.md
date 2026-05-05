@@ -157,7 +157,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : auditer les `font-weight`, `font-style`, `font-family` utilisés. Définir un set restreint (ex. : 400 / 600 uniquement, italique réservé aux citations) et migrer.
 - **Fait quand** : pas plus de 3 combinaisons (poids × style) en usage sur le site.
 
-### ui-3 — Limites blanc/noir et palette
+### [x] ui-3 — Limites blanc/noir et palette
 
 - **Source** : `ux_feedbacks.md:15`
 - **Fichiers** : `src/styles/global.css`, scoped styles

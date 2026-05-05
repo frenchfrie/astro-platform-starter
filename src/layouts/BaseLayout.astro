@@ -243,7 +243,7 @@ const isHome = activePage === 'home';
 
         .nav-cta {
             background: var(--dark);
-            color: white !important;
+            color: var(--cream) !important;
             padding: 0.7rem 1.4rem;
             border: none;
             border-radius: 2px;
@@ -268,8 +268,8 @@ const isHome = activePage === 'home';
             top: calc(100% + 15px);
             right: 0; /* Maintenant aligné sur le bord droit du bouton grace au parent .dropdown-anchor */
             width: 260px;
-            background: white;
-            border: 1px solid #eee;
+            background: var(--light);
+            border: 1px solid var(--stone);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             display: none;
             flex-direction: column;
@@ -299,7 +299,7 @@ const isHome = activePage === 'home';
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            border-bottom: 1px solid #f9f9f9;
+            border-bottom: 1px solid var(--cream);
             transition: background 0.2s;
         }
 
