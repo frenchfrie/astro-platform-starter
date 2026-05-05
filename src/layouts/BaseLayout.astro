@@ -40,8 +40,7 @@ const isHome = activePage === 'home';
                 <ul class="nav-links">
                     <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'le-logis-de-feydoux' ? 'active' : ''}>Le Logis</a></li>
                     <li><a href="/gites/la-garenne" class={activePage === 'la-garenne' ? 'active' : ''}>La Garenne</a></li>
-                    <li><a href="/region" class={activePage === 'region' ? 'active' : ''}>À proximité</a></li>
-                    <li><a href="/pour-aller-plus-loin" class={activePage === 'pour-aller-plus-loin' ? 'active' : ''}>Pour aller plus loin</a></li>
+                    <li><a href="/region" class={activePage === 'region' || activePage === 'pour-aller-plus-loin' ? 'active' : ''}>À proximité</a></li>
 
                     <li class="dropdown-anchor">
                         <button class="nav-cta" id="reserve-trigger">Réserver</button>

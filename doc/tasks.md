@@ -245,7 +245,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : composant avec 3-5 témoignages (citation + prénom + période). Données en dur dans une collection `src/content/reviews/` ou JSON. Style sobre, pas d'étoiles tape-à-l'œil.
 - **Fait quand** : section visible sur l'accueil au-dessus du booking widget.
 
-### content-3 — Fusionner "À proximité" et "Pour aller plus loin"
+### [x] content-3 — Fusionner "À proximité" et "Pour aller plus loin"
 
 - **Source** : `ux_feedbacks.md:10`
 - **État actuel** : `_blog` est désactivé (préfixe `_`), `pour-aller-plus-loin.astro` et `region.astro` coexistent.

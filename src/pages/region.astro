@@ -65,6 +65,50 @@ const mapMarkers = [
                 </section>
             ))
         }
+
+        <section id="articles" class="articles-section">
+            <header class="articles-header">
+                <span class="label">Pour aller plus loin</span>
+                <h2>À explorer davantage</h2>
+                <p class="lead">
+                    Châteaux perchés, cités romaines, abbayes millénaires — le Périgord Vert réserve bien des surprises aux curieux qui s'aventurent plus loin.
+                </p>
+            </header>
+
+            <div class="article-entry">
+                <h3>Périgueux</h3>
+                <p>
+                    Ville d'art et d'histoire, Périgueux mérite de s'y arrêter. Vous découvrirez ses arènes romaines, le musée gallo-romain de Vézuna, la
+                    cathédrale millénaire Saint-Front — modèle de la basilique du Sacré-Cœur de Paris — et la tour Mataguerre, seul vestige d'un ensemble de 28
+                    portes défensives. La rue Limogeane et le passage de la Clautre complètent ce centre historique exceptionnel.
+                </p>
+            </div>
+
+            <div class="article-entry">
+                <h3>Château de Hautefort</h3>
+                <p>
+                    Sur un éperon rocheux dominant la commune, ce château édifié du XVI<sup>e</sup> au XVII<sup>e</sup> siècle évoque les châteaux de la Loire. Son
+                    jardin à la française et son parc paysager en font un site unique alliant splendeur naturelle et majesté architecturale.
+                </p>
+            </div>
+
+            <div class="article-entry">
+                <h3>Château de Jumilhac</h3>
+                <p>
+                    Aux marches du Périgord et du Limousin, ce château a traversé les âges depuis l'époque gauloise. Antoine Chapelle, maître de forges et
+                    soutien d'Henri IV, lui fit coiffer de féériques toitures aux symboliques alchimiques. La route qui y mène compte environ cent virages — le
+                    voyage fait partie de l'aventure.
+                </p>
+            </div>
+
+            <div class="article-entry">
+                <h3>Tourtoirac</h3>
+                <p>
+                    Traversée par l'Auvezère, Tourtoirac abrite une abbaye du XI<sup>e</sup> siècle (Monument Historique) et une grotte découverte en 1995, véritable
+                    perle géologique. Le musée des Rois d'Araucanie et de Patagonie retrace l'épopée d'Antoine de Tounens, proclamé roi par les tribus Mapuches.
+                </p>
+            </div>
+        </section>
     </main>
 </BaseLayout>
 
@@ -154,6 +198,44 @@ const mapMarkers = [
         color: var(--mid);
         font-style: italic;
         border-radius: var(--radius-sm);
+    }
+
+    .articles-section {
+        border-top: 1px solid var(--stone);
+        padding-top: 6rem;
+        margin-top: 4rem;
+    }
+
+    .articles-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 5rem;
+    }
+
+    .articles-header h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-style: italic;
+        color: var(--dark);
+        margin: 0.5rem 0 1.5rem;
+    }
+
+    .article-entry {
+        max-width: 720px;
+        margin: 0 auto 4rem;
+    }
+
+    .article-entry h3 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .article-entry p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--mid);
     }
 
     @media (max-width: 900px) {
