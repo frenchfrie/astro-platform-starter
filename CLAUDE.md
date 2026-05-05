@@ -10,8 +10,8 @@ npm run build      # Production build
 npm run preview    # Preview production build
 npm run lint       # ESLint
 npm run format     # Prettier
-npm run sanitize   # Strip metadata from images in src/assets (./sanitize-assets.sh)
-./watermark-assets.sh  # Add "feydoux.fr" watermark to all JPGs in src/assets/ (run once on new images before commit)
+npm run sanitize   # Normalize filenames in src/assets (lowercase, strip accents) — wraps scripts/sanitize-assets.sh
+npm run watermark  # Add "feydoux.fr" watermark to JPGs in src/assets — wraps scripts/watermark-assets.sh (run once on new images before commit)
 ```
 
 No test suite is configured.

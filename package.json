@@ -8,7 +8,8 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "sanitize": "./sanitize-assets.sh src/assets",
+        "sanitize": "./scripts/sanitize-assets.sh src/assets",
+        "watermark": "./scripts/watermark-assets.sh src/assets",
         "lint": "eslint .",
         "format": "prettier --write .",
         "prepare": "husky"
