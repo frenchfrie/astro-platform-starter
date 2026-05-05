@@ -113,6 +113,11 @@ const { data } = entry;
             display: none;
         }
 
+        /* Lift the global back-to-top above the booking bar while it's visible */
+        :global(body:has(.mobile-book-bar:not(.is-hidden)) #back-to-top) {
+            bottom: 5.5rem;
+        }
+
         .mobile-price {
             font-size: 1rem;
             color: var(--dark);
