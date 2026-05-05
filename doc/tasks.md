@@ -150,7 +150,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : recenser les classes `btn-*` utilisées, ne conserver que `btn-primary` et `btn-ghost`. Migrer les usages restants (`btn-card`, `nav-cta`, etc.) vers ces deux classes ou les supprimer.
 - **Fait quand** : `grep -r "class=.*btn-" src/` ne montre que `btn-primary` ou `btn-ghost`.
 
-### ui-2 — Réduire les variantes typographiques
+### [x] ui-2 — Réduire les variantes typographiques
 
 - **Source** : `ux_feedbacks.md:16`
 - **Fichiers** : `src/styles/global.css`, scoped styles

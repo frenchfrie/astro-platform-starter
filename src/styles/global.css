@@ -154,7 +154,7 @@ img {
     display: inline-block;
     font-family: var(--font-body);
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--warm);
@@ -173,7 +173,7 @@ img {
     background: var(--warm);
     color: var(--dark);
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.85rem 2rem;
@@ -192,7 +192,7 @@ img {
     border: 1px solid rgba(245, 240, 232, 0.4);
     color: var(--cream);
     font-size: 0.8rem;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.85rem 2rem;
