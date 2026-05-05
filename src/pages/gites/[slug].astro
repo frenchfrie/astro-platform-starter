@@ -23,7 +23,9 @@ const { data } = entry;
     <HeroGallery photos={data.photos} />
 
     <main class="main-layout">
-        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: data.title }]} />
+        <div class="breadcrumb-row">
+            <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: data.title }]} />
+        </div>
         <article class="col-content">
             <GiteHeader title={data.title} maxGuests={data.maxGuests} />
 
@@ -61,6 +63,10 @@ const { data } = entry;
         max-width: var(--max-width, 1300px);
         margin: 0 auto;
         padding: 4rem var(--side-pad);
+    }
+
+    .breadcrumb-row {
+        grid-column: 1 / -1;
     }
 
     .description {
