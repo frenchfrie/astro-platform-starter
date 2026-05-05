@@ -199,7 +199,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : transformer l'adresse en lien `https://www.openstreetmap.org/?mlat=...&mlon=...` (ou `https://maps.app.goo.gl/...`) ouvrant dans un nouvel onglet.
 - **Fait quand** : clic sur l'adresse → carte externe centrée sur Lempzours.
 
-### map-2 — Carte sur la page "À proximité"
+### [x] map-2 — Carte sur la page "À proximité"
 
 - **Source** : `ux_feedbacks.md:27`
 - **Fichiers** : `src/pages/region.astro`, nouveau `src/components/RegionMap.astro`

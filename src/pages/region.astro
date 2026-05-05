@@ -4,8 +4,22 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import RegionMap from '../components/RegionMap.astro';
 
 const locations = await getCollection('region');
+
+const mapMarkers = [
+    { lat: 45.3917, lng: 0.735, label: 'Lempzours', distance: 'Le village du domaine' },
+    { lat: 45.408, lng: 0.776, label: 'Saint-Jean-de-Côle', distance: 'À 6 km' },
+    { lat: 45.362, lng: 0.648, label: 'Brantôme', distance: 'À 15 km' },
+    { lat: 45.315, lng: 0.591, label: 'Bourdeilles', distance: 'À 22 km' },
+    { lat: 45.451, lng: 0.784, label: 'Grottes de Villars', distance: 'À 10 km' },
+    { lat: 45.421, lng: 0.756, label: 'Abbaye de Boschaud', distance: 'À 12 km' },
+    { lat: 45.415, lng: 0.71, label: 'Château de Puyguilhem', distance: 'À 11 km' },
+    { lat: 45.31, lng: 0.869, label: 'Sorges', distance: 'À 9 km' },
+    { lat: 45.183, lng: 0.75, label: 'Château des Bories', distance: 'À 22 km' },
+    { lat: 45.418, lng: 0.916, label: 'Marché de Thiviers', distance: 'À 15 km' }
+];
 ---
 
 <BaseLayout title="Découvrir le Périgord Vert" activePage="region">
@@ -19,6 +33,10 @@ const locations = await getCollection('region');
                 exceptionnel, tout accessible en moins de 25 minutes.
             </p>
         </header>
+
+        <section class="map-section">
+            <RegionMap markers={mapMarkers} />
+        </section>
 
         {
             locations.map((loc, i) => (
@@ -51,10 +69,14 @@ const locations = await getCollection('region');
 </BaseLayout>
 
 <style>
+    .map-section {
+        margin-bottom: 8rem;
+    }
+
     .region-header {
         text-align: center;
         max-width: 800px;
-        margin: 0 auto 8rem;
+        margin: 0 auto 4rem;
     }
 
     .region-header h1 {
