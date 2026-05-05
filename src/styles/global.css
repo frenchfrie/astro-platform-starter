@@ -93,10 +93,18 @@ img {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.line-clamp-1 { -webkit-line-clamp: 1; }
-.line-clamp-2 { -webkit-line-clamp: 2; }
-.line-clamp-3 { -webkit-line-clamp: 3; }
-.line-clamp-4 { -webkit-line-clamp: 4; }
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+.line-clamp-4 {
+    -webkit-line-clamp: 4;
+}
 
 /* Accessible inline links — use .link on <a> inside body copy */
 .link {
@@ -105,7 +113,9 @@ img {
     text-decoration-color: var(--warm);
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
-    transition: color 0.2s, text-decoration-color 0.2s;
+    transition:
+        color 0.2s,
+        text-decoration-color 0.2s;
     word-break: break-word;
     overflow-wrap: break-word;
 }

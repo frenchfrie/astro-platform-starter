@@ -12,29 +12,39 @@ const locations = await getCollection('region');
         <header class="region-header">
             <span class="label">Aux alentours</span>
             <h1>Le Périgord Vert</h1>
-            <p class="lead">Villages classés, abbayes médiévales, grottes préhistoriques et marchés de terroir — le Domaine de Feydoux est au cœur d'un patrimoine exceptionnel, tout accessible en moins de 25 minutes.</p>
+            <p class="lead">
+                Villages classés, abbayes médiévales, grottes préhistoriques et marchés de terroir — le Domaine de Feydoux est au cœur d'un patrimoine
+                exceptionnel, tout accessible en moins de 25 minutes.
+            </p>
         </header>
 
-        {locations.map((loc, i) => (
-            <section class="discovery-section">
-                <div class={`discovery-grid${i % 2 !== 0 ? ' reverse' : ''}`}>
-                    <div class="discovery-text">
-                        <h2>{loc.data.title}</h2>
-                        <p class="distance">{loc.data.distance}</p>
-                        <p>{loc.data.description}</p>
-                        <ul class="highlights">
-                            {loc.data.highlights.map(h => <li>∗ {h}</li>)}
-                        </ul>
+        {
+            locations.map((loc, i) => (
+                <section class="discovery-section">
+                    <div class={`discovery-grid${i % 2 !== 0 ? ' reverse' : ''}`}>
+                        <div class="discovery-text">
+                            <h2>{loc.data.title}</h2>
+                            <p class="distance">{loc.data.distance}</p>
+                            <p>{loc.data.description}</p>
+                            <ul class="highlights">
+                                {loc.data.highlights.map((h) => (
+                                    <li>∗ {h}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div class="discovery-image">
+                            {loc.data.image ? (
+                                <Image src={loc.data.image as ImageMetadata} alt={loc.data.imageAlt ?? loc.data.title} width={800} height={500} format="webp" />
+                            ) : (
+                                <div class="image-placeholder">
+                                    <span>Photo : {loc.data.title}</span>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                    <div class="discovery-image">
-                        {loc.data.image
-                            ? <Image src={loc.data.image as ImageMetadata} alt={loc.data.imageAlt ?? loc.data.title} width={800} height={500} format="webp" />
-                            : <div class="image-placeholder"><span>Photo : {loc.data.title}</span></div>
-                        }
-                    </div>
-                </div>
-            </section>
-        ))}
+                </section>
+            ))
+        }
     </main>
 </BaseLayout>
 
@@ -123,11 +133,14 @@ const locations = await getCollection('region');
     }
 
     @media (max-width: 900px) {
-        .discovery-grid, .discovery-grid.reverse {
+        .discovery-grid,
+        .discovery-grid.reverse {
             grid-template-columns: 1fr;
             gap: 3rem;
             direction: ltr;
         }
-        .region-header { margin-bottom: 4rem; }
+        .region-header {
+            margin-bottom: 4rem;
+        }
     }
 </style>

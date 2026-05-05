@@ -53,13 +53,13 @@ The CSS is organized in three layers. Always respect this structure — do not b
 
 All visual values live here as CSS custom properties. **Never hardcode a color, shadow, radius, or transition value outside of `:root`.** Always use the matching token.
 
-| Group | Tokens |
-|---|---|
-| Palette | `--cream`, `--stone`, `--warm`, `--dark`, `--mid`, `--light` |
-| RGB variants (for `rgba()`) | `--dark-rgb`, `--warm-rgb` |
-| Typography | `--font-display`, `--font-body` |
-| Layout | `--max-width` (1300px), `--section-pad`, `--side-pad`, `--nav-height` |
-| UI | `--radius-sm` (2px), `--radius-md` (4px), `--radius-lg` (16px), `--shadow-soft`, `--shadow-card`, `--transition` |
+| Group                       | Tokens                                                                                                           |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Palette                     | `--cream`, `--stone`, `--warm`, `--dark`, `--mid`, `--light`                                                     |
+| RGB variants (for `rgba()`) | `--dark-rgb`, `--warm-rgb`                                                                                       |
+| Typography                  | `--font-display`, `--font-body`                                                                                  |
+| Layout                      | `--max-width` (1300px), `--section-pad`, `--side-pad`, `--nav-height`                                            |
+| UI                          | `--radius-sm` (2px), `--radius-md` (4px), `--radius-lg` (16px), `--shadow-soft`, `--shadow-card`, `--transition` |
 
 #### Layer 2 — Global utilities (`src/styles/global.css` below `:root`)
 
@@ -74,6 +74,7 @@ Reusable classes that any page or component may use without redefinition:
 - `:focus-visible` — global keyboard focus ring
 
 **Rules:**
+
 - Do not redefine these utilities in scoped `<style>` blocks. Use the global class directly in HTML.
 - Do not add a new scoped `.section-label`, `.subtitle`, or page container class — use `.label` and `.page-container`.
 
