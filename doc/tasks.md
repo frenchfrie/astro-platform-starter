@@ -45,7 +45,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : ajouter `oncontextmenu="return false"` + `draggable="false"` + CSS `user-select: none; -webkit-user-drag: none;` sur les images de galerie/lightbox.
 - **Fait quand** : clic droit → "Enregistrer l'image" indisponible sur les photos de gîte. Note : protection cosmétique, non sécuritaire.
 
-### qw-4 — Supprimer la caption de la lightbox
+### [x] qw-4 — Supprimer la caption de la lightbox
 
 - **Source** : `ux_feedbacks.md:39`
 - **Fichiers** : `src/components/HeroGallery.astro`

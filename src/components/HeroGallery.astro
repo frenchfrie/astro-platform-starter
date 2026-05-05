@@ -50,7 +50,6 @@ const clientPhotos = photos.map((p) => ({
     <button class="lb-next" id="lbNext" aria-label="Suivant">›</button>
     <div class="lb-img-wrap">
         <img id="lbImg" src="" alt="" draggable="false" />
-        <p class="lb-caption" id="lbCaption"></p>
     </div>
     <div class="lb-thumbs" id="lbThumbs"></div>
 </div>
@@ -169,7 +168,6 @@ const clientPhotos = photos.map((p) => ({
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
     }
     .lb-img-wrap img {
         max-height: 100%;
@@ -178,17 +176,6 @@ const clientPhotos = photos.map((p) => ({
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         user-select: none;
         -webkit-user-drag: none;
-    }
-
-    /* Correction de la visibilité du titre */
-    .lb-caption {
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: var(--cream);
-        letter-spacing: 0.05em;
-        text-align: center;
-        margin: 0;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .lb-thumbs {
@@ -259,14 +246,12 @@ const clientPhotos = photos.map((p) => ({
     let current = 0;
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
-    const lbCaption = document.getElementById('lbCaption');
     const lbThumbs = document.getElementById('lbThumbs');
 
     function render() {
         const data = clientPhotos[current];
         lbImg.src = data.url;
         lbImg.alt = data.alt;
-        lbCaption.textContent = `${data.alt} · ${current + 1} / ${clientPhotos.length}`;
 
         document.querySelectorAll('.lb-thumb').forEach((t, i) => {
             t.classList.toggle('active', i === current);
