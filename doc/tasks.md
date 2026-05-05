@@ -66,7 +66,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : remplacer toute bordure/gap noir entre images par `var(--cream)` ou `white`. Vérifier aussi grilles d'images dans `index.astro` et `gites/[slug].astro`.
 - **Fait quand** : aucune ligne noire visible entre les photos des galeries.
 
-### qw-7 — Accessibilité du copyright (footer)
+### [x] qw-7 — Accessibilité du copyright (footer)
 
 - **Source** : `ux_feedbacks.md:31`
 - **Fichiers** : `src/components/Footer.astro`
