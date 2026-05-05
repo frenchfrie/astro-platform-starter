@@ -206,7 +206,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : intégrer une carte (iframe OSM ou Leaflet via React island) avec les marqueurs de la liste de lieux (cf. content-1).
 - **Fait quand** : carte interactive visible sur la page, marqueurs cliquables.
 
-### map-3 — Carte sur la page d'accueil
+### [x] map-3 — Carte sur la page d'accueil
 
 - **Source** : `ux_feedbacks.md:28`
 - **Dépend de** : map-2 (réutiliser le composant)

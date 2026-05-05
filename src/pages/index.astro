@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RegionMap from '../components/RegionMap.astro';
 
 // Importation des fichiers comme des modules
 import imgLogis from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
@@ -127,6 +128,21 @@ import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-
             <div class="mosaic-item m2"><span>Randonnées</span></div>
             <div class="mosaic-item m3"><span>Villages</span></div>
             <div class="mosaic-item m4"><span>Gastronomie</span></div>
+        </div>
+    </section>
+
+    <!-- ─── LOCALISATION ── -->
+    <section class="location-section">
+        <div class="location-text">
+            <span class="label">Où nous trouver</span>
+            <h2>Lempzours, Dordogne</h2>
+            <p>Au cœur du Périgord Vert, à deux heures de Bordeaux et de Toulouse.</p>
+            <a href="https://www.openstreetmap.org/?mlat=45.3917&mlon=0.7350&zoom=14" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+                >Ouvrir la carte</a
+            >
+        </div>
+        <div class="location-map">
+            <RegionMap markers={[{ lat: 45.3917, lng: 0.735, label: 'Domaine de Feydoux', distance: 'Lempzours, Dordogne' }]} zoom={13} />
         </div>
     </section>
 </BaseLayout>
@@ -490,6 +506,29 @@ import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             min-height: 240px;
+        }
+    }
+
+    /* ── LOCALISATION ── */
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 4rem;
+        align-items: center;
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .location-text h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 1rem;
+    }
+    .location-text p {
+        color: var(--mid);
+        margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) {
+        .location-section {
+            grid-template-columns: 1fr;
         }
     }
 </style>
