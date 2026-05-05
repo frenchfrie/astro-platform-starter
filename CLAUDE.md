@@ -11,6 +11,7 @@ npm run preview    # Preview production build
 npm run lint       # ESLint
 npm run format     # Prettier
 npm run sanitize   # Strip metadata from images in src/assets (./sanitize-assets.sh)
+./watermark-assets.sh  # Add "feydoux.fr" watermark to all JPGs in src/assets/ (run once on new images before commit)
 ```
 
 No test suite is configured.
@@ -96,3 +97,19 @@ Scoped `<style>` blocks inside `.astro` files contain only layout and structure 
 1. Create `src/content/gites/<slug>.json` following the schema in `src/content/config.ts`.
 2. Add photo assets under `src/assets/gites/<slug>/`.
 3. The dynamic route `src/pages/gites/[slug].astro` picks it up automatically via `getCollection('gites')`.
+
+Open doc/tasks.md. Pick the next task that:
+(a) is unchecked,
+(b) has all "Dépend de" prerequisites checked,
+(c) is not in a "recherche" / non-code section (e.g. img-3).
+
+Execute exactly that one task following its **Faire** instructions and **Fichiers** scope. Then:
+
+1. Verify the **Fait quand** criterion. If you cannot, stop and report.
+2. Run `npm run lint` and `npm run build`. If either fails, fix or revert.
+3. Edit doc/tasks.md to mark the task `[x]` (add the checkbox in front of the task ID line if missing).
+4. Stage only the files relevant to this task + doc/tasks.md.
+5. Commit with message: `<task-id>: <short description>` (e.g. `qw-1: underline links on hover`). No co-author trailer.
+6. Do NOT push. Do NOT start the next task.
+
+Report in 3 lines: task ID, files touched, commit SHA. Stop.

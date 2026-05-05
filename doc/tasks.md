@@ -175,7 +175,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : tester sur viewport ≤ 480px. Ajuster grilles (passer en 1 colonne ou 2 selon contexte), tailles d'images, lightbox tactile.
 - **Fait quand** : aucun débordement horizontal, photos lisibles sur mobile.
 
-### img-2 — Watermark sur les images
+### [x] img-2 — Watermark sur les images
 
 - **Source** : `ux_feedbacks.md:42`
 - **Fichiers** : `sanitize-assets.sh` (étendre) ou nouveau script `watermark-assets.sh` ; ou option Astro `<Image>` + overlay CSS
