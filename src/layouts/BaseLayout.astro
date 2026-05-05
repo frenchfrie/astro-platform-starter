@@ -16,7 +16,7 @@ const isHome = activePage === 'home';
 ---
 
 <!doctype html>
-<html lang="fr" class="bg-light text-dark">
+<html lang="fr" class="bg-light text-dark" id="top">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -62,16 +62,42 @@ const isHome = activePage === 'home';
 
         <slot />
 
+        <button id="back-to-top" aria-label="Retour en haut de page">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg
+            >
+        </button>
+
         <Footer />
 
         <script is:inline>
             const nav = document.getElementById('main-nav');
+            const backToTop = document.getElementById('back-to-top');
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     nav.classList.add('scrolled');
                 } else {
                     nav.classList.remove('scrolled');
                 }
+                if (window.scrollY > 600) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
             });
 
             const trigger = document.getElementById('reserve-trigger');
@@ -103,7 +129,7 @@ const isHome = activePage === 'home';
         </script>
     </body>
 
-    <style is:global define:vars={{ isHome }}>
+    <style is:global>
         :root {
             --nav-height: 80px;
         }
@@ -320,6 +346,38 @@ const isHome = activePage === 'home';
         }
         .hamburger.open span:nth-child(3) {
             transform: translateY(-7px) rotate(-45deg);
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--warm);
+            color: var(--dark);
+            border: none;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                opacity var(--transition),
+                transform var(--transition);
+            z-index: 999;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {

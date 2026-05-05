@@ -31,7 +31,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : appliquer un `text-decoration: underline` au hover sur tous les liens textuels (hors boutons et nav). Vérifier la cohérence avec `:focus-visible`.
 - **Fait quand** : tous les liens inline montrent un soulignement au hover, sans régression sur `.btn-*` ni sur la nav.
 
-### qw-2 — Bouton "Retour en haut"
+### [x] qw-2 — Bouton "Retour en haut"
 
 - **Source** : `ux_feedbacks.md:23`
 - **Fichiers** : `src/layouts/BaseLayout.astro` (composant inline ou nouveau `src/components/BackToTop.astro`)
