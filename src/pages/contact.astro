@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 
 <Layout title="Contact Us">
+    <div class="page-container">
+        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Contact' }]} />
+    </div>
     <!-- Page Header -->
     <section class="relative overflow-hidden">
         <div class="absolute inset-0">

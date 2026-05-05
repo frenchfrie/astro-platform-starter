@@ -5,6 +5,7 @@ import HeroGallery from '../../components/HeroGallery.astro';
 import BookingWidget from '../../components/BookingWidget.astro';
 import GiteHeader from '../../components/GiteHeader.astro';
 import Amenities from '../../components/Amenities.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
     const giteEntries = await getCollection('gites');
@@ -22,6 +23,7 @@ const { data } = entry;
     <HeroGallery photos={data.photos} />
 
     <main class="main-layout">
+        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: data.title }]} />
         <article class="col-content">
             <GiteHeader title={data.title} maxGuests={data.maxGuests} />
 

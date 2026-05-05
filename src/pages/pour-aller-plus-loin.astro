@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 
 <BaseLayout title="Pour aller plus loin" activePage="pour-aller-plus-loin">
     <main class="page-container">
+        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Pour aller plus loin' }]} />
         <header class="region-header">
             <span class="label">Évasion</span>
             <h1>Pour aller plus loin</h1>

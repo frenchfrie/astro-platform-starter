@@ -116,7 +116,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : composant qui prend une prop `items: { label: string, href?: string }[]`. Markup `<nav aria-label="Fil d'Ariane">` + `<ol>` avec séparateur "/". Styles tokens uniquement.
 - **Fait quand** : composant utilisable, accessible (aria-current="page" sur le dernier).
 
-### bc-2 — Appliquer le breadcrumb aux pages secondaires
+### [x] bc-2 — Appliquer le breadcrumb aux pages secondaires
 
 - **Source** : `ux_feedbacks.md:18`
 - **Fichiers** : `src/pages/gites/[slug].astro`, `src/pages/pour-aller-plus-loin.astro` (et articles), `src/pages/region.astro`, `src/pages/contact.astro`, `src/pages/a-propos.astro`
