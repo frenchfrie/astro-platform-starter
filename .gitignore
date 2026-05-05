@@ -26,3 +26,8 @@ pnpm-debug.log*
 # IDE specifics
 .idea/
 .aider*
+
+# local files
+*.local.json
+*.local.md
+
