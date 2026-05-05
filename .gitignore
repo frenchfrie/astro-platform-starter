@@ -31,3 +31,5 @@ pnpm-debug.log*
 *.local.json
 *.local.md
 
+# Claude
+/.claude/scheduled_tasks.lock

@@ -1,5 +1,0 @@
-{
-    "permissions": {
-        "allow": ["WebFetch(domain:gites-feydoux.fr)", "mcp__ide__getDiagnostics"]
-    }
-}
