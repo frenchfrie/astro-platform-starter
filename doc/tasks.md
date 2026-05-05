@@ -132,7 +132,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : ajouter `<Breadcrumb items={[{label:"Accueil",href:"/"},{label:"Mentions légales"}]} />`.
 - **Fait quand** : on sait où on est en arrivant directement sur la page.
 
-### bc-4 — Lien "Retour" en haut des articles de blog
+### [x] bc-4 — Lien "Retour" en haut des articles de blog
 
 - **Source** : `ux_feedbacks.md:19`
 - **Fichiers** : page article (probablement à recréer dans `pour-aller-plus-loin/[slug].astro` ou réactivation `_blog/`)

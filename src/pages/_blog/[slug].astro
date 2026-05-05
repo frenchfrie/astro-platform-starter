@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content'; // Pour le typage strict
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('blog');
@@ -49,6 +50,7 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
 
 <BaseLayout title={entry.data.title} activePage="blog">
     <article class="article-wrapper">
+        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Blog', href: '/blog' }, { label: entry.data.title }]} />
         <header class="article-header">
             <div class="meta">
                 <span class="category">{entry.data.category.replace(/-/g, ' ')}</span>
@@ -99,7 +101,7 @@ const formattedDate = entry.data.date.toLocaleDateString('fr-FR', {
             }
 
             <div class="navigation-bottom">
-                <a href="/src/pages/_blog" class="btn-ghost">
+                <a href="/blog" class="btn-ghost">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
                         ><path d="M19 12H5M12 19l-7-7 7-7"></path></svg
                     >
