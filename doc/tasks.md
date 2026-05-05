@@ -77,7 +77,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Vocabulaire & rédactionnel
 
-### copy-1 — Unifier le vocabulaire "À proximité" / "La région"
+### [x] copy-1 — Unifier le vocabulaire "À proximité" / "La région"
 
 - **Source** : `ux_feedbacks.md:32`
 - **Fichiers** : grep dans `src/pages/`, `src/components/`, `src/content/`
