@@ -91,7 +91,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : remplacer la phrase familière par une version plus posée. Suggestion : "Une piscine privative pour profiter pleinement de l'été en Périgord." À adapter selon l'angle texte/promesse (cf. copy-4).
 - **Fait quand** : plus de tournure familière à l'impératif sur le bloc piscine.
 
-### copy-3 — Raccourcir les titres trop longs
+### [x] copy-3 — Raccourcir les titres trop longs
 
 - **Source** : `ux_feedbacks.md:33`
 - **Fichiers** : `src/pages/region.astro`, `src/pages/index.astro`, autres pages avec H2/H3
