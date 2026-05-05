@@ -109,7 +109,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Fil d'Ariane (Breadcrumb)
 
-### bc-1 — Créer un composant Breadcrumb
+### [x] bc-1 — Créer un composant Breadcrumb
 
 - **Source** : `ux_feedbacks.md:18,43`
 - **Fichiers** : nouveau `src/components/Breadcrumb.astro`
