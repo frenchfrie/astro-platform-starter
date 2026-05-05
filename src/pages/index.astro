@@ -3,6 +3,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RegionMap from '../components/RegionMap.astro';
+import Reviews from '../components/Reviews.astro';
 
 // Importation des fichiers comme des modules
 import imgLogis from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-avec-piscine.jpg';
@@ -130,6 +131,9 @@ import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-vue-le-logis-
             <div class="mosaic-item m4"><span>Gastronomie</span></div>
         </div>
     </section>
+
+    <!-- ─── AVIS ── -->
+    <Reviews />
 
     <!-- ─── LOCALISATION ── -->
     <section class="location-section">

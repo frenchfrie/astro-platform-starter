@@ -1,0 +1,118 @@
+---
+const reviews = [
+    {
+        quote: 'Un séjour exceptionnel dans un cadre magnifique. Le logis est spacieux, impeccablement entretenu, et la piscine chauffée est un vrai bonheur. On reviendra sans hésiter.',
+        author: 'Marie & Thomas',
+        period: 'Août 2024',
+        gite: 'Le Logis de Feydoux'
+    },
+    {
+        quote: 'La Garenne est un vrai cocon. Le jacuzzi sous les étoiles, le calme absolu, les petits oiseaux le matin — une parenthèse hors du temps comme on en rêvait.',
+        author: 'Sophie',
+        period: 'Juillet 2024',
+        gite: 'La Garenne'
+    },
+    {
+        quote: 'Propriétaires adorables, domaine superbe, région magnifique. Saint-Jean-de-Côle à quelques kilomètres vaut à lui seul le déplacement. Parfait pour décompresser.',
+        author: 'Famille Bertrand',
+        period: 'Juin 2024',
+        gite: 'Le Logis de Feydoux'
+    },
+    {
+        quote: "Tout est pensé pour qu'on se sente chez soi. La décoration, la qualité des équipements, la vue sur le château… Un séjour dont on parle encore des mois après.",
+        author: 'Claire & Julien',
+        period: 'Septembre 2024',
+        gite: 'La Garenne'
+    }
+];
+---
+
+<section class="reviews-section">
+    <div class="reviews-header">
+        <span class="label">Ce qu'ils en disent</span>
+        <h2>Des séjours qui restent</h2>
+    </div>
+    <div class="reviews-grid">
+        {
+            reviews.map((r) => (
+                <blockquote class="review-card">
+                    <p class="review-quote">"{r.quote}"</p>
+                    <footer class="review-footer">
+                        <span class="review-author">{r.author}</span>
+                        <span class="review-meta">
+                            {r.period} · {r.gite}
+                        </span>
+                    </footer>
+                </blockquote>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .reviews-section {
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+        background: var(--cream);
+    }
+
+    .reviews-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .reviews-header h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-style: italic;
+        color: var(--dark);
+        margin-top: 0.5rem;
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .review-card {
+        margin: 0;
+        padding: 2.5rem;
+        background: var(--light);
+        border-left: 3px solid var(--warm);
+    }
+
+    .review-quote {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--mid);
+        font-style: italic;
+        margin-bottom: 1.5rem;
+    }
+
+    .review-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .review-author {
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 0.9rem;
+    }
+
+    .review-meta {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--warm);
+    }
+
+    @media (max-width: 700px) {
+        .reviews-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

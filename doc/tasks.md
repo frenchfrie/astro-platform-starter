@@ -238,7 +238,7 @@ Each task below is sized for a single small commit. Format:
 
 - **Fait quand** : section enrichie, infos pratiques visibles, prête pour map-2.
 
-### content-2 — Section "Avis / Recommandations"
+### [x] content-2 — Section "Avis / Recommandations"
 
 - **Source** : `ux_feedbacks.md:8`
 - **Fichiers** : `src/pages/index.astro` (et/ou `gites/[slug].astro`), nouveau `src/components/Reviews.astro`
