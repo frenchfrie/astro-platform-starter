@@ -24,7 +24,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Quick wins (commits indépendants, faibles risques)
 
-### qw-1 — Soulignement des liens au hover
+### [x] qw-1 — Soulignement des liens au hover
 
 - **Source** : `ux_feedbacks.md:21`
 - **Fichiers** : `src/styles/global.css` (utilitaire `.link` + règles globales `a:hover`)

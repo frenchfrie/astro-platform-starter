@@ -75,6 +75,21 @@ a {
     color: inherit;
 }
 
+/* Default hover state for inline text links — accent underline.
+   Buttons (any class containing "btn") are excluded via :not(). */
+a:not([class*='btn']):hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--warm);
+}
+
+/* Opt-out: structural navigation and logo stay un-underlined on hover */
+.site-nav .nav-links a:hover,
+.site-footer .footer-nav a:hover,
+.logo:hover {
+    text-decoration: none;
+}
+
 img {
     display: block;
     width: 100%;
