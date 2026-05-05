@@ -59,7 +59,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : appliquer `a:visited` sur les cartes d'articles : opacité réduite (~0.6) et/ou couleur secondaire. Pas de changement de layout.
 - **Fait quand** : un article visité est visuellement distinct dans la liste.
 
-### qw-6 — Limites entre photos en blanc (pas en noir)
+### [x] qw-6 — Limites entre photos en blanc (pas en noir)
 
 - **Source** : `ux_feedbacks.md:15`
 - **Fichiers** : `src/components/HeroGallery.astro` (gap/border)
