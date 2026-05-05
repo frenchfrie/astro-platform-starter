@@ -98,7 +98,7 @@ Each task below is sized for a single small commit. Format:
 - **Faire** : identifier les titres > ~50 caractères et les raccourcir. Exemple cité : "Une région qui ne demande qu'à être explorée" → "Une région à explorer" ou similaire.
 - **Fait quand** : aucun titre principal n'excède une ligne sur desktop large.
 
-### copy-4 — Règle texte = promesse / image = réalité
+### [x] copy-4 — Règle texte = promesse / image = réalité
 
 - **Source** : `ux_feedbacks.md:34-35`
 - **Fichiers** : `src/pages/index.astro`, `src/pages/gites/[slug].astro`
