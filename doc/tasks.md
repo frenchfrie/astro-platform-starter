@@ -192,7 +192,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Carte / Localisation
 
-### map-1 — Ouvrir l'adresse dans une carte (mentions légales / contact)
+### [x] map-1 — Ouvrir l'adresse dans une carte (mentions légales / contact)
 
 - **Source** : `ux_feedbacks.md:44`
 - **Fichiers** : `src/pages/mentions-legales.astro`, `src/pages/contact.astro`
