@@ -143,7 +143,7 @@ Each task below is sized for a single small commit. Format:
 
 ## Composants UI (consolidation)
 
-### ui-1 — Réduire les variantes de boutons
+### [x] ui-1 — Réduire les variantes de boutons
 
 - **Source** : `ux_feedbacks.md:30`
 - **Fichiers** : `src/styles/global.css`, audit dans `src/components/` et `src/pages/`
