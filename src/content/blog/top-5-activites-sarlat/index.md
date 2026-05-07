@@ -3,7 +3,7 @@ title: 'Top 5 des activités incontournables autour de Sarlat'
 excerpt: 'De la cité médiévale aux jardins suspendus de Marqueyssac, découvrez comment réussir votre séjour en Périgord Vert.'
 date: 2026-04-19
 category: 'activites'
-image: '/src/assets/feydoux/aerial.jpg'
+image: '/src/assets/feydoux/allee-des-gardes.jpg'
 featured: true
 ---
 

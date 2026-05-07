@@ -3,7 +3,7 @@ title: "Le Printemps s'installe au Domaine de Feydoux"
 excerpt: 'La floraison des jardins, la préparation des piscines et le retour des beaux jours en Dordogne.'
 date: 2026-04-01
 category: 'vie-du-domaine'
-image: '/src/assets/feydoux/aerial.jpg'
+image: '/src/assets/feydoux/allee-des-gardes.jpg'
 featured: false
 ---
 

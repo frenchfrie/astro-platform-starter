@@ -8,7 +8,7 @@
 
 TARGET_DIR=${1:-src/assets}
 
-if ! command -v convert &> /dev/null; then
+if ! command -v magick &> /dev/null; then
     echo "Error: ImageMagick not found. Install it with: sudo pacman -S imagemagick"
     exit 1
 fi
@@ -20,13 +20,13 @@ MARGIN=20
 
 find "$TARGET_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) | while read -r img; do
     # Skip already watermarked files (check for marker in comment)
-    if identify -verbose "$img" 2>/dev/null | grep -q "watermarked:true"; then
+    if magick identify -verbose "$img" 2>/dev/null | grep -q "watermarked:true"; then
         echo "Skipping (already watermarked): $img"
         continue
     fi
 
     echo "Watermarking: $img"
-    convert "$img" \
+    magick "$img" \
         -font "$FONT" \
         -pointsize 18 \
         -fill "rgba(255,255,255,${OPACITY}%)" \
