@@ -1,202 +1,538 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RegionMap from '../components/RegionMap.astro';
+import Reviews from '../components/Reviews.astro';
 
-const highlights = [
-    {
-        title: 'Historic Charm',
-        description: 'Properties nestled among centuries-old castles and stone villages of the Loire Valley.',
-        icon: '&#9816;'
-    },
-    {
-        title: 'Vineyard Views',
-        description: 'Wake up to rolling grape fields and enjoy tastings at nearby domaines.',
-        icon: '&#9752;'
-    },
-    {
-        title: 'Modern Comfort',
-        description: 'Fully restored interiors with contemporary amenities for a relaxing stay.',
-        icon: '&#9733;'
-    }
-];
+// Importation des fichiers comme des modules
+import imgLogis from '../assets/gites/le-logis-de-feydoux/exterieur-acces-piscine.jpg';
+import imgGarenne from '../assets/gites/la-garenne/cour-privee.jpg';
 
-const testimonials = [
-    {
-        quote: "An absolutely magical stay. The château views from the terrace were unforgettable.",
-        author: "Sophie M.",
-        location: "London, UK"
-    },
-    {
-        quote: "The vineyard cottage exceeded all expectations. We felt completely at home in the French countryside.",
-        author: "James & Clara",
-        location: "New York, USA"
-    },
-    {
-        quote: "Peaceful, beautiful, and the perfect base for exploring the Loire Valley's castles and wines.",
-        author: "Hans W.",
-        location: "Munich, Germany"
-    }
-];
+import imgAerial from '../assets/feydoux/chemin-feydoux-gites.jpg';
+import imgPool from '../assets/gites/le-logis-de-feydoux/exterieur-piscine.jpg';
 ---
 
-<Layout title="Home">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0">
-            <img
-                src="https://images.unsplash.com/photo-1590098563078-22774a072e1d?w=1600&q=80"
-                alt="French château in the Loire Valley countryside"
-                class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20"></div>
-        </div>
-        <div class="relative max-w-6xl mx-auto px-6 sm:px-8 py-32 sm:py-44">
-            <div class="max-w-2xl">
-                <p class="text-primary-light text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Loire Valley, France</p>
-                <h1 class="text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">Your Escape to the French Countryside</h1>
-                <p class="text-white/80 text-lg sm:text-xl leading-relaxed mb-10">
-                    Charming rental homes among castles, vineyards, and sunflower fields.
-                    Experience the timeless beauty of rural France.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="/properties" class="btn btn-lg">View Our Properties</a>
-                    <a href="/contact" class="btn btn-lg btn-outline !border-white/50 !text-white hover:!bg-white/10 hover:!text-white">Get in Touch</a>
-                </div>
+<BaseLayout title="Le Domaine — Deux gîtes de caractère avec piscine et jacuzzi" activePage="home">
+    <!-- ─── HERO ── -->
+    <header class="hero">
+        <Image src={imgAerial} alt="Vue aérienne du domaine" class="hero-img" width={1920} height={1080} format="webp" loading="eager" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Bienvenue au domaine</p>
+            <h1>Un refuge<br /><em>hors du temps</em></h1>
+            <p class="hero-sub">Deux gîtes de caractère au cœur d'une nature préservée</p>
+            <div class="hero-actions">
+                <a href="/gites/le-logis-de-feydoux" class="btn-primary">Découvrir les gîtes</a>
+                <a href="/region" class="btn-ghost">À proximité</a>
             </div>
         </div>
-    </section>
+        <div class="scroll-hint">↓</div>
+    </header>
 
-    <!-- Highlights Section -->
-    <section class="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
-        <div class="text-center mb-16">
-            <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Why Choose Us</p>
-            <h2 class="text-3xl sm:text-4xl mb-4">A Truly French Experience</h2>
-            <div class="section-divider mt-6"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {highlights.map((item) => (
-                <div class="text-center px-4">
-                    <div class="text-4xl mb-5 text-primary" set:html={item.icon} />
-                    <h3 class="text-xl mb-3">{item.title}</h3>
-                    <p class="text-text-light leading-relaxed">{item.description}</p>
-                </div>
-            ))}
-        </div>
-    </section>
-
-    <!-- Image Gallery Strip -->
-    <section class="bg-white py-20 sm:py-28">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8">
-            <div class="text-center mb-16">
-                <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Our Setting</p>
-                <h2 class="text-3xl sm:text-4xl mb-4">Castles & Vineyards</h2>
-                <div class="section-divider mt-6"></div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1555587832-251fcdc5c4bc?w=600&q=80"
-                        alt="Château with formal gardens in the Loire Valley"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">Loire Valley Château</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80"
-                        alt="Rows of grapevines in a French vineyard"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">Vineyard Fields</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1598135753163-6167c1a1ad65?w=600&q=80"
-                        alt="Scenic French countryside with rolling hills"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">French Countryside</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1597040663342-45b6ba68c88c?w=600&q=80"
-                        alt="Medieval castle tower against blue sky"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">Medieval Architecture</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80"
-                        alt="Grapevines close-up in golden sunlight"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">Grape Harvest Season</span>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                        src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&q=80"
-                        alt="Stone cottage in the French countryside"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span class="text-white font-semibold">Countryside Cottage</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
-        <div class="text-center mb-16">
-            <p class="text-primary text-sm uppercase tracking-[0.15em] mb-3 font-semibold">Guest Reviews</p>
-            <h2 class="text-3xl sm:text-4xl mb-4">What Our Guests Say</h2>
-            <div class="section-divider mt-6"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-                <div class="bg-white rounded-xl p-8 shadow-sm border border-warm-dark">
-                    <div class="text-primary text-3xl mb-4" style="font-family: var(--font-serif);">&ldquo;</div>
-                    <p class="text-text-light leading-relaxed mb-6 italic">{t.quote}</p>
-                    <div>
-                        <p class="font-semibold text-text">{t.author}</p>
-                        <p class="text-sm text-text-light">{t.location}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0">
-            <img
-                src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1600&q=80"
-                alt="Vineyard panorama at sunset"
-                class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-black/55"></div>
-        </div>
-        <div class="relative text-center py-24 sm:py-32 px-6 sm:px-8 max-w-3xl mx-auto">
-            <h2 class="text-white text-3xl sm:text-4xl mb-6">Ready for Your French Getaway?</h2>
-            <p class="text-white/80 text-lg mb-10 leading-relaxed">
-                Browse our selection of charming countryside properties and start planning
-                your next unforgettable holiday in the Loire Valley.
+    <!-- ─── INTRO ── -->
+    <section class="intro">
+        <div class="intro-text">
+            <span class="label">Notre histoire</span>
+            <h2>Deux gîtes,<br />une même âme</h2>
+            <p>
+                Au pied du vieux château, le commun Sud, autrefois probablement rempart, a été transformé pour devenir l’écrin d’un séjour alliant repos et
+                culture, détente et découvertes, dans un environnement naturel préservé, loin du bruit et de l’agitation et pourtant proche de lieux de
+                ravissement, d’un patrimoine remarquable et de tables gourmandes.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="/properties" class="btn btn-lg">Explore Properties</a>
-                <a href="/contact" class="btn btn-lg btn-outline !border-white/50 !text-white hover:!bg-white/10 hover:!text-white">Contact Us</a>
-            </div>
+        </div>
+        <div class="intro-stats">
+            <div class="stat"><span class="stat-num">2</span><span class="stat-label">Gîtes privatifs</span></div>
+            <div class="stat"><span class="stat-num">1</span><span class="stat-label">Piscine chauffée</span></div>
+            <div class="stat"><span class="stat-num">1</span><span class="stat-label">SPA</span></div>
+            <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Souvenirs à créer</span></div>
         </div>
     </section>
-</Layout>
+
+    <!-- ─── GÎTES ── -->
+    <section class="gites">
+        <span class="label centered">Nos hébergements</span>
+        <h2 class="centered">Choisissez votre séjour</h2>
+        <div class="gites-grid">
+            <article class="gite-card">
+                <div class="card-img-wrap">
+                    <Image
+                        src={imgLogis}
+                        alt="Vue aérienne du domaine Le Logis avec piscine"
+                        class="hero-img"
+                        width={1920}
+                        height={1080}
+                        format="webp"
+                        quality="mid"
+                    />
+                    <div class="card-badge">Piscine privée</div>
+                </div>
+                <div class="card-body">
+                    <h3>Le Logis de Feydoux</h3>
+                    <p class="card-capacity">👥 8 personnes &nbsp;·&nbsp; 🛏 4 chambres &nbsp;·&nbsp; 3 Salles de douche</p>
+                    <p class="card-desc">Grands espaces, piscine chauffée privée et sérénité absolue au cœur de la nature.</p>
+                    <div class="card-tags"><span>Piscine</span><span>Barbecue</span><span>Wifi</span></div>
+                    <a href="/gites/le-logis-de-feydoux" class="btn-primary">Voir le gîte →</a>
+                </div>
+            </article>
+
+            <article class="gite-card">
+                <div class="card-img-wrap">
+                    <Image
+                        src={imgGarenne}
+                        alt="Vue aérienne de face du gîte La Garenne"
+                        class="hero-img"
+                        width={1920}
+                        height={1080}
+                        format="webp"
+                        quality="mid"
+                    />
+                    <div class="card-badge">Jacuzzi privatif</div>
+                </div>
+                <div class="card-body">
+                    <h3>La Garenne</h3>
+                    <p class="card-capacity">👥 4 personnes &nbsp;·&nbsp; 🛏 2 chambres &nbsp;·&nbsp; 2 Salles de douche</p>
+                    <p class="card-desc">Cocon romantique avec SPA sous les étoiles, décoration soignée.</p>
+                    <div class="card-tags"><span>SPA</span><span>Barbecue</span><span>Wifi</span></div>
+                    <a href="/gites/la-garenne" class="btn-primary">Voir le gîte →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ─── PISCINE & JACUZZI ── -->
+    <section class="pool-section">
+        <Image src={imgPool} alt="Piscine du domaine et jacuzzi privatif" class="pool-img" width={1200} height={800} format="webp" />
+        <div class="pool-overlay"></div>
+        <div class="pool-content">
+            <span class="label light">Détente & bien-être</span>
+            <h2>L'eau comme art<br /><em>de vivre</em></h2>
+            <p>
+                Se reposer au bord de l'eau, s'attarder sous les étoiles — une parenthèse de douceur qui fait partie du séjour, au cœur d'une nature préservée.
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── RÉGION TEASER ── -->
+    <section class="region-teaser">
+        <div class="region-text">
+            <span class="label">Autour du domaine</span>
+            <h2>Une région à explorer</h2>
+            <p>
+                Le Périgord Vert dévoile ses trésors à quelques minutes du domaine — un territoire de caractère où chaque journée réserve une découverte
+                nouvelle.
+            </p>
+            <a href="/region" class="btn-primary">À proximité</a>
+        </div>
+        <div class="region-mosaic">
+            <div class="mosaic-item m1"><span>Marchés</span></div>
+            <div class="mosaic-item m2"><span>Randonnées</span></div>
+            <div class="mosaic-item m3"><span>Villages</span></div>
+            <div class="mosaic-item m4"><span>Gastronomie</span></div>
+        </div>
+    </section>
+
+    <!-- ─── AVIS ── -->
+    <Reviews />
+
+    <!-- ─── LOCALISATION ── -->
+    <section class="location-section">
+        <div class="location-text">
+            <span class="label">Où nous trouver</span>
+            <h2>Lempzours, Dordogne</h2>
+            <p>Au cœur du Périgord Vert, à deux heures de Bordeaux et de Toulouse.</p>
+            <a href="https://www.openstreetmap.org/?mlat=45.3917&mlon=0.7350&zoom=14" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+                >Ouvrir la carte</a
+            >
+        </div>
+        <div class="location-map">
+            <RegionMap markers={[{ lat: 45.3917, lng: 0.735, label: 'Domaine de Feydoux', distance: 'Lempzours, Dordogne' }]} zoom={13} />
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    /* ── HERO ── */
+    .hero {
+        position: relative;
+        height: 100svh;
+        min-height: 600px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .hero-img {
+        position: absolute;
+        inset: 0;
+        animation: zoomSlow 20s ease-in-out infinite alternate;
+    }
+    @keyframes zoomSlow {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.06);
+        }
+    }
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+      /* Dégradé blanc en haut pour le menu */
+            linear-gradient(to bottom, rgb(255 255 255 / 0.5) 0%, transparent 30%),
+            /* Dégradé sombre très subtil en bas pour le titre Hero */ linear-gradient(to top, rgb(0 0 0 / 0.3) 0%, transparent 40%);
+    }
+    .hero-content {
+        position: relative;
+        padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 7vw, 6rem);
+        max-width: 720px;
+        animation: fadeUp 0.9s ease both;
+    }
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+    .hero-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--warm);
+        margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        color: var(--cream);
+        line-height: 1.05;
+        margin-bottom: 1.2rem;
+    }
+    .hero-content h1 em {
+        font-style: italic;
+        color: var(--warm);
+    }
+    .hero-sub {
+        font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+        color: rgba(245, 240, 232, 0.7);
+        margin-bottom: 2.5rem;
+        max-width: 480px;
+    }
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        right: clamp(1.5rem, 5vw, 4rem);
+        color: rgba(245, 240, 232, 0.4);
+        font-size: 1.2rem;
+        animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(8px);
+        }
+    }
+
+    /* ── INTRO ── */
+    .intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .intro-text h2 {
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        margin-bottom: 1.2rem;
+    }
+    .intro-text p {
+        color: var(--mid);
+        font-size: 1rem;
+        max-width: 440px;
+    }
+    .intro-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--stone);
+    }
+    .stat {
+        background: var(--light);
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        transition: background 0.2s;
+    }
+    .stat:hover {
+        background: var(--cream);
+    }
+    .stat-num {
+        font-family: var(--font-display);
+        font-size: 3.2rem;
+        color: var(--warm);
+        line-height: 1;
+    }
+    .stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+    }
+
+    /* ── GÎTES ── */
+    .gites {
+        background: var(--cream);
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .gites h2.centered {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 3rem;
+    }
+    .gites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .gite-card {
+        background: var(--light);
+        border-radius: 4px;
+        overflow: hidden;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+    }
+    .gite-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px rgba(26, 22, 18, 0.12);
+    }
+
+    .card-img-wrap {
+        position: relative;
+        height: 260px;
+        overflow: hidden;
+    }
+    .card-img-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #d4c4a8 0%, #b8a882 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(26, 22, 18, 0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+    }
+    .card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--dark);
+        color: var(--warm);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.8rem;
+        border-radius: 2px;
+    }
+    .card-body {
+        padding: 1.8rem;
+    }
+    .card-body h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+    }
+    .card-capacity {
+        font-size: 0.82rem;
+        color: var(--mid);
+        margin-bottom: 1rem;
+    }
+    .card-desc {
+        font-size: 0.92rem;
+        color: var(--mid);
+        margin-bottom: 1.2rem;
+        line-height: 1.65;
+    }
+    .card-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .card-tags span {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--stone);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        color: var(--mid);
+    }
+    /* ── POOL ── */
+    .pool-section {
+        position: relative;
+        height: clamp(400px, 65vh, 700px);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .pool-img {
+        position: absolute;
+        inset: 0;
+    }
+    .pool-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(15, 11, 8, 0.82) 0%, rgba(15, 11, 8, 0.35) 60%, rgba(15, 11, 8, 0.1) 100%);
+    }
+    .pool-content {
+        position: relative;
+        padding: 3rem clamp(1.5rem, 8vw, 7rem);
+        max-width: 560px;
+    }
+    .pool-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--cream);
+        margin-bottom: 1.2rem;
+    }
+    .pool-content h2 em {
+        font-style: italic;
+        color: var(--warm);
+    }
+    .pool-content p {
+        color: rgba(245, 240, 232, 0.75);
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    /* ── RÉGION ── */
+    .region-teaser {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 520px;
+    }
+    .region-text {
+        padding: var(--section-pad) clamp(1.5rem, 6vw, 5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .region-text h2 {
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        margin-bottom: 1.2rem;
+    }
+    .region-text p {
+        color: var(--mid);
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        max-width: 420px;
+    }
+    .region-mosaic {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 3px;
+        background: var(--stone);
+    }
+    .mosaic-item {
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem 1.2rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(26, 22, 18, 0.55);
+        transition: filter 0.3s;
+    }
+    .mosaic-item:hover {
+        filter: brightness(1.08);
+    }
+    .m1 {
+        background: linear-gradient(135deg, #d4c4a8, #baa880);
+    }
+    .m2 {
+        background: linear-gradient(135deg, #c4b498, #a89070);
+    }
+    .m3 {
+        background: linear-gradient(135deg, #b8a880, #c4b490);
+    }
+    .m4 {
+        background: linear-gradient(135deg, #ccc0a0, #b0a080);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+        .intro {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+        .region-teaser {
+            grid-template-columns: 1fr;
+        }
+        .region-mosaic {
+            min-height: 320px;
+        }
+    }
+    @media (max-width: 580px) {
+        .hero-content h1 {
+            font-size: 2.6rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .intro-stats {
+            grid-template-columns: 1fr;
+        }
+        .stat {
+            padding: 1.5rem 1.25rem;
+        }
+        .stat-num {
+            font-size: 2.4rem;
+        }
+        .region-mosaic {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            min-height: 240px;
+        }
+    }
+
+    /* ── LOCALISATION ── */
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 4rem;
+        align-items: center;
+        padding: var(--section-pad) clamp(1.5rem, 8vw, 7rem);
+    }
+    .location-text h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 1rem;
+    }
+    .location-text p {
+        color: var(--mid);
+        margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) {
+        .location-section {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

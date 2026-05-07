@@ -1,0 +1,62 @@
+{
+    "id": "la-garenne",
+    "title": "La Garenne",
+    "description": "Niché au cœur du domaine, ce gîte de charme allie authenticité périgourdine et confort moderne. Avec sa terrasse privée et son accès direct aux sentiers, c'est le refuge idéal pour une déconnexion totale en famille ou entre amis.",
+    "priceRange": "À partir de 180 € / nuit",
+    "maxGuests": 8,
+    "abritelUrl": "https://www.abritel.fr/location-vacances/p2664380",
+    "abritelId": "p2664380",
+    "photos": [
+        { "src": "../../assets/gites/la-garenne/cour-privee.jpg", "alt": "Cour privée" },
+        { "src": "../../assets/gites/la-garenne/salon.jpg", "alt": "Salon chaleureux" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon.jpg", "alt": "Chambre Céladon" },
+        { "src": "../../assets/gites/la-garenne/spa.jpg", "alt": "SPA privatif extérieur" },
+        { "src": "../../assets/gites/la-garenne/cuisine.jpg", "alt": "Cuisine équipée" },
+
+        { "src": "../../assets/gites/la-garenne/salon-2.jpg", "alt": "Salon - vue 2" },
+        { "src": "../../assets/gites/la-garenne/salle-a-manger.jpg", "alt": "Salle à manger" },
+        { "src": "../../assets/gites/la-garenne/sejour.jpg", "alt": "Séjour" },
+        { "src": "../../assets/gites/la-garenne/sejour-salon.jpg", "alt": "Séjour et salon" },
+        { "src": "../../assets/gites/la-garenne/sejour-ensemble.jpg", "alt": "Séjour vue d'ensemble" },
+        { "src": "../../assets/gites/la-garenne/sejour-coin-frigo.jpg", "alt": "Coin réfrigérateur" },
+        { "src": "../../assets/gites/la-garenne/cour-privee-sejour.jpg", "alt": "Cour privée et séjour" },
+        { "src": "../../assets/gites/la-garenne/vue-sur-cour.jpg", "alt": "Vue sur la cour" },
+
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-2.jpg", "alt": "Chambre Céladon - vue 2" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-3.jpg", "alt": "Chambre Céladon - vue 3" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-5.jpg", "alt": "Chambre Céladon - vue 5" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-6.jpg", "alt": "Chambre Céladon - vue 6" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-7.jpg", "alt": "Chambre Céladon - vue 7" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-double-vasque.jpg", "alt": "Double vasque Céladon" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-douche-en-coin.jpg", "alt": "Douche en coin Céladon" },
+        { "src": "../../assets/gites/la-garenne/chambre-celadon-sdd-douche.jpg", "alt": "Salle d'eau Céladon" },
+
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus.jpg", "alt": "Chambre Eucalyptus" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-2.jpg", "alt": "Chambre Eucalyptus - vue 2" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-5.jpg", "alt": "Chambre Eucalyptus - vue 5" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-6.jpg", "alt": "Chambre Eucalyptus - vue 6" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-7.jpg", "alt": "Chambre Eucalyptus - vue 7" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-glace.jpg", "alt": "Détail chambre Eucalyptus" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-niche.jpg", "alt": "Niche chambre Eucalyptus" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-sdd.jpg", "alt": "Salle d'eau Eucalyptus" },
+        { "src": "../../assets/gites/la-garenne/chambre-eucalyptus-sdd-2.jpg", "alt": "Salle d'eau Eucalyptus - vue 2" },
+
+        { "src": "../../assets/gites/la-garenne/cuisine-2.jpg", "alt": "Cuisine - vue 2" },
+        { "src": "../../assets/gites/la-garenne/cuisine-3.jpg", "alt": "Cuisine - vue 3" },
+        { "src": "../../assets/gites/la-garenne/cuisine-4.jpg", "alt": "Cuisine - vue 4" },
+        { "src": "../../assets/gites/la-garenne/cuisine-four.jpg", "alt": "Four encastré" },
+        { "src": "../../assets/gites/la-garenne/cuisine-lave-vaisselle.jpg", "alt": "Lave-vaisselle" },
+        { "src": "../../assets/gites/la-garenne/cuisine-plaques-induction.jpg", "alt": "Plaques à induction" },
+
+        { "src": "../../assets/gites/la-garenne/entree.jpg", "alt": "Entrée" },
+        { "src": "../../assets/gites/la-garenne/chemin-facilite-pmr.jpg", "alt": "Chemin d'accès PMR" },
+        { "src": "../../assets/gites/la-garenne/volet-interieur-chambre.jpg", "alt": "Volet intérieur traditionnel" }
+    ],
+    "amenities": {
+        "Extérieur": ["🏊 Piscine privée chauffée", "🌿 Grand jardin arboré", "☀️ Terrasse & salon de jardin", "🔥 Barbecue / plancha", "🚗 Parking privé"],
+        "Cuisine": ["🍳 Cuisine équipée grand format", "🧊 Réfrigérateur + congélateur", "☕ Machine à café", "🧹 Lave-vaisselle"],
+        "Confort": ["📶 Wifi haut débit", "❄️ Climatisation", "📺 Télévision", "🧺 Lave-linge", "🛁 Linge de maison"],
+        "Services": ["🔑 Accueil personnalisé", "🧽 Ménage inclus", "📋 Guide région", "👶 Lit bébé"]
+    },
+    "features": ["SPA privatif", "Piscine chauffée", "Cuisine équipée", "Wifi gratuit", "Barbecue", "Parking privé", "Jardin clos"]
+}

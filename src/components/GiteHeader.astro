@@ -1,0 +1,51 @@
+---
+import LogoFeydoux from './LogoFeydoux.astro';
+
+interface Props {
+    title: string;
+    maxGuests: number;
+}
+const { title, maxGuests } = Astro.props;
+---
+
+<header class="listing-header">
+    <div class="header-content">
+        <h1>
+            {title}
+            <LogoFeydoux height={48} color="var(--dark)" aria-hidden={true} />
+        </h1>
+        <p class="subtitle">Gîte de caractère · {maxGuests} voyageurs</p>
+    </div>
+</header>
+
+<style>
+    .listing-header {
+        border-bottom: 1px solid rgba(var(--dark-rgb), 0.1);
+        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    h1 {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-style: italic;
+        color: var(--dark);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    h1 :global(svg) {
+        flex-shrink: 0;
+        height: 1em;
+        width: auto;
+    }
+    .subtitle {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--warm);
+    }
+</style>

@@ -1,0 +1,426 @@
+---
+// src/layouts/BaseLayout.astro
+
+interface Props {
+    title: string;
+    description?: string;
+    activePage?: string;
+}
+
+const { title, description, activePage } = Astro.props;
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import LogoFeydoux from '../components/LogoFeydoux.astro';
+
+const isHome = activePage === 'home';
+---
+
+<!doctype html>
+<html lang="fr" class="bg-light text-dark" id="top">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title} | Domaine de Feydoux</title>
+        <meta name="description" content={description} />
+    </head>
+    <body class={isHome ? 'home-page' : ''}>
+        <nav class="site-nav" id="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo" aria-label="Domaine de Feydoux — Accueil">
+                    <LogoFeydoux height={52} color="var(--dark)" aria-hidden={true} />
+                    <span class="logo-text">Les gîtes de <strong>Feydoux</strong></span>
+                </a>
+
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="/gites/le-logis-de-feydoux" class={activePage === 'le-logis-de-feydoux' ? 'active' : ''}>Le Logis</a></li>
+                    <li><a href="/gites/la-garenne" class={activePage === 'la-garenne' ? 'active' : ''}>La Garenne</a></li>
+                    <li><a href="/region" class={activePage === 'region' || activePage === 'pour-aller-plus-loin' ? 'active' : ''}>À proximité</a></li>
+
+                    <li class="dropdown-anchor">
+                        <button class="nav-cta" id="reserve-trigger">Réserver</button>
+                        <div class="reserve-dropdown" id="reserve-menu">
+                            <a href="https://www.abritel.fr/location-vacances/p2664458" target="_blank" rel="noopener noreferrer">
+                                <strong>Le Logis de Feydoux</strong>
+                                <span>6 personnes • Piscine</span>
+                            </a>
+                            <a href="https://www.abritel.fr/location-vacances/p2664380" target="_blank" rel="noopener noreferrer">
+                                <strong>La Garenne</strong>
+                                <span>4 personnes • Jardin</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <slot />
+
+        <button id="back-to-top" aria-label="Retour en haut de page">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg
+            >
+        </button>
+
+        <Footer />
+
+        <script is:inline>
+            const nav = document.getElementById('main-nav');
+            const backToTop = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                if (window.scrollY > 600) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            const trigger = document.getElementById('reserve-trigger');
+            const menu = document.getElementById('reserve-menu');
+
+            if (trigger && menu) {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menu.classList.toggle('show');
+                });
+                document.addEventListener('click', () => menu.classList.remove('show'));
+            }
+
+            const hamburger = document.getElementById('hamburger-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('open');
+                    hamburger.classList.toggle('open');
+                });
+                navLinks.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('open');
+                        hamburger.classList.remove('open');
+                    });
+                });
+            }
+        </script>
+    </body>
+
+    <style is:global>
+        :root {
+            --nav-height: 80px;
+        }
+
+        body:not(.home-page) {
+            padding-top: var(--nav-height);
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--side-pad);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .site-nav.scrolled {
+            height: 70px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: var(--max-width, 1300px);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 52px;
+            width: auto;
+            display: block;
+            transition: opacity var(--transition);
+        }
+
+        .logo:hover img {
+            opacity: 0.75;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--warm);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a:not(.nav-cta) {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--warm);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ANCRE DU DROPDOWN */
+        .dropdown-anchor {
+            position: relative;
+        }
+
+        .nav-cta {
+            background: var(--dark);
+            color: var(--cream) !important;
+            padding: 0.7rem 1.4rem;
+            border: none;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background: var(--warm);
+        }
+
+        /* DROPDOWN CORRIGÉ */
+        .reserve-dropdown {
+            position: absolute;
+            top: calc(100% + 15px);
+            right: 0; /* Maintenant aligné sur le bord droit du bouton grace au parent .dropdown-anchor */
+            width: 260px;
+            background: var(--light);
+            border: 1px solid var(--stone);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .reserve-dropdown.show {
+            display: flex;
+            animation: slideIn 0.2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reserve-dropdown a {
+            padding: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--cream);
+            transition: background 0.2s;
+        }
+
+        .reserve-dropdown a:hover {
+            background: var(--cream);
+        }
+
+        .reserve-dropdown strong {
+            color: var(--dark);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .reserve-dropdown span {
+            color: var(--warm);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--warm);
+            color: var(--dark);
+            border: none;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                opacity var(--transition),
+                transform var(--transition);
+            z-index: 999;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                padding: 1.5rem var(--side-pad);
+                gap: 1.5rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                font-size: 1rem;
+                color: var(--dark);
+            }
+
+            .dropdown-anchor {
+                width: 100%;
+            }
+
+            .nav-cta {
+                display: block;
+                text-align: center;
+            }
+
+            .reserve-dropdown {
+                position: static;
+                width: 100%;
+                margin-top: 0.5rem;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</html>

@@ -1,0 +1,187 @@
+---
+interface Props {
+    priceRange: string;
+    abritelId: string;
+    maxGuests?: number;
+}
+
+const { priceRange, abritelId, maxGuests = 4 } = Astro.props;
+const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
+---
+
+<div class="booking-widget-container">
+    <div class="booking-card">
+        <div class="price-header">
+            <span class="price-range">{priceRange}</span>
+            <span class="source-tag">Abritel</span>
+        </div>
+
+        <div class="selection-box">
+            <div class="date-row">
+                <div class="field">
+                    <label>Arrivée</label>
+                    <input type="date" id="arrival-date" />
+                </div>
+                <div class="field border-left">
+                    <label>Départ</label>
+                    <input type="date" id="departure-date" />
+                </div>
+            </div>
+            <div class="field border-top">
+                <label>Voyageurs</label>
+                <select id="guest-count">
+                    {
+                        guestOptions.map((n) => (
+                            <option value={n} selected={n === 2}>
+                                {n} voyageur{n > 1 ? 's' : ''}
+                            </option>
+                        ))
+                    }
+                </select>
+            </div>
+        </div>
+
+        <button id="abritel-link-btn" class="primary-button" data-id={abritelId}> Vérifier les disponibilités </button>
+
+        <p class="footnote">Le prix final est confirmé sur Abritel selon les dates choisies.</p>
+    </div>
+</div>
+
+<style>
+    .booking-widget-container {
+        position: sticky;
+        top: 100px;
+        width: 100%;
+        max-width: 380px;
+        scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .booking-card {
+        background: var(--light);
+        border: 1px solid var(--stone);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow-card);
+    }
+
+    .price-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .price-range {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark);
+    }
+
+    .source-tag {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 8px;
+        background: var(--cream);
+        color: var(--warm);
+        border-radius: 4px;
+        font-weight: 600;
+    }
+
+    .selection-box {
+        border: 1px solid var(--stone);
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .date-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        border-bottom: 1px solid var(--stone);
+    }
+
+    .field {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .border-left {
+        border-left: 1px solid var(--stone);
+    }
+    .border-top {
+        border-top: 1px solid var(--stone);
+    }
+
+    label {
+        font-size: 9px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--dark);
+        margin-bottom: 4px;
+    }
+
+    input,
+    select {
+        border: none;
+        font-size: 14px;
+        color: var(--mid);
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .primary-button {
+        width: 100%;
+        background: var(--warm);
+        color: var(--dark);
+        border: none;
+        padding: 16px;
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+            opacity var(--transition),
+            transform var(--transition);
+        margin-bottom: 12px;
+    }
+
+    .primary-button:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+    }
+
+    .footnote {
+        font-size: 11px;
+        color: var(--mid);
+        line-height: 1.5;
+        text-align: center;
+        font-style: italic;
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('abritel-link-btn');
+        const arrival = document.getElementById('arrival-date');
+        const departure = document.getElementById('departure-date');
+        const guests = document.getElementById('guest-count');
+
+        btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            const url = new URL(`https://www.abritel.fr/location-vacances/${id}`);
+
+            if (arrival.value) url.searchParams.append('chkin', arrival.value);
+            if (departure.value) url.searchParams.append('chkout', departure.value);
+            if (guests.value) url.searchParams.append('adults', guests.value);
+
+            window.open(url.toString(), '_blank');
+        });
+    });
+</script>

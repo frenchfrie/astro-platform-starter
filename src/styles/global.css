@@ -1,0 +1,220 @@
+/* ─────────────────────────────────────────────
+   global.css — Tokens, reset, utilitaires partagés
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ── TOKENS ── */
+:root {
+    /* ── Palette ── */
+    --cream: #f5f0e8;
+    --stone: #e8e0d0;
+    --warm: #c8a96e;
+    --dark: #1a1612;
+    --mid: #5a4a38;
+    --light: #faf7f2;
+    --dark-rgb: 26, 22, 18;
+    --warm-rgb: 200, 169, 110;
+
+    /* ── Typography ── */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+
+    /* ── Layout ── */
+    --max-width: 1300px;
+    --section-pad: clamp(4rem, 8vw, 7rem);
+    --side-pad: clamp(1.5rem, 7vw, 6rem);
+    --nav-height: 56px;
+
+    /* ── Tokens UI ── */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.06);
+    --transition: 0.2s;
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.15;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Default hover state for inline text links — accent underline.
+   Buttons (any class containing "btn") are excluded via :not(). */
+a:not([class*='btn']):hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--warm);
+}
+
+/* Opt-out: structural navigation and logo stay un-underlined on hover */
+.site-nav .nav-links a:hover,
+.site-footer .footer-nav a:hover,
+.logo:hover {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── UTILITAIRES ── */
+
+/* Text clamping */
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+.line-clamp-4 {
+    -webkit-line-clamp: 4;
+}
+
+/* Accessible inline links — use .link on <a> inside body copy */
+.link {
+    color: var(--mid);
+    text-decoration: underline;
+    text-decoration-color: var(--warm);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition:
+        color 0.2s,
+        text-decoration-color 0.2s;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+.link:hover {
+    color: var(--warm);
+    text-decoration-color: var(--warm);
+}
+.link:visited {
+    color: var(--mid);
+    text-decoration-color: var(--stone);
+}
+
+/* Global focus ring — applies to all interactive elements */
+:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 1rem;
+}
+.label.centered {
+    display: block;
+    text-align: center;
+}
+.label.light {
+    color: rgba(245, 240, 232, 0.7);
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--warm);
+    color: var(--dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    transition:
+        opacity 0.2s,
+        transform 0.2s;
+}
+.btn-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(245, 240, 232, 0.4);
+    color: var(--cream);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+.btn-ghost:hover {
+    border-color: var(--warm);
+    background: rgba(var(--warm-rgb), 0.08);
+}
+
+/* ── PAGE UTILITIES ── */
+.page-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem var(--side-pad);
+}
+
+.lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--mid);
+}

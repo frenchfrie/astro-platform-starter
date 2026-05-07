@@ -7,7 +7,15 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "sanitize": "./scripts/sanitize-assets.sh src/assets",
+        "watermark": "./scripts/watermark-assets.sh src/assets",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{astro,ts,tsx,js,jsx,json,md,mdx,yaml}": "prettier --write"
     },
     "dependencies": {
         "@astrojs/netlify": "^6.6.0",
@@ -29,6 +37,16 @@
         "@types/blobshape": "^1.0.3",
         "@types/node": "^20.12.7",
         "@types/react": "^19.2.2",
-        "@types/react-dom": "^19.2.2"
+        "@types/react-dom": "^19.2.2",
+        "@typescript-eslint/eslint-plugin": "^8.58.2",
+        "@typescript-eslint/parser": "^8.58.2",
+        "eslint": "^9.39.4",
+        "eslint-plugin-astro": "^1.7.0",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "eslint-plugin-markdown": "^5.1.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "prettier": "^3.8.3",
+        "prettier-plugin-astro": "^0.14.1"
     }
 }

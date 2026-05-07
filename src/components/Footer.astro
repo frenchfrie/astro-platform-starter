@@ -1,37 +1,152 @@
 ---
-
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-primary-dark text-white/90 mt-auto">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                <h3 class="text-white text-lg font-bold mb-4" style="font-family: var(--font-serif);">Domaine de la Loire</h3>
-                <p class="text-white/70 text-sm leading-relaxed">
-                    Discover the beauty of the French countryside from our carefully restored properties.
-                    Each gîte offers a unique blend of rustic charm and modern comfort.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="/" class="text-white/70 hover:text-white no-underline transition-colors">Home</a></li>
-                    <li><a href="/properties" class="text-white/70 hover:text-white no-underline transition-colors">Our Properties</a></li>
-                    <li><a href="/contact" class="text-white/70 hover:text-white no-underline transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-                <ul class="space-y-2 text-sm text-white/70">
-                    <li>Domaine de la Loire</li>
-                    <li>Loire Valley, France</li>
-                    <li>contact@domainedelaloire.fr</li>
-                    <li>+33 2 47 00 00 00</li>
-                </ul>
-            </div>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="/" class="logo">
+                Le Domaine <span>Feydoux</span>
+            </a>
+            <p class="brand-description">
+                L'authenticité du Périgord Vert, <br /> le confort en plus.
+            </p>
         </div>
-        <div class="border-t border-white/20 mt-12 pt-8 text-center text-sm text-white/50">
-            <p>&copy; {new Date().getFullYear()} Domaine de la Loire. All rights reserved.</p>
+
+        <nav class="footer-nav">
+            <h4>Explorer</h4>
+            <ul>
+                <li><a href="/gites/le-logis-de-feydoux">Le Logis</a></li>
+                <li><a href="/gites/la-garenne">La Garenne</a></li>
+                <li><a href="/region">À proximité</a></li>
+                <li><a href="/a-propos">Notre histoire</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <address>
+                <p>
+                    <a href="https://www.openstreetmap.org/?mlat=45.3917&mlon=0.7350&zoom=14" target="_blank" rel="noopener noreferrer">Lempzours, Dordogne</a>
+                </p>
+                <p><a href="tel:+33500000000">05 XX XX XX XX</a></p>
+                <p><a href="mailto:contact@domaine-feydoux.com">contact@domaine-feydoux.com</a></p>
+            </address>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <small>&copy; {currentYear} Domaine Feydoux — Tous droits réservés.</small>
+        <div class="footer-legal">
+            <a href="/mentions-legales">Mentions légales</a>
         </div>
     </div>
 </footer>
+
+<style>
+    .site-footer {
+        background-color: var(--dark);
+        color: var(--stone);
+        padding: 5rem var(--side-pad) 2rem;
+        margin-top: 6rem;
+    }
+
+    .footer-container {
+        max-width: var(--max-width, 1300px);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.5fr;
+        gap: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid rgba(232, 224, 208, 0.1);
+    }
+
+    /* Style du Logo dans le footer */
+    .logo {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-style: italic;
+        text-decoration: none;
+        color: var(--cream);
+        line-height: 1;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+    .logo span {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--warm);
+        margin-top: 5px;
+    }
+
+    .brand-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.8;
+        max-width: 280px;
+    }
+
+    h4 {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--warm);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 0.8rem;
+    }
+
+    a,
+    address p {
+        color: var(--stone);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+        font-style: normal;
+    }
+
+    a:hover {
+        color: var(--cream);
+    }
+
+    .footer-bottom {
+        max-width: var(--max-width, 1300px);
+        margin: 2rem auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        opacity: 0.7;
+    }
+
+    .footer-legal a {
+        font-size: 0.75rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            text-align: center;
+        }
+        .brand-description {
+            margin: 0 auto;
+        }
+        .footer-bottom {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style>

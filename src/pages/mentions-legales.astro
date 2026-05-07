@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<BaseLayout title="Mentions Légales" activePage="mentions-legales">
+    <main class="legal-container">
+        <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Mentions légales' }]} />
+        <header class="legal-header">
+            <h1>Mentions Légales</h1>
+            <p class="label">En vigueur au 18 avril 2026</p>
+        </header>
+
+        <section class="legal-content">
+            <div class="legal-block">
+                <h2>1. Éditeur du site</h2>
+                <p>
+                    Le site <strong>Domaine de Feydoux</strong> est édité par :<br />
+                    <strong>Propriétaire :</strong> [Ton Nom et Prénom]<br />
+                    <strong>Adresse :</strong>
+                    <a href="https://www.openstreetmap.org/?mlat=45.3917&mlon=0.7350&zoom=14" target="_blank" rel="noopener noreferrer"
+                        >Lempzours, 24800, Dordogne, France</a
+                    ><br />
+                    <strong>Contact :</strong> contact@domaine-feydoux.com<br />
+                    <strong>SIRET :</strong> [Ton numéro SIRET si tu en as un, sinon "Loueur Meublé Non Professionnel"]
+                </p>
+            </div>
+
+            <div class="legal-block">
+                <h2>2. Hébergement</h2>
+                <p>
+                    Le site est hébergé par :<br />
+                    <strong>Hébergeur :</strong> Netlify, Inc.<br />
+                    <strong>Siège social :</strong> 44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA.<br />
+                    <strong>Site web :</strong> www.netlify.com
+                </p>
+            </div>
+
+            <div class="legal-block">
+                <h2>3. Propriété intellectuelle</h2>
+                <p>
+                    L'ensemble des contenus (textes, photographies, logos) présents sur ce site est la propriété exclusive de l'éditeur. Toute reproduction ou
+                    représentation totale ou partielle de ce site par quelque procédé que ce soit, sans l'autorisation expresse de l'éditeur, est interdite et
+                    constituerait une contrefaçon sanctionnée par les articles L 335-2 et suivants du Code de la propriété intellectuelle.
+                </p>
+            </div>
+
+            <div class="legal-block">
+                <h2>4. Données personnelles & Cookies</h2>
+                <p>
+                    Les informations recueillies via les formulaires de réservation (nom, email, téléphone) sont nécessaires pour la gestion de votre séjour.
+                    Elles ne sont jamais transmises à des tiers.<br /><br />
+                    Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant en nous contactant par
+                    email.
+                </p>
+            </div>
+
+            <div class="legal-block">
+                <h2>5. Responsabilité</h2>
+                <p>
+                    L'éditeur s'efforce d'assurer l'exactitude des informations diffusées sur le site. Toutefois, il ne peut garantir l'exactitude ou
+                    l'exhaustivité des informations mises à la disposition des utilisateurs. Le Domaine de Feydoux ne pourra être tenu responsable des dommages
+                    directs ou indirects résultant de l'utilisation du site.
+                </p>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    .legal-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 6rem var(--side-pad);
+    }
+
+    .legal-header {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .legal-header h1 {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-style: italic;
+        color: var(--dark);
+        margin-bottom: 1rem;
+    }
+
+    .legal-content {
+        line-height: 1.8;
+        color: var(--mid);
+    }
+
+    .legal-block {
+        margin-bottom: 3rem;
+    }
+
+    .legal-block h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--warm);
+        display: inline-block;
+        padding-bottom: 0.2rem;
+    }
+
+    .legal-block p {
+        font-size: 1rem;
+    }
+
+    strong {
+        color: var(--dark);
+    }
+</style>

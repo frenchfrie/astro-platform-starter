@@ -25,3 +25,11 @@ pnpm-debug.log*
 
 # IDE specifics
 .idea/
+.aider*
+
+# local files
+*.local.json
+*.local.md
+
+# Claude
+/.claude/scheduled_tasks.lock
