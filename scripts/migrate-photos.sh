@@ -78,6 +78,7 @@ mv "$SRC/Logis salon.jpg"                                "$LO/sejour.jpg"
 mv "$SRC/Logis salon (2).jpg"                            "$LO/sejour-2.jpg"
 mv "$SRC/Logis séjour 3.jpg"                             "$LO/sejour-3.jpg"
 mv "$SRC/Logis sam table.jpg"                            "$LO/sejour-table-salle-a-manger.jpg"
+mv "$SRC/Logis sam.jpg"                                  "$LO/sejour-salle-a-manger.jpg"
 
 # Cuisine
 mv "$SRC/Logis cuisine.jpg"                              "$LO/cuisine.jpg"

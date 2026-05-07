@@ -7,10 +7,10 @@
     "abritelUrl": "https://www.abritel.fr/location-vacances/p2664380",
     "abritelId": "p2664380",
     "photos": [
-        { "src": "../../assets/gites/la-garenne/spa.jpg", "alt": "SPA privatif extérieur" },
+        { "src": "../../assets/gites/la-garenne/cour-privee.jpg", "alt": "Cour privée" },
         { "src": "../../assets/gites/la-garenne/salon.jpg", "alt": "Salon chaleureux" },
         { "src": "../../assets/gites/la-garenne/chambre-celadon.jpg", "alt": "Chambre Céladon" },
-        { "src": "../../assets/gites/la-garenne/cour-privee.jpg", "alt": "Cour privée" },
+        { "src": "../../assets/gites/la-garenne/spa.jpg", "alt": "SPA privatif extérieur" },
         { "src": "../../assets/gites/la-garenne/cuisine.jpg", "alt": "Cuisine équipée" },
 
         { "src": "../../assets/gites/la-garenne/salon-2.jpg", "alt": "Salon - vue 2" },
